@@ -241,11 +241,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (bottleneckModal) {
             bottleneckModal.style.display = 'flex';
             showBottleneckStep(1);
-            // Focus on first input for accessibility
-            const firstInput = bottleneckStep1.querySelector('input');
-            if (firstInput) {
-                setTimeout(() => firstInput.focus(), 100);
-            }
         }
     };
 
