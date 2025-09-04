@@ -88,8 +88,8 @@
         <div class="container">
             <div class="section__header fade-in" id="problem">
                 <h2 class="section__title">Sound Familiar?</h2>
-                <p style="font-size: 1.15rem; line-height: 1.6; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem;">Are your best people spending half their day copying and pasting data between systems instead of doing the work you're actually paying them for?</p>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto;">It's mental, isn't it? You're paying someone £60k+ to be strategic, creative, brilliant - and they're spending their morning manually copying customer details from emails into your CRM. Their morale tanks, the good stuff never gets done, and you're basically burning money.</p>
+                <p style="font-size: 1.15rem; line-height: 1.6; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem;">Are your best people spending half their day copying and pasting data between systems instead of using their expertise to grow your business?</p>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto;">Isn't it crazy that you're paying someone £60k+ to be strategic, creative, brilliant - and they're spending their morning manually copying customer details from emails into your CRM, or chasing people for project updates, or building the same report from scratch every week? Their morale tanks, the good stuff never gets done and you're basically burning money.</p>
             </div>
             <div class="problem__grid">
                 <div class="problem__card fade-in">
@@ -459,10 +459,25 @@
     <section class="section cta-section" id="contact">
         <div class="container">
             <div class="cta__content fade-in">
-                <h2 class="cta__title">Find Your Bottleneck</h2>
-                <p class="cta__subtitle">[Awaiting Copy - Final CTA Section Content]</p>
-                <button class="btn btn--primary btn--large" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hamish-goagentflow/30-minute-intro-call'});">Let's Talk</button>
-                <button class="btn btn--secondary btn--large" onclick="openContactForm();">Contact Us</button>
+                <h2 class="cta__title">Get Solutions Tailored to Your Exact Situation</h2>
+                <p class="cta__subtitle">Instead of generic advice, get specific recommendations based on your unique challenges and goals.</p>
+                
+                <div class="cta__process">
+                    <h3 class="cta__process-title">How it works:</h3>
+                    <ol class="cta__process-steps">
+                        <li><strong>Share your specific challenge</strong> (2 minutes)</li>
+                        <li><strong>Book your strategy call</strong> (1 minute)</li>
+                        <li><strong>Get a conversation designed around your needs</strong> (30 minutes)</li>
+                    </ol>
+                </div>
+                
+                <button class="btn btn--primary btn--large" onclick="openBottleneckFlow();">Get My Custom Strategy Session</button>
+                
+                <div class="cta__value-prop">
+                    <p><strong>Why clients love this approach:</strong><br>
+                    "They came prepared with ideas I never considered" - CEO<br>
+                    "No generic pitch, just solutions for my actual problems" - Founder</p>
+                </div>
             </div>
         </div>
     </section>
@@ -472,31 +487,104 @@
         <i data-feather="chevron-up"></i>
     </button>
 
-    <!-- Contact Form (Alternative to Calendly) -->
-    <!-- TODO: Replace https://formspree.io/f/mzzakvbk with actual endpoint -->
-    <div class="contact-form-modal" id="contact-form-modal" style="display: none;">
-        <div class="contact-form-content">
-            <span class="contact-form-close" id="contact-form-close">&times;</span>
-            <h3>Get in Touch</h3>
-            <form action="https://formspree.io/f/mzzakvbk" method="POST" id="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+    <!-- Bottleneck Discovery Flow Modal -->
+    <div class="bottleneck-flow-modal" id="bottleneck-flow-modal" style="display: none;">
+        <div class="bottleneck-flow-content">
+            <span class="bottleneck-flow-close" id="bottleneck-flow-close">&times;</span>
+            
+            <!-- Step 1: Problem Discovery -->
+            <div class="bottleneck-step" id="bottleneck-step-1">
+                <div class="bottleneck-progress">
+                    <div class="bottleneck-progress-bar" style="width: 50%;"></div>
+                    <span class="bottleneck-progress-text">Step 1 of 2: Share Your Challenge</span>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                <h3>Design Your Custom Strategy Call</h3>
+                <p class="bottleneck-subtitle">Share your specific challenge so we can prepare tailored solutions instead of generic advice. We'll review this before your call and come prepared with ideas.</p>
+                
+                <form id="bottleneck-form" action="https://formspree.io/f/mzzakvbk" method="POST">
+                    <div class="form-group">
+                        <label for="bottleneck-name">Name *</label>
+                        <input type="text" id="bottleneck-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bottleneck-email">Email *</label>
+                        <input type="email" id="bottleneck-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bottleneck-company">Company</label>
+                        <input type="text" id="bottleneck-company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="bottleneck-role">Your Role</label>
+                        <select id="bottleneck-role" name="role">
+                            <option value="">Select your role...</option>
+                            <option value="CEO/Founder">CEO/Founder</option>
+                            <option value="Managing Director">Managing Director</option>
+                            <option value="Operations Director">Operations Director</option>
+                            <option value="Business Owner">Business Owner</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bottleneck-problem">What's the specific problem that's driving you mad? *</label>
+                        <textarea id="bottleneck-problem" name="problem" rows="4" required placeholder="e.g., Our sales team spends 3 hours a day manually updating the CRM instead of actually selling..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="bottleneck-impact">How much time does this waste each week?</label>
+                        <select id="bottleneck-impact" name="time_wasted">
+                            <option value="">Select time wasted...</option>
+                            <option value="5-10 hours">5-10 hours per week</option>
+                            <option value="10-20 hours">10-20 hours per week</option>
+                            <option value="20+ hours">20+ hours per week</option>
+                            <option value="Multiple days">Multiple days per week</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn--primary" id="bottleneck-next-btn">Next: Book Your Call</button>
+                </form>
+            </div>
+            
+            <!-- Step 2: Calendar Booking -->
+            <div class="bottleneck-step" id="bottleneck-step-2" style="display: none;">
+                <div class="bottleneck-progress">
+                    <div class="bottleneck-progress-bar" style="width: 100%;"></div>
+                    <span class="bottleneck-progress-text">Step 2 of 2: Book Your Call</span>
                 </div>
-                <div class="form-group">
-                    <label for="company">Company</label>
-                    <input type="text" id="company" name="company">
+                <h3>Perfect! Let's Schedule Your Tailored Strategy Session</h3>
+                <div class="bottleneck-summary">
+                    <p><strong>You're getting VIP treatment:</strong> We'll review your challenge before your call and come prepared with specific recommendations tailored to your situation.</p>
+                    <div class="bottleneck-preview">
+                        <strong>Your custom 30-minute session will cover:</strong>
+                        <ul>
+                            <li>Exactly how to eliminate your specific challenge</li>
+                            <li>What the implementation would look like for your business</li>
+                            <li>Realistic timeline and investment required</li>
+                            <li>Next steps you can take immediately</li>
+                        </ul>
+                    </div>
+                    <p><em>Skip the generic pitch. Get straight to solutions designed for your exact situation.</em></p>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
+                <div class="bottleneck-calendar">
+                    <!-- Calendly widget will be inserted here -->
+                    <div id="calendly-inline-widget" style="min-width:320px;height:580px;"></div>
                 </div>
-                <button type="submit" class="btn btn--primary">Send Message</button>
-            </form>
+                <button type="button" class="btn btn--secondary" id="bottleneck-back-btn">Back to Edit Details</button>
+            </div>
+            
+            <!-- Success State -->
+            <div class="bottleneck-step" id="bottleneck-success" style="display: none;">
+                <div class="bottleneck-success-icon">
+                    <i data-feather="check-circle" style="width: 4rem; height: 4rem; color: var(--accent-glow);"></i>
+                </div>
+                <h3>All Set! We're Looking Forward to Speaking With You</h3>
+                <p>We've got your details and will prepare a specific plan for your situation before our call.</p>
+                <p><strong>What happens next:</strong></p>
+                <ul class="bottleneck-next-steps">
+                    <li>We'll send you a calendar confirmation with call details</li>
+                    <li>We'll review your specific situation and prepare solutions</li>
+                    <li>During our call, we'll walk through exactly how to fix your bottleneck</li>
+                </ul>
+                <button type="button" class="btn btn--primary" onclick="closeBottleneckFlow();">Close</button>
+            </div>
         </div>
     </div>
 

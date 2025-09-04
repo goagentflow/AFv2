@@ -226,6 +226,146 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check Calendly configuration on load
     window.checkCalendlyConfig();
 
+    // ===== BOTTLENECK FLOW FUNCTIONALITY =====
+    const bottleneckModal = document.getElementById('bottleneck-flow-modal');
+    const bottleneckClose = document.getElementById('bottleneck-flow-close');
+    const bottleneckStep1 = document.getElementById('bottleneck-step-1');
+    const bottleneckStep2 = document.getElementById('bottleneck-step-2');
+    const bottleneckSuccess = document.getElementById('bottleneck-success');
+    const bottleneckForm = document.getElementById('bottleneck-form');
+    const bottleneckNextBtn = document.getElementById('bottleneck-next-btn');
+    const bottleneckBackBtn = document.getElementById('bottleneck-back-btn');
+
+    // Open bottleneck flow
+    window.openBottleneckFlow = function() {
+        if (bottleneckModal) {
+            bottleneckModal.style.display = 'flex';
+            showBottleneckStep(1);
+            // Focus on first input for accessibility
+            const firstInput = bottleneckStep1.querySelector('input');
+            if (firstInput) {
+                setTimeout(() => firstInput.focus(), 100);
+            }
+        }
+    };
+
+    // Close bottleneck flow
+    function closeBottleneckFlow() {
+        if (bottleneckModal) {
+            bottleneckModal.style.display = 'none';
+            // Reset to step 1
+            showBottleneckStep(1);
+        }
+    }
+
+    // Show specific bottleneck step
+    function showBottleneckStep(stepNumber) {
+        // Hide all steps
+        [bottleneckStep1, bottleneckStep2, bottleneckSuccess].forEach(step => {
+            if (step) step.style.display = 'none';
+        });
+
+        // Show requested step
+        if (stepNumber === 1 && bottleneckStep1) {
+            bottleneckStep1.style.display = 'block';
+        } else if (stepNumber === 2 && bottleneckStep2) {
+            bottleneckStep2.style.display = 'block';
+            loadCalendlyWidget();
+        } else if (stepNumber === 3 && bottleneckSuccess) {
+            bottleneckSuccess.style.display = 'block';
+        }
+    }
+
+    // Load Calendly widget in step 2
+    function loadCalendlyWidget() {
+        const calendlyContainer = document.getElementById('calendly-inline-widget');
+        if (calendlyContainer && window.Calendly) {
+            window.Calendly.initInlineWidget({
+                url: 'https://calendly.com/hamish-goagentflow/30-minute-intro-call',
+                parentElement: calendlyContainer,
+                prefill: {
+                    name: document.getElementById('bottleneck-name')?.value || '',
+                    email: document.getElementById('bottleneck-email')?.value || ''
+                }
+            });
+        }
+    }
+
+    // Handle form submission and progression
+    if (bottleneckNextBtn) {
+        bottleneckNextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const form = bottleneckForm;
+            if (form && form.checkValidity()) {
+                // Show loading state
+                const originalText = bottleneckNextBtn.textContent;
+                bottleneckNextBtn.textContent = 'Processing...';
+                bottleneckNextBtn.disabled = true;
+
+                // Submit form data to Formspree
+                const formData = new FormData(form);
+                
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Success - move to step 2
+                        showBottleneckStep(2);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting your information. Please try again.');
+                })
+                .finally(() => {
+                    // Reset button
+                    bottleneckNextBtn.textContent = originalText;
+                    bottleneckNextBtn.disabled = false;
+                });
+            } else {
+                // Show validation errors
+                form.reportValidity();
+            }
+        });
+    }
+
+    // Handle back button
+    if (bottleneckBackBtn) {
+        bottleneckBackBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showBottleneckStep(1);
+        });
+    }
+
+    // Handle close button
+    if (bottleneckClose) {
+        bottleneckClose.addEventListener('click', closeBottleneckFlow);
+    }
+
+    // Handle clicking outside modal to close
+    if (bottleneckModal) {
+        bottleneckModal.addEventListener('click', function(e) {
+            if (e.target === bottleneckModal) {
+                closeBottleneckFlow();
+            }
+        });
+    }
+
+    // Handle escape key to close modal
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && bottleneckModal && bottleneckModal.style.display !== 'none') {
+            closeBottleneckFlow();
+        }
+    });
+
     // ===== PROGRESSIVE ENHANCEMENT CHECK =====
     // Verify core functionality works without JavaScript
     console.log('JavaScript loaded successfully. All interactive features are now enabled.');
