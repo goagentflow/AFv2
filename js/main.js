@@ -275,12 +275,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadCalendlyWidget() {
         const calendlyContainer = document.getElementById('calendly-inline-widget');
         if (calendlyContainer && window.Calendly) {
+            const company = document.getElementById('bottleneck-company')?.value || '';
+            const role = document.getElementById('bottleneck-role')?.value || '';
+            const problem = document.getElementById('bottleneck-problem')?.value || '';
+            
             window.Calendly.initInlineWidget({
-                url: 'https://calendly.com/hamish-goagentflow/30-minute-intro-call',
+                url: 'https://calendly.com/hamish-goagentflow/30-minute-intro-call?utm_source=agentflow_website&utm_medium=discovery_form&utm_campaign=bottleneck_flow',
                 parentElement: calendlyContainer,
                 prefill: {
                     name: document.getElementById('bottleneck-name')?.value || '',
-                    email: document.getElementById('bottleneck-email')?.value || ''
+                    email: document.getElementById('bottleneck-email')?.value || '',
+                    customAnswers: {
+                        a1: `AgentFlow Website - Discovery Form${company ? ` | Company: ${company}` : ''}${role ? ` | Role: ${role}` : ''}`,
+                        a2: problem ? `Problem: ${problem.substring(0, 250)}` : 'Via AgentFlow Discovery Form'
+                    }
                 }
             });
         }
