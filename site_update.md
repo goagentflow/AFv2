@@ -12,12 +12,19 @@ Here's exactly what happens when you want to make changes:
 - Edit files in `/Users/hamishnicklin/Desktop/New_AF_Site/`
 - Or ask Claude to make changes for you (like we've been doing)
 
-### 2. **Push to GitHub (Optional but Recommended)**
+### 2. **Push to Both GitHub Repositories (Optional but Recommended)**
 ```bash
 git add .
 git commit -m "Describe your changes"
-git push origin main
+git push origin main         # Push to AgentFlow/AFv2 (goagentflow/AFv2)
+git push winehusband main    # Push to Winehusband/AFv2 (winehusband/AFv2)
 ```
+
+**Note:** The website has two GitHub repositories:
+- **origin**: `goagentflow/AFv2` (Primary AgentFlow repository)  
+- **winehusband**: `winehusband/AFv2` (Secondary repository)
+
+Both should be kept in sync for backup and collaboration purposes.
 
 ### 3. **Deploy to Live Website**
 ```bash
