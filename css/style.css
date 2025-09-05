@@ -419,12 +419,12 @@ ul {
   }
 
   .nav__item {
-    margin-right: var(--space-xl);
+    margin-right: var(--space-sm);
   }
 
   .nav__item:last-child {
     margin-right: 0;
-    margin-left: var(--space-md); /* Extra spacing before CTA button */
+    margin-left: var(--space-sm);
   }
   
   .nav__cta {
