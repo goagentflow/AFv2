@@ -1,0 +1,13 @@
+{
+  "name": "agentflow-website",
+  "version": "1.0.0",
+  "description": "AgentFlow marketing website",
+  "scripts": {
+    "build": "echo 'Static site - no build needed' && mkdir -p dist && cp -r * dist/ && rm -rf dist/dist",
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000"
+  },
+  "keywords": ["agentflow", "ai", "automation"],
+  "author": "AgentFlow Ltd",
+  "license": "UNLICENSED"
+}

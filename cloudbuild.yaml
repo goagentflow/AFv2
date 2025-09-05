@@ -1,0 +1,37 @@
+steps:
+  # Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build',
+      '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/agentflow-repo/agentflow-site:$BUILD_ID',
+      '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/agentflow-repo/agentflow-site:latest',
+      '.'
+    ]
+
+  # Push the image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'push',
+      'us-central1-docker.pkg.dev/$PROJECT_ID/agentflow-repo/agentflow-site:latest'
+    ]
+
+  # Deploy to existing Cloud Run service
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'run', 'deploy', 'agentflow-site',
+      '--image', 'us-central1-docker.pkg.dev/$PROJECT_ID/agentflow-repo/agentflow-site:latest',
+      '--region', 'us-central1',
+      '--platform', 'managed',
+      '--allow-unauthenticated',
+      '--port', '8080',
+      '--memory', '512Mi',
+      '--cpu', '1',
+      '--max-instances', '10'
+    ]
+
+# Store images in Artifact Registry
+images:
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/agentflow-repo/agentflow-site:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

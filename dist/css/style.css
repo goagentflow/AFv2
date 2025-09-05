@@ -335,7 +335,6 @@ ul {
   padding: 0.5rem 0;
   will-change: color, text-shadow;
   transform: translateZ(0);
-  z-index: 20; /* Ensure nav links are above other elements */
 }
 
 .nav__link:hover {
@@ -359,40 +358,47 @@ ul {
   width: 100%;
 }
 
-/* FINAL FIX - 2025-09-05-20-45 */
 .nav__cta {
-  padding: 0.75rem 1.5rem !important;
-  background: linear-gradient(135deg, var(--cta-electric), rgba(247, 168, 157, 0.8)) !important;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--cta-electric), rgba(247, 168, 157, 0.8));
   color: var(--primary-bg) !important;
-  border-radius: 8px !important;
-  margin-top: var(--space-md) !important;
-  box-shadow: none !important; /* NO SHADOW AT ALL */
-  position: relative !important;
-  
-  will-change: transform !important;
-  transform: translateZ(0) !important;
-  flex-shrink: 0 !important;
-  z-index: 10 !important;
-  /* Force no glow effects */
-  filter: none !important;
+  border-radius: 8px;
+  margin-top: var(--space-md);
+  box-shadow: 
+    0 4px 15px rgba(247, 168, 157, 0.3),
+    0 0 20px rgba(247, 168, 157, 0.2);
+  position: relative;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+  flex-shrink: 0;
 }
 
-.nav__cta::before,
 .nav__cta::after {
   display: none;
 }
 
-/* Removed problematic pseudo-element that was causing navigation overlap */
+.nav__cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
 
-/* Removed hover pseudo-element animation */
+.nav__cta:hover::before {
+  left: 100%;
+}
 
 .nav__cta:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: none !important; /* ABSOLUTELY NO SHADOW OR GLOW */
-  text-shadow: none !important;
-  filter: none !important;
-  /* Override any inherited glow effects */
-  background: linear-gradient(135deg, var(--cta-electric), rgba(247, 168, 157, 0.9)) !important;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(247, 168, 157, 0.4),
+    0 0 30px rgba(247, 168, 157, 0.3);
+  text-shadow: none;
 }
 
 .nav__toggle {
@@ -424,7 +430,6 @@ ul {
 
   .nav__item:last-child {
     margin-right: 0;
-    margin-left: var(--space-md); /* Extra spacing before CTA button */
   }
   
   .nav__cta {
