@@ -256,6 +256,7 @@ ul {
   margin: 0 auto;
   padding: 0 var(--container-padding);
   contain: layout style;
+  min-width: 0; /* Allow flex items to shrink when necessary */
 }
 
 .nav__logo {
@@ -401,7 +402,7 @@ ul {
   cursor: pointer;
 }
 
-/* Desktop Navigation */
+/* Desktop Navigation - Multi-Breakpoint Optimization */
 @media (min-width: 768px) {
   .nav__menu {
     position: static;
@@ -414,25 +415,159 @@ ul {
   .nav__list {
     flex-direction: row;
     align-items: center;
-    /* Replaced gap with margin for robust spacing */
     contain: layout;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: flex-end; /* Align to right for better balance */
+    flex-shrink: 0; /* Prevent items from shrinking too much */
   }
 
   .nav__item {
-    margin-right: var(--space-sm);
+    margin-right: 0.75rem; /* Slightly tighter for tablet */
   }
 
   .nav__item:last-child {
     margin-right: 0;
-    margin-left: var(--space-sm);
+    margin-left: 0.75rem;
+  }
+  
+  .nav__link {
+    font-size: 1rem; /* Reduce from 1.125rem for better fit */
+    white-space: nowrap; /* Prevent text wrapping */
   }
   
   .nav__cta {
     margin-top: 0;
+    padding: 0.625rem 1.25rem !important; /* Slightly smaller padding */
+    font-size: 0.95rem !important;
   }
   
   .nav__toggle {
     display: none;
+  }
+}
+
+/* Optimized spacing for larger tablet/small desktop */
+@media (min-width: 1000px) {
+  .nav__item {
+    margin-right: var(--space-sm); /* Return to normal spacing */
+  }
+
+  .nav__item:last-child {
+    margin-left: var(--space-sm);
+  }
+  
+  .nav__link {
+    font-size: var(--fs-md); /* Return to normal font size */
+  }
+  
+  .nav__cta {
+    padding: 0.75rem 1.5rem !important; /* Return to normal padding */
+    font-size: var(--fs-sm) !important;
+  }
+}
+
+/* Enhanced spacing for wide screens */
+@media (min-width: 1200px) {
+  .nav__item {
+    margin-right: 1.25rem; /* More generous spacing */
+  }
+
+  .nav__item:last-child {
+    margin-left: 1.25rem;
+  }
+}
+
+/* ===== NAVIGATION DROPDOWN ===== */
+.nav__item--dropdown {
+  position: relative;
+}
+
+.nav__dropdown-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.nav__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--primary-bg);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  min-width: 180px;
+  z-index: 1000;
+  margin-top: 0.5rem;
+}
+
+.nav__item--dropdown:hover .nav__dropdown,
+.nav__item--dropdown.is-active .nav__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav__item--dropdown:hover .nav__dropdown-icon,
+.nav__item--dropdown.is-active .nav__dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.nav__dropdown-item {
+  list-style: none;
+  margin: 0;
+}
+
+.nav__dropdown-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--primary-text);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-radius: 0.25rem;
+  margin: 0.25rem;
+}
+
+.nav__dropdown-link:hover,
+.nav__dropdown-link--active {
+  background: var(--gradient-blue);
+  color: var(--deep-navy);
+}
+
+/* Mobile dropdown adjustments */
+@media (max-width: 767px) {
+  .nav__dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    margin-top: 0;
+    margin-left: 1rem;
+  }
+  
+  .nav__dropdown-icon {
+    display: none;
+  }
+  
+  .nav__dropdown-link {
+    padding: 0.5rem 0;
+    margin: 0;
+    border-radius: 0;
+    font-size: var(--fs-md);
+  }
+  
+  .nav__dropdown-link:hover,
+  .nav__dropdown-link--active {
+    background: transparent;
+    color: var(--gradient-blue);
   }
 }
 
