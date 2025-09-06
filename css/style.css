@@ -503,6 +503,9 @@ ul {
   min-width: 180px;
   z-index: 1000;
   margin-top: 0.5rem;
+  display: block !important; /* Override flex from nav__list */
+  flex-direction: column !important; /* Reset any inherited flex direction */
+  gap: 0 !important; /* Remove any inherited gap */
 }
 
 .nav__item--dropdown:hover .nav__dropdown,
@@ -543,7 +546,7 @@ ul {
 /* Desktop dropdown - ensure proper hiding */
 @media (min-width: 768px) {
   .nav__dropdown {
-    position: absolute;
+    position: absolute !important;
     top: 100%;
     left: 0;
     background: var(--primary-bg);
@@ -556,6 +559,9 @@ ul {
     min-width: 180px;
     z-index: 1000;
     margin-top: 0.5rem;
+    display: block !important; /* Critical: Override flex behavior */
+    flex-direction: column !important;
+    gap: 0 !important;
   }
 
   .nav__item--dropdown:hover .nav__dropdown,
