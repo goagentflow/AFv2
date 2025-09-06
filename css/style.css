@@ -489,13 +489,15 @@ ul {
   transition: transform 0.2s ease;
 }
 
-.nav__dropdown {
+.nav__item--dropdown > .nav__dropdown {
   position: absolute;
   top: 100%;
   left: 0;
   background: var(--primary-bg);
   border-radius: 0.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  /* Nuclear option: fully hide by default to defeat inheritance/cascade */
+  display: none;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
@@ -503,13 +505,11 @@ ul {
   min-width: 180px;
   z-index: 1000;
   margin-top: 0.5rem;
-  display: block !important; /* Override flex from nav__list */
-  flex-direction: column !important; /* Reset any inherited flex direction */
-  gap: 0 !important; /* Remove any inherited gap */
 }
 
-.nav__item--dropdown:hover .nav__dropdown,
-.nav__item--dropdown.is-active .nav__dropdown {
+.nav__item--dropdown:hover > .nav__dropdown,
+.nav__item--dropdown.is-active > .nav__dropdown {
+  display: block;
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -545,29 +545,28 @@ ul {
 
 /* Desktop dropdown - ensure proper hiding */
 @media (min-width: 768px) {
-  .nav__dropdown {
-    position: absolute !important;
+  .nav__item--dropdown > .nav__dropdown {
+    position: absolute;
     top: 100%;
     left: 0;
     background: var(--primary-bg);
     border-radius: 0.5rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    opacity: 0 !important;
-    visibility: hidden !important;
+    display: none; /* Base hidden on desktop */
+    opacity: 0;
+    visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.2s ease;
     min-width: 180px;
     z-index: 1000;
     margin-top: 0.5rem;
-    display: block !important; /* Critical: Override flex behavior */
-    flex-direction: column !important;
-    gap: 0 !important;
   }
 
-  .nav__item--dropdown:hover .nav__dropdown,
-  .nav__item--dropdown.is-active .nav__dropdown {
-    opacity: 1 !important;
-    visibility: visible !important;
+  .nav__item--dropdown:hover > .nav__dropdown,
+  .nav__item--dropdown.is-active > .nav__dropdown {
+    display: block;
+    opacity: 1;
+    visibility: visible;
     transform: translateY(0);
   }
 
@@ -598,6 +597,7 @@ ul {
 @media (max-width: 767px) {
   .nav__dropdown {
     position: static;
+    display: block; /* Visible inline on mobile by design */
     opacity: 1;
     visibility: visible;
     transform: none;
