@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentFlow Discovery Call - AI Solutions for Your Business</title>
+    <meta name="description" content="Book a free 30-minute discovery call to see how AI can solve your specific business challenges. We provide tailored advice, not generic solutions.">
+    
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="0S-C2ZDphhP6ijSEmtrQZk1LVvbb9OUl5HK_tqjaMnc" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/AgentFlowLogo.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="assets/images/AgentFlowLogo.svg" type="image/svg+xml">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NGKM2XYHWX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NGKM2XYHWX');
+    </script>
+
+    <!-- Termly Consent Management -->
+    <script type="text/javascript" src="https://app.termly.io/embed.min.js" data-auto-block="on" data-website-uuid="dc7c6ad3-3c44-4541-b5e2-146d10618f63"></script>
+    
+    <!-- Calendly Widget -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    
+    <link rel="stylesheet" href="css/style.css?v=2025-09-06a">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav__container">
+                <a href="index.html" class="nav__logo">
+                    <img src="assets/images/AgentFlow.svg" alt="AgentFlow Logo" class="nav__logo-img">
+                    <span class="nav__logo-text">AgentFlow</span>
+                </a>
+                
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="index.html#problem" class="nav__link">Your Challenges</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="index.html#solution" class="nav__link">Our Solution</a>
+                        </li>
+                        <li class="nav__item nav__item--dropdown">
+                            <a href="#" class="nav__link nav__link--dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="about-menu">About <i data-feather="chevron-down" class="nav__dropdown-icon"></i></a>
+                            <ul class="nav__dropdown" id="about-menu" role="menu">
+                                <li class="nav__dropdown-item" role="none">
+                                    <a href="our-story.html" class="nav__dropdown-link" role="menuitem" tabindex="-1">Our Story</a>
+                                </li>
+                                <li class="nav__dropdown-item" role="none">
+                                    <a href="index.html#why-us" class="nav__dropdown-link" role="menuitem" tabindex="-1">Meet the Team</a>
+                                </li>
+                                <li class="nav__dropdown-item" role="none">
+                                    <a href="index.html#solution" class="nav__dropdown-link" role="menuitem" tabindex="-1">Our Approach</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a href="index.html#use-cases" class="nav__link">Use Cases</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="index.html#contact" class="btn btn--primary">Let's Talk</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav__toggle" id="nav-toggle">
+                    <i data-feather="menu"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Final CTA Section -->
+        <section class="section cta-section" id="contact">
+            <div class="container">
+                <div class="cta__content fade-in">
+                    <h2 class="cta__title">Tired of watching brilliant people do work a robot should do</h2>
+                    <p class="cta__subtitle">Rather than giving you generic advice, we'll use our 50 years of combined business experience to work out what makes sense for your specific situation and budget. And if we don't think we can help, we'll tell you that too.</p>
+                    <p class="cta__subtitle">Here's how it works:</p>
+                    
+                    <div class="cta__process">
+                        <ol class="cta__process-steps">
+                            <li><strong>Tell us about your challenge</strong> - quick form (2 minutes)</li>
+                            <li><strong>Book a free chat</strong> - pick a time that works (1 minute)</li>
+                            <li><strong>We'll have a proper conversation about your situation and how we might help</strong> (30 minutes)</li>
+                        </ol>
+                    </div>
+                    
+                    <button class="btn btn--primary btn--large" id="cta-discovery" onclick="openBottleneckFlow();">Get My Free Discovery Call</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottleneck Discovery Flow Modal -->
+    <div class="bottleneck-flow-modal" id="bottleneck-flow-modal" style="display: none;">
+        <div class="bottleneck-flow-content">
+            <span class="bottleneck-flow-close" id="bottleneck-flow-close">&times;</span>
+            
+            <!-- Step 1: Problem Discovery -->
+            <div class="bottleneck-step" id="bottleneck-step-1">
+                <!-- Minimal Step Indicator -->
+                <div class="step-indicator">
+                    <div class="step step--active">
+                        <div class="step-number">1</div>
+                        <span class="step-label">Share Challenge</span>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step step--upcoming">
+                        <div class="step-number">2</div>
+                        <span class="step-label">Book Call</span>
+                    </div>
+                </div>
+                <div class="bottleneck-progress">
+                    <div class="bottleneck-progress-bar" style="width: 50%;"></div>
+                    <span class="bottleneck-progress-text">Step 1 of 2: Share Your Challenge</span>
+                </div>
+                <h3>Get Your Custom Strategy Session</h3>
+                <p class="bottleneck-subtitle">We'll review your challenge beforehand and come prepared with specific recommendations for your business.</p>
+                
+                <form id="bottleneck-form" action="https://formspree.io/f/mzzakvbk" method="POST">
+                    <!-- Two-column row for name and email -->
+                    <div class="bottleneck-form-row">
+                        <div class="form-group">
+                            <input type="text" id="bottleneck-name" name="name" required placeholder=" ">
+                            <label for="bottleneck-name">Name *</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="bottleneck-email" name="email" required placeholder=" ">
+                            <label for="bottleneck-email">Email *</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Single column for company -->
+                    <div class="form-group">
+                        <input type="text" id="bottleneck-company" name="company" placeholder=" ">
+                        <label for="bottleneck-company">Company (Optional)</label>
+                    </div>
+                    
+                    <!-- Single column for role -->
+                    <div class="form-group">
+                        <select id="bottleneck-role" name="role">
+                            <option value="">Select your role...</option>
+                            <option value="CEO/Founder">CEO/Founder</option>
+                            <option value="Managing Director">Managing Director</option>
+                            <option value="Operations Director">Operations Director</option>
+                            <option value="Business Owner">Business Owner</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="bottleneck-role">Your Role</label>
+                    </div>
+                    
+                    <!-- Single column for problem description -->
+                    <div class="form-group">
+                        <textarea id="bottleneck-problem" name="problem" rows="4" required placeholder="e.g., Creating proposals takes forever because we're starting from scratch every time. Copy-pasting from old documents, updating pricing manually, reformatting - it should take 30 minutes but ends up being half a day."></textarea>
+                        <label for="bottleneck-problem">What's the specific problem that's driving you mad? *</label>
+                    </div>
+                    
+                    <!-- Single column for time impact -->
+                    <div class="form-group">
+                        <select id="bottleneck-impact" name="time_wasted">
+                            <option value="">Select time wasted...</option>
+                            <option value="5-10 hours">5-10 hours per week</option>
+                            <option value="10-20 hours">10-20 hours per week</option>
+                            <option value="20+ hours">20+ hours per week</option>
+                            <option value="Multiple days">Multiple days per week</option>
+                        </select>
+                        <label for="bottleneck-impact">How much time does this waste each week?</label>
+                    </div>
+                    <button type="button" class="btn btn--primary" id="bottleneck-next-btn">Next: Book Your Call</button>
+                </form>
+            </div>
+            
+            <!-- Step 2: Calendar Booking -->
+            <div class="bottleneck-step" id="bottleneck-step-2" style="display: none;">
+                <!-- Minimal Step Indicator -->
+                <div class="step-indicator">
+                    <div class="step step--completed">
+                        <div class="step-number">
+                            <i data-feather="check"></i>
+                        </div>
+                        <span class="step-label">Share Challenge</span>
+                    </div>
+                    <div class="step-connector step-connector--completed"></div>
+                    <div class="step step--active">
+                        <div class="step-number">2</div>
+                        <span class="step-label">Book Call</span>
+                    </div>
+                </div>
+                <div class="bottleneck-progress">
+                    <div class="bottleneck-progress-bar" style="width: 100%;"></div>
+                    <span class="bottleneck-progress-text">Step 2 of 2: Book Your Call</span>
+                </div>
+                <h3>Perfect! Let's Schedule Your Tailored Strategy Session</h3>
+                <div class="bottleneck-summary">
+                    <p><strong>You're in good hands:</strong> We'll review your challenge before the call so we can have a focused conversation about your specific situation.</p>
+                    <div class="bottleneck-preview">
+                        <strong>Your 30-minute session will cover:</strong>
+                        <ul>
+                            <li>Whether your challenge is something we can help solve</li>
+                            <li>What approach might work for your type of business</li>
+                            <li>Rough idea of timeline and investment if we're a good fit</li>
+                            <li>Clear next steps - whether that's working together or trying something else</li>
+                        </ul>
+                    </div>
+                    <p><em>No generic pitch. We'll give you honest advice about your specific situation, even if that means telling you we're not the right fit.</em></p>
+                </div>
+                <div class="bottleneck-calendar">
+                    <!-- Calendly widget will be inserted here -->
+                    <div id="calendly-inline-widget" style="min-width:320px;height:580px;"></div>
+                </div>
+                <button type="button" class="btn btn--secondary" id="bottleneck-back-btn">Back to Edit Details</button>
+            </div>
+            
+            <!-- Success State -->
+            <div class="bottleneck-step" id="bottleneck-success" style="display: none;">
+                <div class="bottleneck-success-icon">
+                    <i data-feather="check-circle" style="width: 4rem; height: 4rem; color: var(--accent-glow);"></i>
+                </div>
+                <h3>All Set! We're Looking Forward to Speaking With You</h3>
+                <p>We've got your details and will prepare a specific plan for your situation before our call.</p>
+                <p><strong>What happens next:</strong></p>
+                <ul class="bottleneck-next-steps">
+                    <li>We'll send you a calendar confirmation with call details</li>
+                    <li>We'll review your specific situation and prepare solutions</li>
+                    <li>During our call, we'll walk through exactly how to fix your bottleneck</li>
+                </ul>
+                <button type="button" class="btn btn--primary" onclick="closeBottleneckFlow();">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__links">
+                    <a href="privacy-policy.html" class="footer__link">Privacy Policy</a>
+                    <a href="#" class="termly-display-preferences footer__link">Consent Preferences</a>
+                </div>
+                <div class="footer__copyright">
+                    <p>&copy; 2025 AgentFlow Ltd. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+
+        // Navigation functionality
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const dropdownTrigger = document.querySelector('.nav__link--dropdown');
+        const dropdownMenu = document.getElementById('about-menu');
+
+        // Mobile menu toggle
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('show-menu');
+                this.classList.toggle('active');
+                
+                // Update aria-expanded
+                const isExpanded = navMenu.classList.contains('show-menu');
+                this.setAttribute('aria-expanded', isExpanded);
+            });
+        }
+
+        // Dropdown menu functionality
+        if (dropdownTrigger) {
+            dropdownTrigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                
+                // Toggle dropdown
+                this.setAttribute('aria-expanded', !isExpanded);
+                dropdownMenu.classList.toggle('show');
+                
+                // Update keyboard navigation
+                const links = dropdownMenu.querySelectorAll('.nav__dropdown-link');
+                links.forEach(link => {
+                    link.setAttribute('tabindex', !isExpanded ? '0' : '-1');
+                });
+            });
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav__item--dropdown')) {
+                if (dropdownTrigger) {
+                    dropdownTrigger.setAttribute('aria-expanded', 'false');
+                }
+                if (dropdownMenu) {
+                    dropdownMenu.classList.remove('show');
+                }
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== BOTTLENECK FLOW FUNCTIONALITY =====
+        const bottleneckModal = document.getElementById('bottleneck-flow-modal');
+        const bottleneckClose = document.getElementById('bottleneck-flow-close');
+        const bottleneckStep1 = document.getElementById('bottleneck-step-1');
+        const bottleneckStep2 = document.getElementById('bottleneck-step-2');
+        const bottleneckSuccess = document.getElementById('bottleneck-success');
+        const bottleneckForm = document.getElementById('bottleneck-form');
+        const bottleneckNextBtn = document.getElementById('bottleneck-next-btn');
+        const bottleneckBackBtn = document.getElementById('bottleneck-back-btn');
+
+        // Open bottleneck flow
+        window.openBottleneckFlow = function() {
+            if (bottleneckModal) {
+                bottleneckModal.style.display = 'flex';
+                showBottleneckStep(1);
+            }
+        };
+
+        // Close bottleneck flow
+        function closeBottleneckFlow() {
+            if (bottleneckModal) {
+                bottleneckModal.style.display = 'none';
+                // Reset to step 1
+                showBottleneckStep(1);
+            }
+        }
+        window.closeBottleneckFlow = closeBottleneckFlow;
+
+        // Show specific bottleneck step
+        function showBottleneckStep(stepNumber) {
+            // Hide all steps
+            [bottleneckStep1, bottleneckStep2, bottleneckSuccess].forEach(step => {
+                if (step) step.style.display = 'none';
+            });
+
+            // Show requested step
+            if (stepNumber === 1 && bottleneckStep1) {
+                bottleneckStep1.style.display = 'block';
+            } else if (stepNumber === 2 && bottleneckStep2) {
+                bottleneckStep2.style.display = 'block';
+                loadCalendlyWidget();
+            } else if (stepNumber === 3 && bottleneckSuccess) {
+                bottleneckSuccess.style.display = 'block';
+            }
+        }
+
+        // Load Calendly widget in step 2
+        function loadCalendlyWidget() {
+            const calendlyContainer = document.getElementById('calendly-inline-widget');
+            if (calendlyContainer && window.Calendly) {
+                const company = document.getElementById('bottleneck-company')?.value || '';
+                const role = document.getElementById('bottleneck-role')?.value || '';
+                const problem = document.getElementById('bottleneck-problem')?.value || '';
+                
+                window.Calendly.initInlineWidget({
+                    url: 'https://calendly.com/hamish-goagentflow/30-minute-intro-call?utm_source=agentflow_website&utm_medium=discovery_form&utm_campaign=bottleneck_flow',
+                    parentElement: calendlyContainer,
+                    prefill: {
+                        name: document.getElementById('bottleneck-name')?.value || '',
+                        email: document.getElementById('bottleneck-email')?.value || '',
+                        customAnswers: {
+                            a1: `AgentFlow Website - Discovery Form${company ? ` | Company: ${company}` : ''}${role ? ` | Role: ${role}` : ''}`,
+                            a2: problem ? `Problem: ${problem.substring(0, 250)}` : 'Via AgentFlow Discovery Form'
+                        }
+                    }
+                });
+            }
+        }
+
+        // Handle form submission and progression
+        if (bottleneckNextBtn) {
+            bottleneckNextBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const form = bottleneckForm;
+                if (form && form.checkValidity()) {
+                    // Show loading state
+                    const originalText = bottleneckNextBtn.textContent;
+                    bottleneckNextBtn.textContent = 'Processing...';
+                    bottleneckNextBtn.disabled = true;
+
+                    // Submit form data to Formspree
+                    const formData = new FormData(form);
+                    
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Success - move to step 2
+                            showBottleneckStep(2);
+                        } else {
+                            throw new Error('Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('There was an error submitting your information. Please try again.');
+                    })
+                    .finally(() => {
+                        // Reset button
+                        bottleneckNextBtn.textContent = originalText;
+                        bottleneckNextBtn.disabled = false;
+                    });
+                } else {
+                    // Show validation errors
+                    form.reportValidity();
+                }
+            });
+        }
+
+        // Handle back button
+        if (bottleneckBackBtn) {
+            bottleneckBackBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showBottleneckStep(1);
+            });
+        }
+
+        // Handle close button
+        if (bottleneckClose) {
+            bottleneckClose.addEventListener('click', closeBottleneckFlow);
+        }
+
+        // Handle clicking outside modal to close
+        if (bottleneckModal) {
+            bottleneckModal.addEventListener('click', function(e) {
+                if (e.target === bottleneckModal) {
+                    closeBottleneckFlow();
+                }
+            });
+        }
+
+        // Handle escape key to close modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && bottleneckModal && bottleneckModal.style.display !== 'none') {
+                closeBottleneckFlow();
+            }
+        });
+
+        // Analytics tracking for CTA click
+        document.getElementById('cta-discovery').addEventListener('click', function() {
+            gtag('event', 'click', {
+                'event_category': 'Discovery Call CTA',
+                'event_label': 'Main Section'
+            });
+        });
+    </script>
+</body>
+</html>
