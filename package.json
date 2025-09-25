@@ -4,8 +4,9 @@
   "description": "AgentFlow marketing website",
   "scripts": {
     "build": "echo 'Static site - no build needed' && mkdir -p dist && cp -r * dist/ && rm -rf dist/dist",
-    "start": "python3 -m http.server 8000",
-    "dev": "python3 -m http.server 8000"
+    "start": "python3 -m http.server 3000",
+    "dev": "python3 -m http.server 3000",
+    "serve:docker": "docker build -t agentflow-site:local . && docker run --rm -p 3000:8080 agentflow-site:local"
   },
   "keywords": ["agentflow", "ai", "automation"],
   "author": "AgentFlow Ltd",

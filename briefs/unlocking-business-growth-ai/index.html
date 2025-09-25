@@ -43,6 +43,13 @@
         /* Keep page wrapper spacing consistent with site */
         .page-wrapper { padding-top: 4rem; }
     </style>
+    <style>
+        /* Stronger default text color inside this brief for readability */
+        .brief-content p { color: #1f2937 !important; }
+        .brief-content h2, .brief-content h3 { color: #0f172a; }
+        .brief-content .text-gray-600 { color: #374151 !important; }
+        .brief-content .text-4xl { color: #1f2937; }
+    </style>
 </head>
 <body>
     <!-- Navigation Header (copied from site for consistency) -->
@@ -80,7 +87,7 @@
 
     <!-- Page Content -->
     <main class="page-wrapper">
-        <div class="container mx-auto p-4 md:p-8">
+        <div class="container brief-content mx-auto p-4 md:p-8">
             <header class="text-center mb-12 md:mb-16">
                 <h1 class="text-4xl md:text-6xl font-extrabold mb-4 gradient-text">Unlocking Your Business Growth with AI</h1>
                 <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">We help businesses identify and implement AI solutions to solve expensive inefficiencies and achieve transformational growth.</p>
@@ -109,7 +116,8 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <div class="md:order-2">
                             <h2 class="text-3xl font-bold text-gray-900 mb-4">AI's Capabilities Are Here Today</h2>
-                            <p class="text-gray-700 mb-4">AI is no longer a future promise. It has evolved from a simple tool to a powerful intelligence that can handle the ambiguous, "fuzzy" problems that make up 80% of real work, often outperforming human experts in complex fields.</p>
+                            <p class="text-gray-700 mb-3">AI is no longer a future promise. It has evolved from a simple tool to a powerful intelligence that can handle the ambiguous, "fuzzy" problems that make up 80% of real work, often outperforming human experts in complex fields.</p>
+                            <p class="text-gray-800 mb-4"><strong>For instance, a study gave 50 doctors six real diagnostic challenges. Half used ChatGPT, while the other half worked alone. The results were clear: AI proved to be a powerful co-pilot, outperforming the doctors who didn't use it.</strong></p>
                         </div>
                         <div class="md:order-1">
                             <div class="chart-container">
@@ -131,15 +139,15 @@
                     </div>
                     <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#0073E6]">
                         <h3 class="text-xl font-bold mb-2">External Growth 🚀</h3>
-                        <p>Create entirely new services and revenue streams, like a hotel offering a personalized trip-planner or a builder providing instant visualizations.</p>
+                        <p>Create entirely new services and revenue streams, like a hotel offering a personalised trip planner or a builder providing instant visualisations.</p>
                     </div>
                     <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#80B9F2]">
                         <h3 class="text-xl font-bold mb-2">Internal Productivity ⚙️</h3>
-                        <p>Clear away boring admin like invoices, reports, and compliance docs. The perfect starting point for quick, tangible wins.</p>
+                        <p>Clear away boring admin like invoices, reports and compliance docs. The perfect starting point for quick, tangible wins.</p>
                     </div>
                     <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#a8d3f7]">
                         <h3 class="text-xl font-bold mb-2">External Productivity ⚡</h3>
-                        <p>Your customers feel the speed. Deliver quotes instantly, schedule jobs automatically, and provide same-day designs.</p>
+                        <p>Your customers feel the speed. Deliver quotes instantly, schedule jobs automatically and provide same-day designs.</p>
                     </div>
                 </div>
             </section>
@@ -151,18 +159,18 @@
                         <h3 class="text-2xl font-bold mb-2 text-[#004AAD]">Case Study 1: The AI Financial Director</h3>
                         <p class="text-gray-700 mb-4 flex-grow">We built an AI director for a virtual CFO. By automating complex financial analysis, we turned a time-consuming task into an instant, scalable service.</p>
                         <div class="bg-[#F0F4F8] rounded-lg p-4 text-center">
-                            <p class="text-lg text-gray-600">Time to Analyze Monthly Accounts</p>
+                            <p class="text-lg text-gray-600">Time to Analyse Monthly Accounts</p>
                             <div class="flex justify-center items-center gap-4 my-2">
                                 <span class="text-3xl font-bold text-red-500">40 Mins</span>
                                 <span class="text-3xl font-bold text-[#0073E6]">→</span>
                                 <span class="text-3xl font-bold text-green-500">30 Secs</span>
                             </div>
-                            <p class="font-semibold text-[#004AAD]">Outcome: Saved time, enabled a new, low-cost product, and unlocked new revenue.</p>
+                            <p class="font-semibold text-[#004AAD]">Outcome: Saved time, enabled a new low-cost product and unlocked new revenue.</p>
                         </div>
                     </div>
                     <div class="bg-white rounded-lg shadow-lg p-6 md:p-8 flex flex-col">
                         <h3 class="text-2xl font-bold mb-2 text-[#004AAD]">Case Study 2: The Wine Critic's Companion</h3>
-                        <p class="text-gray-700 mb-4 flex-grow">For a wine journalist, we first digitized decades of notes to eliminate admin. Then, we used that data to create a consumer app, turning expertise into a revenue stream.</p>
+                        <p class="text-gray-700 mb-4 flex-grow">For a wine journalist, we first digitised decades of notes to eliminate admin. Then, we used that data to create a consumer app, turning expertise into a revenue stream.</p>
                         <div class="bg-[#F0F4F8] rounded-lg p-4 text-center">
                             <div class="flex justify-center items-center gap-4 my-2">
                                 <span class="text-xl font-semibold bg-[#80B9F2] text-white py-2 px-4 rounded-full">Phase 1: Productivity</span>
@@ -177,24 +185,24 @@
 
             <section id="method" class="mb-12 md:mb-16 text-center">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Pragmatic 3-Step Process</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">We provide a safe and successful AI journey for your business, ensuring new technology feels like a superpower, not a threat.</p>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">We provide a safe and successful AI journey for your business ensuring new technology feels like a superpower not a threat.</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center max-w-5xl mx-auto">
                     <div class="bg-white rounded-lg shadow-md p-6">
                         <div class="text-4xl mb-3">1.</div>
                         <h3 class="text-2xl font-bold mb-2 text-[#004AAD]">Discover</h3>
-                        <p>We find where hours are wasted and where AI can safely make the biggest impact, giving you a clear, realistic picture of where to start.</p>
+                        <p>We find where hours are wasted and where AI can safely make the biggest impact giving you a clear realistic picture of where to start.</p>
                     </div>
                     <div class="hidden md:block text-5xl font-thin step-arrow">→</div>
                     <div class="bg-white rounded-lg shadow-md p-6">
                         <div class="text-4xl mb-3">2.</div>
                         <h3 class="text-2xl font-bold mb-2 text-[#004AAD]">Build</h3>
-                        <p>We create small, practical solutions that pay off immediately and build valuable skills and confidence within your team.</p>
+                        <p>We create small practical solutions that pay off immediately and build valuable skills and confidence within your team.</p>
                     </div>
                     <div class="hidden md:block text-5xl font-thin step-arrow">→</div>
                     <div class="bg-white rounded-lg shadow-md p-6">
                         <div class="text-4xl mb-3">3.</div>
                         <h3 class="text-2xl font-bold mb-2 text-[#004AAD]">Embed</h3>
-                        <p>We ensure the new technology is adopted with training and support, making sure the benefits last and AI becomes a core strength.</p>
+                        <p>We ensure the new technology is adopted with training and support making sure the benefits last and AI becomes a core strength.</p>
                     </div>
                 </div>
             </section>
