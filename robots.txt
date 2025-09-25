@@ -1,0 +1,7 @@
+User-agent: *
+# Allow everything by default
+Allow: /
+
+# Disallow the private/hidden brief page path
+Disallow: /briefs/unlocking-business-growth-ai/
+
