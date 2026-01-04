@@ -480,6 +480,8 @@ ul {
 /* ===== NAVIGATION DROPDOWN ===== */
 .nav__item--dropdown {
   position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: -0.5rem;
 }
 
 .nav__dropdown-icon {
@@ -511,10 +513,10 @@ ul {
 .nav__item--dropdown > .nav__dropdown::before {
   content: '';
   position: absolute;
-  top: -0.5rem;
-  left: 0;
-  right: 0;
-  height: 0.5rem;
+  top: -1rem;
+  left: -1rem;
+  right: -1rem;
+  height: 1.5rem;
 }
 
 .nav__item--dropdown:hover > .nav__dropdown,
@@ -576,10 +578,10 @@ ul {
   .nav__item--dropdown > .nav__dropdown::before {
     content: '';
     position: absolute;
-    top: -0.5rem;
-    left: 0;
-    right: 0;
-    height: 0.5rem;
+    top: -1rem;
+    left: -1rem;
+    right: -1rem;
+    height: 1.5rem;
   }
 
   .nav__item--dropdown:hover > .nav__dropdown,
