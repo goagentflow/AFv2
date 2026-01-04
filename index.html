@@ -117,54 +117,64 @@
 
             <!-- 2x2 Grid -->
             <div class="fade-in" style="max-width: 900px; margin: 0 auto;">
-                <!-- Axis Labels -->
-                <div style="display: grid; grid-template-columns: 80px 1fr 1fr; grid-template-rows: auto auto auto; gap: 0;">
-
-                    <!-- Top row: empty corner + column headers -->
+                <!-- Column Headers -->
+                <div style="display: grid; grid-template-columns: 100px 1fr 1fr; margin-bottom: 0.5rem;">
                     <div></div>
-                    <div style="text-align: center; padding: 1rem; font-weight: 600; color: var(--primary-text);">
+                    <div style="text-align: center; padding: 0.75rem; font-weight: 600; color: var(--primary-text);">
                         Productivity<br><span style="font-weight: 400; font-size: 0.85rem; color: var(--secondary-text);">Do what you do, faster</span>
                     </div>
-                    <div style="text-align: center; padding: 1rem; font-weight: 600; color: var(--primary-text);">
+                    <div style="text-align: center; padding: 0.75rem; font-weight: 600; color: var(--primary-text);">
                         Growth<br><span style="font-weight: 400; font-size: 0.85rem; color: var(--secondary-text);">Do things you couldn't before</span>
                     </div>
+                </div>
 
-                    <!-- Internal row -->
-                    <div style="display: flex; align-items: center; justify-content: center; padding: 1rem; font-weight: 600; color: var(--primary-text); writing-mode: vertical-rl; transform: rotate(180deg);">
-                        Internal<br><span style="font-weight: 400; font-size: 0.85rem; color: var(--secondary-text);">Your team</span>
-                    </div>
-                    <div style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 12px 0 0 0; padding: 1.5rem; margin: 2px;">
-                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                            <i data-feather="zap" style="width: 20px; height: 20px; color: var(--accent-glow);"></i>
-                            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--primary-text); margin: 0;">The Quick Win</h3>
-                        </div>
-                        <p style="font-size: 0.95rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">Automate the boring stuff. Free your people from admin so they can focus on what actually matters.</p>
-                    </div>
-                    <div style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); border: 1px solid rgba(236, 72, 153, 0.2); border-radius: 0 12px 0 0; padding: 1.5rem; margin: 2px;">
-                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                            <i data-feather="trending-up" style="width: 20px; height: 20px; color: var(--accent-glow);"></i>
-                            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--primary-text); margin: 0;">The New Superpower</h3>
-                        </div>
-                        <p style="font-size: 0.95rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">Give your team capabilities that change what's possible. 60 hours of work in 5.</p>
-                    </div>
+                <!-- 2x2 with axis lines -->
+                <div style="display: grid; grid-template-columns: 100px 1fr 1fr; position: relative;">
+                    <!-- Vertical axis line -->
+                    <div style="position: absolute; left: calc(100px + 50%); top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,0.2); z-index: 1;"></div>
+                    <!-- Horizontal axis line -->
+                    <div style="position: absolute; left: 100px; right: 0; top: 50%; height: 2px; background: rgba(255,255,255,0.2); z-index: 1;"></div>
 
-                    <!-- External row -->
-                    <div style="display: flex; align-items: center; justify-content: center; padding: 1rem; font-weight: 600; color: var(--primary-text); writing-mode: vertical-rl; transform: rotate(180deg);">
+                    <!-- External row label -->
+                    <div style="display: flex; align-items: center; justify-content: center; padding: 1rem; font-weight: 600; color: var(--primary-text); writing-mode: vertical-rl; transform: rotate(180deg); grid-row: span 1;">
                         External<br><span style="font-weight: 400; font-size: 0.85rem; color: var(--secondary-text);">Your customers</span>
                     </div>
-                    <div style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 0 0 0 12px; padding: 1.5rem; margin: 2px;">
+                    <!-- External + Productivity = Customer Service -->
+                    <div style="background: rgba(34, 197, 94, 0.15); padding: 1.5rem; border-radius: 12px 0 0 0;">
                         <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                            <i data-feather="users" style="width: 20px; height: 20px; color: var(--accent-glow);"></i>
+                            <i data-feather="users" style="width: 20px; height: 20px; color: #22c55e;"></i>
                             <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--primary-text); margin: 0;">The Customer Service</h3>
                         </div>
                         <p style="font-size: 0.95rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">Make yourself easier to do business with. Clients stop chasing because they can see everything.</p>
                     </div>
-                    <div style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%); border: 1px solid rgba(251, 191, 36, 0.2); border-radius: 0 0 12px 0; padding: 1.5rem; margin: 2px;">
+                    <!-- External + Growth = Magic Quadrant -->
+                    <div style="background: rgba(251, 191, 36, 0.15); padding: 1.5rem; border-radius: 0 12px 0 0;">
                         <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-                            <i data-feather="star" style="width: 20px; height: 20px; color: var(--accent-glow);"></i>
+                            <i data-feather="star" style="width: 20px; height: 20px; color: #fbbf24;"></i>
                             <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--primary-text); margin: 0;">The Magic Quadrant</h3>
                         </div>
                         <p style="font-size: 0.95rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">New revenue streams powered by AI. Turn your expertise into products that scale.</p>
+                    </div>
+
+                    <!-- Internal row label -->
+                    <div style="display: flex; align-items: center; justify-content: center; padding: 1rem; font-weight: 600; color: var(--primary-text); writing-mode: vertical-rl; transform: rotate(180deg); grid-row: span 1;">
+                        Internal<br><span style="font-weight: 400; font-size: 0.85rem; color: var(--secondary-text);">Your team</span>
+                    </div>
+                    <!-- Internal + Productivity = Quick Win -->
+                    <div style="background: rgba(99, 102, 241, 0.15); padding: 1.5rem; border-radius: 0 0 0 12px;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <i data-feather="zap" style="width: 20px; height: 20px; color: #6366f1;"></i>
+                            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--primary-text); margin: 0;">The Quick Win</h3>
+                        </div>
+                        <p style="font-size: 0.95rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">Automate the boring stuff. Free your people from admin so they can focus on what actually matters.</p>
+                    </div>
+                    <!-- Internal + Growth = New Superpower -->
+                    <div style="background: rgba(236, 72, 153, 0.15); padding: 1.5rem; border-radius: 0 0 12px 0;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <i data-feather="trending-up" style="width: 20px; height: 20px; color: #ec4899;"></i>
+                            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--primary-text); margin: 0;">The New Superpower</h3>
+                        </div>
+                        <p style="font-size: 0.95rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">Give your team capabilities that change what's possible. 60 hours of work in 5.</p>
                     </div>
                 </div>
 
