@@ -507,6 +507,16 @@ ul {
   margin-top: 0.5rem;
 }
 
+/* Invisible bridge to prevent dropdown closing when moving cursor from trigger to menu */
+.nav__item--dropdown > .nav__dropdown::before {
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
+}
+
 .nav__item--dropdown:hover > .nav__dropdown,
 .nav__item--dropdown.is-active > .nav__dropdown {
   display: block;
@@ -560,6 +570,16 @@ ul {
     min-width: 180px;
     z-index: 1000;
     margin-top: 0.5rem;
+  }
+
+  /* Invisible bridge for desktop dropdown */
+  .nav__item--dropdown > .nav__dropdown::before {
+    content: '';
+    position: absolute;
+    top: -0.5rem;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
   }
 
   .nav__item--dropdown:hover > .nav__dropdown,
