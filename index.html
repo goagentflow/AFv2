@@ -54,7 +54,7 @@
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="#problem" class="nav__link">Your Challenges</a>
+                            <a href="#problem" class="nav__link">The Landscape</a>
                         </li>
                         <li class="nav__item">
                             <a href="#solution" class="nav__link">Our Solution</a>
@@ -107,43 +107,69 @@
         </div>
     </section>
 
-    <!-- Problem Section (The Mirror) -->
+    <!-- AI Landscape Section (2x2 Framework) -->
     <section class="section">
         <div class="container">
             <div class="section__header fade-in" id="problem">
-                <h2 class="section__title">Sound Familiar?</h2>
-                <p style="font-size: 1.15rem; line-height: 1.6; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem; text-align: justify;">Are your best people spending their time on the wrong things?</p>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto; text-align: justify;">You hired brilliant people to think strategically and drive your business forward. But they're stuck copying data, chasing updates and doing research that takes days. The high-value work keeps getting pushed aside.</p>
+                <h2 class="section__title">AI Can Help in Four Ways</h2>
+                <p style="font-size: 1.15rem; line-height: 1.6; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem; text-align: center;">Most businesses aren't sure where to start. Here's the landscape.</p>
             </div>
-            <div class="problem__grid">
-                <div class="problem__card fade-in">
-                    <div class="problem__icon">
-                        <i data-feather="zap"></i>
+
+            <!-- 2x2 Grid -->
+            <div class="fade-in" style="max-width: 900px; margin: 0 auto;">
+                <!-- Axis Labels -->
+                <div style="display: grid; grid-template-columns: 80px 1fr 1fr; grid-template-rows: auto auto auto; gap: 0;">
+
+                    <!-- Top row: empty corner + column headers -->
+                    <div></div>
+                    <div style="text-align: center; padding: 1rem; font-weight: 600; color: var(--primary-text);">
+                        Productivity<br><span style="font-weight: 400; font-size: 0.85rem; color: var(--secondary-text);">Do what you do, faster</span>
                     </div>
-                    <h3 class="problem__card-title">Strategic Work at Human Speed</h3>
-                    <p class="problem__card-text">Your best people are brilliant at strategic thinking, but they're stuck waiting for the intelligence they need. Market research takes weeks, competitive analysis takes days, and customer insights drag on for months. By the time they have the data, opportunities have moved on and decisions get made on gut feel instead of proper intelligence.</p>
-                </div>
-                <div class="problem__card fade-in">
-                    <div class="problem__icon">
-                        <i data-feather="help-circle"></i>
+                    <div style="text-align: center; padding: 1rem; font-weight: 600; color: var(--primary-text);">
+                        Growth<br><span style="font-weight: 400; font-size: 0.85rem; color: var(--secondary-text);">Do things you couldn't before</span>
                     </div>
-                    <h3 class="problem__card-title">You Know AI Could Help, But Where Do You Actually Start?</h3>
-                    <p class="problem__card-text">Everyone's talking about AI transforming businesses, but when you try to figure out what that means for your company, it's either marketing nonsense or technical jargon. You know AI could eliminate tedious work AND give your people superpowers, but the path forward feels completely unclear.</p>
-                </div>
-                <div class="problem__card fade-in">
-                    <div class="problem__icon">
-                        <i data-feather="bar-chart"></i>
+
+                    <!-- Internal row -->
+                    <div style="display: flex; align-items: center; justify-content: center; padding: 1rem; font-weight: 600; color: var(--primary-text); writing-mode: vertical-rl; transform: rotate(180deg);">
+                        Internal<br><span style="font-weight: 400; font-size: 0.85rem; color: var(--secondary-text);">Your team</span>
                     </div>
-                    <h3 class="problem__card-title">Are your best people stuck doing admin work?</h3>
-                    <p class="problem__card-text">It's ridiculous - you're trying to run a business but getting basic answers means logging into four different systems, downloading spreadsheets, and manually building reports. By the time you've got the data, it's already out of date and you're making decisions based on last week's numbers.</p>
-                </div>
-                <div class="problem__card fade-in">
-                    <div class="problem__icon">
-                        <i data-feather="clock"></i>
+                    <div style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 12px 0 0 0; padding: 1.5rem; margin: 2px;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <i data-feather="zap" style="width: 20px; height: 20px; color: var(--accent-glow);"></i>
+                            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--primary-text); margin: 0;">The Quick Win</h3>
+                        </div>
+                        <p style="font-size: 0.95rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">Automate the boring stuff. Free your people from admin so they can focus on what actually matters.</p>
                     </div>
-                    <h3 class="problem__card-title">Does new client setup take forever?</h3>
-                    <p class="problem__card-text">Your clients absolutely notice when things are clunky behind the scenes. They say yes to working with you, then wait nearly a week for a contract while you're internally juggling spreadsheets and chasing people for information. It doesn't exactly scream "premium service," does it?</p>
+                    <div style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%); border: 1px solid rgba(236, 72, 153, 0.2); border-radius: 0 12px 0 0; padding: 1.5rem; margin: 2px;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <i data-feather="trending-up" style="width: 20px; height: 20px; color: var(--accent-glow);"></i>
+                            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--primary-text); margin: 0;">The New Superpower</h3>
+                        </div>
+                        <p style="font-size: 0.95rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">Give your team capabilities that change what's possible. 60 hours of work in 5.</p>
+                    </div>
+
+                    <!-- External row -->
+                    <div style="display: flex; align-items: center; justify-content: center; padding: 1rem; font-weight: 600; color: var(--primary-text); writing-mode: vertical-rl; transform: rotate(180deg);">
+                        External<br><span style="font-weight: 400; font-size: 0.85rem; color: var(--secondary-text);">Your customers</span>
+                    </div>
+                    <div style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 0 0 0 12px; padding: 1.5rem; margin: 2px;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <i data-feather="users" style="width: 20px; height: 20px; color: var(--accent-glow);"></i>
+                            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--primary-text); margin: 0;">The Customer Service</h3>
+                        </div>
+                        <p style="font-size: 0.95rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">Make yourself easier to do business with. Clients stop chasing because they can see everything.</p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%); border: 1px solid rgba(251, 191, 36, 0.2); border-radius: 0 0 12px 0; padding: 1.5rem; margin: 2px;">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <i data-feather="star" style="width: 20px; height: 20px; color: var(--accent-glow);"></i>
+                            <h3 style="font-size: 1.1rem; font-weight: 600; color: var(--primary-text); margin: 0;">The Magic Quadrant</h3>
+                        </div>
+                        <p style="font-size: 0.95rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">New revenue streams powered by AI. Turn your expertise into products that scale.</p>
+                    </div>
                 </div>
+
+                <!-- Footer text -->
+                <p style="text-align: center; margin-top: 2rem; font-size: 1rem; color: var(--secondary-text);">Not sure which quadrant fits your situation? <a href="#contact" style="color: var(--accent-glow);">That's what the discovery call is for.</a></p>
             </div>
         </div>
     </section>
