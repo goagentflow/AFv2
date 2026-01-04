@@ -201,6 +201,55 @@
             margin-bottom: 1rem;
             opacity: 0.5;
         }
+
+        /* Native post cards (non-LinkedIn) */
+        .post-card__native {
+            padding: 0;
+        }
+
+        .post-card__native-content {
+            padding: 1.5rem;
+        }
+
+        .post-card__title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .post-card__date {
+            font-size: 0.8rem;
+            color: var(--secondary-text);
+            margin-bottom: 1.25rem;
+        }
+
+        .post-card__text {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .post-card__text:last-child {
+            margin-bottom: 0;
+        }
+
+        .post-card__text--emphasis {
+            color: var(--primary-text);
+            font-weight: 500;
+        }
+
+        .post-card__text strong {
+            color: var(--primary-text);
+        }
+
+        .post-card__native-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin: 1.5rem 0 0.75rem 0;
+        }
     </style>
 </head>
 <body>
@@ -298,6 +347,79 @@
 
             <!-- Posts Grid - Chronological order, newest first -->
             <div class="posts-grid fade-in">
+                <!-- Native Post: The AgentFlow Manifesto -->
+                <div class="post-card post-card__native" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">The AgentFlow Manifesto</h2>
+                        <p class="post-card__date">January 2026</p>
+
+                        <p class="post-card__text">Most businesses come to us saying some version of "we need to do something with AI."</p>
+
+                        <p class="post-card__text">And the first thing we ask is: why? What makes you think that?</p>
+
+                        <p class="post-card__text">Not because it's a bad instinct - it's usually right. But because the answer tells us everything about where to start.</p>
+
+                        <p class="post-card__text">Sometimes it's strategic - a board asking questions, competitors making noise, a sense that the world is shifting and they're not sure how to shift with it. Sometimes it's painfully specific - a process that's bleeding time, a team that's drowning, a growth ambition that can't be met without hiring people they can't afford.</p>
+
+                        <p class="post-card__text">And sometimes - honestly - it's just that their team wants to throw their laptops out the window. That's as valid a starting point as any.</p>
+
+                        <h3>AI is a spectrum</h3>
+
+                        <p class="post-card__text">Here's what we've learned: AI isn't one thing. It's not a single solution you bolt on. It's a spectrum - and where you should be on that spectrum depends on the problem you're solving, the risk you're comfortable with, and what it's worth to get it right.</p>
+
+                        <p class="post-card__text">At one end, it might be as simple as helping your people actually use the AI tools you've already paid for. Copilot, ChatGPT, whatever's sitting there underutilised. No new tech, no big project - just showing people how to get more from what's already on their desktop.</p>
+
+                        <p class="post-card__text">At the other end, it's agentic systems - AI that doesn't just assist but actively works alongside your team, handling complex workflows with humans in the loop where it matters.</p>
+
+                        <p class="post-card__text">And in between? A whole range of possibilities. Automations that save hours. Workflows that scale without scaling headcount. Tools that turn junior people into experts and experts into superheroes.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">The point is: you don't always need a massive data engineering overhaul to get value from AI. Sometimes you do. Often you don't. And the skill is knowing which is which.</p>
+
+                        <h3>Discover, Build, Embed</h3>
+
+                        <p class="post-card__text">We help businesses figure this out through a simple model: Discover, Build, Embed.</p>
+
+                        <p class="post-card__text"><strong>Discover</strong> is where we help you see the landscape. We use a framework - a simple 2x2 - that maps AI opportunities across two dimensions: whether they're internal or external to your business, and whether they're about productivity or growth.</p>
+
+                        <p class="post-card__text">Most people, when they think about AI, only see one corner of this grid. They're thinking about productivity (making things faster) or they're thinking about customer-facing applications - but rarely both, and rarely the full picture.</p>
+
+                        <p class="post-card__text">The 2x2 opens their eyes to what's possible. And then - crucially - we don't leave it abstract. We work with you to plot your specific opportunities onto it, with real ROI estimates. It becomes your map.</p>
+
+                        <p class="post-card__text"><strong>Build</strong> is where we help you deliver. The right solution for the right problem - whether that's training your team to use existing tools better, building automated workflows that keep humans in the loop, or developing more sophisticated agentic systems. We're not trying to upsell you to complexity. We're trying to match the solution to the problem.</p>
+
+                        <p class="post-card__text"><strong>Embed</strong> is where we make it stick. Because the graveyard of AI projects is full of brilliant pilots that never made it into the business. We help you get adoption, build capability, and make sure the value actually lands.</p>
+
+                        <h3>Outcomes that matter</h3>
+
+                        <p class="post-card__text">The outcome we're working towards? It depends which quadrant matters most to you.</p>
+
+                        <p class="post-card__text">If it's <strong>internal productivity</strong> - we're measuring hours freed. Time your team gets back to do the work that actually matters.</p>
+
+                        <p class="post-card__text">If it's <strong>internal growth</strong> - we're looking at reduced churn, better retention, capability that compounds.</p>
+
+                        <p class="post-card__text">If it's <strong>external productivity</strong> - we're after growth at near-zero marginal cost. Scaling what you do without proportionally scaling what you spend.</p>
+
+                        <p class="post-card__text">If it's <strong>external growth</strong> - we're measuring revenue. New customers, new markets, new opportunities.</p>
+
+                        <h3>What we're not</h3>
+
+                        <p class="post-card__text">Here's what we're not: we're not a big consultancy that'll spend six months telling you what you already know and then hand you a PowerPoint. We're not a tech vendor trying to sell you a platform. We're not pretending AI is magic, or that every problem needs a complex solution.</p>
+
+                        <p class="post-card__text">We're practical. We start with the annoying stuff - the things that make your team want to throw their laptops out the window - and we work towards the strategic stuff: how you grow without proportionally growing cost.</p>
+
+                        <p class="post-card__text">And we're honest. Sometimes the answer is "just use what you've got better." Sometimes it's "you need to build something." Sometimes it's "this isn't actually an AI problem." We'll tell you which.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">That's AgentFlow. We help businesses figure out where AI can actually help, build the right solution for the problem, and make sure it sticks. Simple as that.</p>
+                    </div>
+                </div>
+
                 <!-- Hamish Post - Newest (7401688341777174528) -->
                 <div class="post-card" data-author="hamish">
                     <div class="post-card__author">
