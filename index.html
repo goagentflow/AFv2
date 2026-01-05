@@ -281,54 +281,75 @@
         </div>
     </section>
 
-    <!-- What We Believe Section -->
-    <section class="section" id="why-us">
-        <div class="container">
-            <div class="section__header fade-in">
-                <h2 class="section__title">What We Believe</h2>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem; text-align: justify;">In 2016, world champion Lee Sedol sat down to defend humanity's honour in Go - the world's most complex board game, with more possible moves than atoms in the universe. A game we'd dominated for 2,500 years. His opponent: Google's AI. In game two, move 37 changed everything - the AI played a move no human ever had: brilliant, illogical, devastating. But Sedol didn't walk away. He studied, adapted and later made move 78 - a play so creative that AlphaGo faltered and gave up.</p>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem; text-align: justify;">We believe every knowledge worker will have their own Move 37 moment: the instant they see AI do something they can't. Those who keep learning will reach their Move 78 - when human creativity and machine capability work in harmony.</p>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto 2.5rem; text-align: justify;"><strong style="color: var(--primary-text);">That's what we help organisations achieve.</strong></p>
-                <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary-text); margin: 0 auto 1rem; text-align: center;">Meet the Team</h3>
-            </div>
-            <div class="why-us__content">
-                <div class="founder__card fade-in">
-                    <div class="founder__image">
-                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin - Co-Founder and CEO" class="founder__photo">
-                    </div>
-                    <div class="founder__info">
-                        <h3 class="founder__name">Hamish Nicklin</h3>
-                        <p class="founder__title">Co-Founder and CEO</p>
-                        <p class="founder__bio">Hamish spent 25 years building and scaling media businesses, including as CEO of dentsu Media UK where he grew £1.3bn in turnover and led 2,000+ people. At The Guardian, as Chief Revenue Officer, he helped reverse a £100m cash loss trajectory to achieve operational break-even within three years, turning advertising revenue decline to growth ahead of his competition. Before that, he spent nearly a decade at Google helping agencies transform their businesses through digital-first strategies.</p>
-                        <p class="founder__bio">He's lived through the operational challenges that hold businesses back - but more importantly, he's proven how to solve them profitably. He knows what it takes to drive revenue growth, scale operations faster than competitors and build market-leading businesses. That's why he understands exactly where AI can accelerate growth and where it's just expensive distraction.</p>
-                    </div>
-                </div>
-                <div class="founder__card fade-in">
-                    <div class="founder__image">
-                        <img src="assets/images/StephenUpworkPhoto.png" alt="Stephen Greszczyszyn - Co-Founder and CTO" class="founder__photo">
-                    </div>
-                    <div class="founder__info">
-                        <h3 class="founder__name">Stephen Greszczyszyn</h3>
-                        <p class="founder__title">Co-Founder, CTO</p>
-                        <p class="founder__bio">Stephen spent 20+ years at Cisco learning what separates automation that actually works from automation that just wastes your money. Now he builds AI agents that run your business while you sleep.</p>
-                        <p class="founder__bio">His track record is impressive: £2M+ saved annually through proper automation at Cisco. 920+ engineering hours freed up per year. Systems that turned 3-day analysis tasks into 3-minute reports. But here's what really matters - he knows how to make these enterprise-grade solutions work for growing businesses without the enterprise price tag or the nonsense complexity.</p>
-                        <p class="founder__bio">From AI that writes brilliant cold emails to agents that handle customer support 24/7, Stephen bridges the gap between "AI could do this" and "AI is doing this, right now, making us money." He's fluent in both Fortune 500 and startup, which means your automation actually scales when you do.</p>
-                        <p class="founder__bio">Stephen is obsessed with making sure you understand and own your automation, not creating some weird dependency where you can't function without him. He's proven how to build systems that solve real problems profitably.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Case Studies Section -->
     <section class="section section--alt">
         <div class="container">
             <div class="section__header fade-in" id="use-cases">
-                <h2 class="section__title">What We're Building</h2>
-                <p class="section__description">Real solutions for real businesses. Some delivered, some in progress - but all based on actual client challenges. We can't name names, but we can show you what we do.</p>
+                <h2 class="section__title">Case Studies</h2>
+                <p class="section__subtitle" style="font-size: 1.1rem; color: var(--accent-glow); margin-bottom: 1rem;">What we've built and what we're building</p>
+                <p class="section__description">Real solutions for real businesses. We can't name names, but we can show you what we do.</p>
             </div>
             <div class="use-cases__accordion">
+                <!-- Case Study: FD Productised Service -->
                 <div class="use-case__card use-case__card--expandable fade-in" data-case="1">
+                    <div class="use-case__header">
+                        <div class="use-case__icon">
+                            <i data-feather="pie-chart"></i>
+                        </div>
+                        <div class="use-case__titles">
+                            <h3 class="use-case__title">Your Consulting Is Valuable But It Doesn't Scale</h3>
+                            <p class="use-case__subtitle">Turn Weekly Analysis Into a Product</p>
+                        </div>
+                        <button class="use-case__toggle" aria-label="Expand case study">
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="use-case__content">
+                        <p class="use-case__problem">You've spent years advising SMEs on cash flow. You know exactly what to look for - burn rate, working capital, debtor days, the accounts that actually matter. But your expertise lives in your head. Every client engagement means starting from scratch, manually analysing their data, explaining the same concepts. Your knowledge is worth a lot - but you can only sell your hours.</p>
+                        <div class="use-case__solution">
+                            <h4 class="use-case__solution-title">What we built:</h4>
+                            <p class="use-case__problem">A finance consultancy wanted to offer "FD-as-a-service" to SMEs who couldn't afford a full-time Finance Director. The problem: the manual analysis made it uneconomic at SME price points. We built a platform that encodes their analytical methodology - account classification, cash calculations, risk assessment - and uses AI to generate the narrative summary they'd normally write themselves. Upload a file, get the FD's analysis in 60 seconds.</p>
+                            <h4 class="use-case__solution-title">The outcome:</h4>
+                            <ul class="use-case__features">
+                                <li>A consulting service became a scalable product</li>
+                                <li>One consultant can now serve 20x more clients</li>
+                                <li>New recurring revenue stream at price points that weren't viable before</li>
+                                <li>The consultant stays in the loop for judgment calls - AI handles the grind</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study: Restaurant Invoice Processing -->
+                <div class="use-case__card use-case__card--expandable fade-in" data-case="2">
+                    <div class="use-case__header">
+                        <div class="use-case__icon">
+                            <i data-feather="file-text"></i>
+                        </div>
+                        <div class="use-case__titles">
+                            <h3 class="use-case__title">Your Restaurant Runs on Paper and Hope</h3>
+                            <p class="use-case__subtitle">AI That Actually Understands Invoices</p>
+                        </div>
+                        <button class="use-case__toggle" aria-label="Expand case study">
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="use-case__content">
+                        <p class="use-case__problem">Every week it's the same. Invoices arrive by email, WhatsApp, paper. Someone has to open them, read them, type the numbers somewhere, remember to pay, file them for the accountant. It's not hard work - it's just endless. And it's eating time you could spend on the business.</p>
+                        <div class="use-case__solution">
+                            <h4 class="use-case__solution-title">What we built:</h4>
+                            <p class="use-case__problem">A Quebec restaurant group needed invoice processing that actually worked with how suppliers send things - emails, WhatsApp photos, the lot. We built an AI system that captures invoices from any channel, extracts supplier details, amounts, tax breakdowns, line items - and flags when prices go up. One-tap approval. One-click export for the accountant. All in French, because that's what the team speaks.</p>
+                            <h4 class="use-case__solution-title">The outcome:</h4>
+                            <ul class="use-case__features">
+                                <li>2+ hours per week per location back in the owner's pocket</li>
+                                <li>Supplier price increases caught and challenged</li>
+                                <li>The accountant gets clean data instead of a shoebox</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case__card use-case__card--expandable fade-in" data-case="3">
                     <div class="use-case__header">
                         <div class="use-case__icon">
                             <i data-feather="zap"></i>
@@ -490,6 +511,45 @@
                                 <li>The expert focuses on high-value work while the app handles the rest</li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Believe Section -->
+    <section class="section" id="why-us">
+        <div class="container">
+            <div class="section__header fade-in">
+                <h2 class="section__title">What We Believe</h2>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem; text-align: justify;">In 2016, world champion Lee Sedol sat down to defend humanity's honour in Go - the world's most complex board game, with more possible moves than atoms in the universe. A game we'd dominated for 2,500 years. His opponent: Google's AI. In game two, move 37 changed everything - the AI played a move no human ever had: brilliant, illogical, devastating. But Sedol didn't walk away. He studied, adapted and later made move 78 - a play so creative that AlphaGo faltered and gave up.</p>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem; text-align: justify;">We believe every knowledge worker will have their own Move 37 moment: the instant they see AI do something they can't. Those who keep learning will reach their Move 78 - when human creativity and machine capability work in harmony.</p>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto 2.5rem; text-align: justify;"><strong style="color: var(--primary-text);">That's what we help organisations achieve.</strong></p>
+                <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary-text); margin: 0 auto 1rem; text-align: center;">Meet the Team</h3>
+            </div>
+            <div class="why-us__content">
+                <div class="founder__card fade-in">
+                    <div class="founder__image">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin - Co-Founder and CEO" class="founder__photo">
+                    </div>
+                    <div class="founder__info">
+                        <h3 class="founder__name">Hamish Nicklin</h3>
+                        <p class="founder__title">Co-Founder and CEO</p>
+                        <p class="founder__bio">Hamish spent 25 years building and scaling media businesses, including as CEO of dentsu Media UK where he grew £1.3bn in turnover and led 2,000+ people. At The Guardian, as Chief Revenue Officer, he helped reverse a £100m cash loss trajectory to achieve operational break-even within three years, turning advertising revenue decline to growth ahead of his competition. Before that, he spent nearly a decade at Google helping agencies transform their businesses through digital-first strategies.</p>
+                        <p class="founder__bio">He's lived through the operational challenges that hold businesses back - but more importantly, he's proven how to solve them profitably. He knows what it takes to drive revenue growth, scale operations faster than competitors and build market-leading businesses. That's why he understands exactly where AI can accelerate growth and where it's just expensive distraction.</p>
+                    </div>
+                </div>
+                <div class="founder__card fade-in">
+                    <div class="founder__image">
+                        <img src="assets/images/StephenUpworkPhoto.png" alt="Stephen Greszczyszyn - Co-Founder and CTO" class="founder__photo">
+                    </div>
+                    <div class="founder__info">
+                        <h3 class="founder__name">Stephen Greszczyszyn</h3>
+                        <p class="founder__title">Co-Founder, CTO</p>
+                        <p class="founder__bio">Stephen spent 20+ years at Cisco learning what separates automation that actually works from automation that just wastes your money. Now he builds AI agents that run your business while you sleep.</p>
+                        <p class="founder__bio">His track record is impressive: £2M+ saved annually through proper automation at Cisco. 920+ engineering hours freed up per year. Systems that turned 3-day analysis tasks into 3-minute reports. But here's what really matters - he knows how to make these enterprise-grade solutions work for growing businesses without the enterprise price tag or the nonsense complexity.</p>
+                        <p class="founder__bio">From AI that writes brilliant cold emails to agents that handle customer support 24/7, Stephen bridges the gap between "AI could do this" and "AI is doing this, right now, making us money." He's fluent in both Fortune 500 and startup, which means your automation actually scales when you do.</p>
+                        <p class="founder__bio">Stephen is obsessed with making sure you understand and own your automation, not creating some weird dependency where you can't function without him. He's proven how to build systems that solve real problems profitably.</p>
                     </div>
                 </div>
             </div>
