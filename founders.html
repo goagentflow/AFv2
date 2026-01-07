@@ -657,6 +657,137 @@
 
             <!-- Posts Grid - Chronological order, newest first -->
             <div class="posts-grid">
+                <!-- Native Post: How to Build an AI Chief of Staff -->
+                <article class="post-card post-card__native" id="ai-chief-of-staff" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">How to Build an AI Chief of Staff (and How to Get Your SecOps Team to Say Yes)</h2>
+                        <p class="post-card__date">January 8, 2026</p>
+
+                        <p class="post-card__text">So you read the LinkedIn post and you're here for the how.</p>
+
+                        <p class="post-card__text">The pitch was simple: don't delegate learning AI to your team. Start with your own workflows. And what better place to start than building yourself something genuinely useful - an AI Chief of Staff.</p>
+
+                        <p class="post-card__text">A Chief of Staff is someone who tracks everything, spots what you've missed, deals with issues before they reach you and makes sure nothing falls through the cracks. In the British military they call this an ADC - their job is to keep the boss out of trouble.</p>
+
+                        <p class="post-card__text">Here's how to build one.</p>
+
+                        <p class="post-card__text">This article will take you about 10 minutes to read and maybe an hour to implement. That hour is an investment in yourself - learning by doing, not by delegating to someone else.</p>
+
+                        <h3>Why Claude Code (and why it's not just for developers)</h3>
+
+                        <p class="post-card__text">Most people think Claude Code is a tool for software engineers. That's like saying a Swiss Army knife is just for cutting. Yes, it can write code. But what makes it different from ChatGPT or regular Claude is that it persists. It remembers. It can read and write files on your computer. It doesn't reset every time you close the window.</p>
+
+                        <p class="post-card__text">Now, if you're thinking "doesn't Copilot do this?" - fair question. Copilot does know your context, it does learn over time, and if you're already living in Microsoft 365 it's a legitimate option. You could build something similar there. But here's why I prefer Claude Code: the memory is yours. You can see it, edit it, control exactly what it knows and how it thinks about your work. It's not a black box that's learning about you somewhere in the cloud - it's a set of files on your machine that you own. For me, that control matters.</p>
+
+                        <p class="post-card__text">If you've never used a terminal before, this might feel intimidating. I promise it's not as scary as it looks. You're basically just typing instructions instead of clicking buttons. And once it's set up, you'll barely think about it.</p>
+
+                        <h3>What you're actually building</h3>
+
+                        <p class="post-card__text">Think of this as giving the AI a workspace and a set of habits.</p>
+
+                        <p class="post-card__text">The workspace is a folder on your computer with a few key files. The first is something called CLAUDE.md - essentially an instruction manual that tells the AI who you are, how you like to work, what your priorities are and what it's allowed to do without asking. This means you don't have to re-explain yourself every session. It already knows.</p>
+
+                        <p class="post-card__text">Then you create a few simple files that act as your system. An INBOX.md for capturing things that need processing. A PROJECTS.md that tracks what you're working on and where each thing stands. A WAITING_FOR.md that tracks what you've delegated to others and when you need to chase. A DECISIONS.md that logs what you decided and why - useful when you can't remember why you said no to something three months ago.</p>
+
+                        <p class="post-card__text">You can also connect Claude Code to your calendar and email using something called MCP - think of it as giving the AI eyes into your schedule so it can say things like "I see you've got a board meeting Thursday, do you want me to pull together your thinking on the three agenda items?"</p>
+
+                        <p class="post-card__text">If you're using Google Calendar and Gmail, this is relatively straightforward. If you're using Outlook and Microsoft 365... it's possible, but it's fiddly. You'll need to set up an Azure app registration, configure credentials and permissions, and frankly it's the kind of thing that makes even technically-minded people procrastinate. I still haven't done it myself, and I should.</p>
+
+                        <p class="post-card__text">My advice: ignore the calendar connection for now. Get the core system working first - the files, the daily rhythm, the habit. You can add the calendar integration later once you've seen the value. Don't let the perfect be the enemy of the good.</p>
+
+                        <h3>Getting your machine ready</h3>
+
+                        <p class="post-card__text">Before we install Claude Code, let's make sure you know what we're working with. Don't worry - this is simpler than it sounds.</p>
+
+                        <p class="post-card__text"><strong>What is a terminal?</strong> A terminal is just a window where you type commands instead of clicking buttons. Think of it as texting your computer rather than pointing at things. Every Mac and Windows PC has one built in - you've just probably never opened it.</p>
+
+                        <p class="post-card__text"><strong>Opening the terminal on a Mac:</strong> Press Command + Space to open Spotlight, type "Terminal" and hit Enter. A window will open with a blinking cursor. That's it - you're in.</p>
+
+                        <p class="post-card__text"><strong>Opening the terminal on Windows:</strong> Press the Windows key, type "PowerShell" and hit Enter. Make sure you're opening "Windows PowerShell" not the older "Command Prompt." A blue window will open with a blinking cursor.</p>
+
+                        <p class="post-card__text"><strong>Installing Claude Code on a Mac:</strong> Copy and paste this line into your terminal and press Enter: <code>curl -fsSL https://claude.ai/install.sh | bash</code></p>
+
+                        <p class="post-card__text"><strong>Installing Claude Code on Windows:</strong> Copy and paste this line into PowerShell and press Enter: <code>irm https://claude.ai/install.ps1 | iex</code></p>
+
+                        <p class="post-card__text"><strong>Setting up your account:</strong> You'll need either an Anthropic API account with billing set up, or a Claude Pro or Max subscription. If you're already paying for Claude through claude.ai, the Max subscription is probably the simplest option.</p>
+
+                        <p class="post-card__text"><strong>If something goes wrong:</strong> Type <code>claude doctor</code> in your terminal. This runs a diagnostic that checks your installation and tells you what's broken.</p>
+
+                        <h3>The setup prompt</h3>
+
+                        <p class="post-card__text">Now for the good bit. Rather than giving you a long list of manual steps, here's a prompt you can paste into Claude Code that will guide you through building your Chief of Staff system. Claude will ask you questions, create the files and set everything up based on your answers.</p>
+
+                        <p class="post-card__text">Open your terminal, type <code>claude</code> and press Enter. Once Claude Code is running, paste this:</p>
+
+                        <p class="post-card__text"><em>I want you to help me set up an AI Chief of Staff system. This means creating a folder structure and a set of files that will help you maintain context about my work across sessions.</em></p>
+
+                        <p class="post-card__text"><em>Please do the following: 1. Create a folder called "chief-of-staff" in my home directory. 2. Inside that folder, create these files: CLAUDE.md, INBOX.md, PROJECTS.md, WAITING_FOR.md, DECISIONS.md. 3. Create a subfolder called "work-orders". 4. Once the structure is created, interview me to build my CLAUDE.md file. Ask me about who I am and what I do, how I like to work, my current top 3-5 priorities, key people I work with and what you're allowed to do without asking me vs what requires my approval. 5. After the interview, write the CLAUDE.md file based on my answers. 6. Then run me through a quick "Intention Clarifier" - ask me what's been on my mind or nagging at me lately, and help me figure out what the real next step is. 7. Finally, explain how to do an end-of-day reconciliation and a morning check-in so I know how to use this system going forward.</em></p>
+
+                        <p class="post-card__text">That's it. Claude will take it from there. Answer honestly - the more context you give it, the better the system works.</p>
+
+                        <h3>The daily rhythm</h3>
+
+                        <p class="post-card__text">The system only works if you use it. But "using it" doesn't mean hours of effort - it means a few minutes of intentional check-ins.</p>
+
+                        <p class="post-card__text">In the morning, you open Claude Code and ask it to help you clarify your intentions for the day. Not a to-do list, but a sense of what would make today feel successful. The AI can interview you - asking questions until it's clear what you actually need to do versus what's just floating around in your head.</p>
+
+                        <p class="post-card__text">During the day, you update the files as things happen. Or you ask the AI to update them based on what you tell it. "I just spoke to Sarah and we agreed to push the launch to March - update PROJECTS.md."</p>
+
+                        <p class="post-card__text">At the end of the day, you run a quick reconciliation. What got done? What's still open? What needs to move to tomorrow? This takes five minutes and it means you start the next day with a clean picture instead of a foggy sense of dread.</p>
+
+                        <h3>The governance layer</h3>
+
+                        <p class="post-card__text">This is important. Not everything should be delegated, even to a very smart AI.</p>
+
+                        <p class="post-card__text">The rule is reversibility. If something can be undone easily - drafting a document, researching a topic, reorganising your notes - let the AI do it. If something is irreversible or high stakes - sending an email to the board, making a financial commitment, publishing something publicly - that needs your explicit approval before it happens.</p>
+
+                        <p class="post-card__text">Build this into your CLAUDE.md file. Tell the AI what it can do autonomously and what requires a checkpoint. This isn't about trust, it's about designing a system that doesn't let small errors become big problems.</p>
+
+                        <h3>How to get your SecOps team to say yes</h3>
+
+                        <p class="post-card__text">Now for the conversation you're probably dreading. You want to use this tool. IT will have concerns. Here's how to navigate that.</p>
+
+                        <p class="post-card__text">First, understand what they're actually worried about. It's usually some combination of: where does the data go, who can see it, does this create compliance risk and is this just shadow IT that's going to cause problems later. These are legitimate concerns and dismissing them won't help you.</p>
+
+                        <p class="post-card__text">Second, reframe the conversation. Don't ask for permission to "use AI." Ask for permission to run a controlled pilot. Ninety days. Just you, maybe one or two others. Non-client data only. Your own working documents. Full audit trail. This is much easier to approve than an enterprise-wide rollout.</p>
+
+                        <p class="post-card__text">Third, address their concerns specifically. Anthropic - the company behind Claude - has enterprise agreements with data retention controls and no training on your data. The file-based system you're building creates its own audit trail. You can agree upfront what types of data are in scope and out of scope.</p>
+
+                        <p class="post-card__text">Fourth, make it their win too. If this works, they'll have designed the governance framework before everyone else in the company starts asking. They'll be ahead of the curve when the board wants to know what your AI policy looks like. SecOps people don't want to be blockers - give them a way to be enablers.</p>
+
+                        <p class="post-card__text">And if they still say no? Ask them what specifically they'd need to see to say yes. If the answer is "nothing, ever," then you've got a different conversation to have - probably at exec committee level - about whether your company is serious about staying competitive.</p>
+
+                        <h3>What to expect</h3>
+
+                        <p class="post-card__text">The first few weeks will be clunky. You'll forget to update the files. The AI will misunderstand what you meant. You'll wonder if this is actually saving you time or just creating a new kind of admin.</p>
+
+                        <p class="post-card__text">Push through it. By week four or five, something shifts. You start to notice that you're not carrying as much in your head. That you can pick up a project after a week away and actually know where you left it. That the AI is starting to anticipate what you need before you ask.</p>
+
+                        <p class="post-card__text">By month three, you'll wonder how you worked without it.</p>
+
+                        <h3>Where to start</h3>
+
+                        <p class="post-card__text">If this sounds like something you want to build yourself, start with the CLAUDE.md file. Spend thirty minutes writing down who you are, what you're working on, how you like to communicate and what your priorities are for the next quarter. That document alone - even before you do anything else - will clarify your own thinking in ways you might not expect.</p>
+
+                        <p class="post-card__text">Then install Claude Code, point it at that file and start a conversation. See what happens.</p>
+
+                        <p class="post-card__text">If you'd rather not do this yourself - maybe the terminal feels like a step too far, maybe you're locked into Copilot or Gemini, maybe you just want someone else to figure it out - we can build this for you. Same outcome, tailored to your tools and your workflows, with proper governance designed in from the start. That's what we do. <a href="index.html#contact" style="color: var(--accent-glow);">Get in touch</a>.</p>
+
+                        <p class="post-card__text">And if you're thinking "this is great but my team still can't use the tools we've already got" - <a href="assess/" style="color: var(--accent-glow);">take our Copilot Quiz</a> to see where you are and whether our Copilot Sprint might help.</p>
+
+                        <p class="post-card__text">And if you've already got a brilliant EA or Chief of Staff? Even better. Learn this together - you bring the strategic context, they bring the operational rigour. This isn't about replacing people, it's about giving your whole team leverage. More on how to do that in a future piece.</p>
+
+                        <p class="post-card__text">I should acknowledge Nate B. Jones here - his YouTube channel and Substack were what first got me experimenting with this approach. If you want to go deeper, give him a follow. He's a legend.</p>
+                    </div>
+                </article>
+
                 <!-- Native Post: The AgentFlow Manifesto -->
                 <article class="post-card post-card__native" id="agentflow-manifesto" data-author="hamish">
                     <div class="post-card__author">
