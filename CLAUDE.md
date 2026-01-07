@@ -51,6 +51,14 @@ CSS
 }
 Units: Use rem for font-size and layout spacing (margin, padding). Use px for border-width.
 Responsiveness: Use a mobile-first approach. Define base styles first, then use min-width media queries to add complexity for larger screens.
+Founders Page Articles:
+When adding new articles/posts to founders.html, ALWAYS:
+1. Use semantic `<article>` tags with the class `post-card post-card__native`
+2. Add a unique anchor ID (e.g., `id="article-slug"`) so the article can be directly linked
+3. Use kebab-case for IDs based on the article title (e.g., "Move 37 Moment" → `id="move-37-moment"`)
+4. Include a "View on LinkedIn →" link if the post originated from LinkedIn
+5. After adding, provide the direct link to the user: `goagentflow.com/founders.html#article-slug`
+
 JavaScript & User Interaction:
 Syntax: Use modern JavaScript (ES6+). Prefer const over let.
 User Feedback & Error Handling:
