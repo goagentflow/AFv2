@@ -38,7 +38,7 @@
     <!-- Termly Consent Management -->
     <script type="text/javascript" src="https://app.termly.io/embed.min.js" data-auto-block="on" data-website-uuid="dc7c6ad3-3c44-4541-b5e2-146d10618f63"></script>
 
-    <link rel="stylesheet" href="css/style.css?v=2026-01-07a">
+    <link rel="stylesheet" href="css/style.css?v=2026-01-07b">
 
     <style>
         /* Founders page - reduce hero and section spacing for better above-fold content */
@@ -1293,6 +1293,7 @@
     <div class="toast" id="toast">
         <div class="toast__title">Link copied!</div>
         <div class="toast__message">Paste it to start discussing this article</div>
+        <div class="toast__url" id="toast-url" style="font-size: 0.75rem; margin-top: 0.5rem; color: var(--accent-glow); word-break: break-all;"></div>
     </div>
 
     <!-- Back to Top Button -->
@@ -1315,7 +1316,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=2026-01-07a"></script>
+    <script src="js/main.js?v=2026-01-07b"></script>
     <script>
         // Initialize Feather icons
         feather.replace();
@@ -1520,14 +1521,16 @@
 
         // Toast notification helper
         const toast = document.getElementById('toast');
+        const toastUrl = document.getElementById('toast-url');
         let toastTimeout;
 
-        function showToast() {
+        function showToast(url) {
             clearTimeout(toastTimeout);
+            toastUrl.textContent = url;
             toast.classList.add('show');
             toastTimeout = setTimeout(() => {
                 toast.classList.remove('show');
-            }, 4000);
+            }, 5000);
         }
 
         // NotebookLM button handlers - copy URL and open NotebookLM
@@ -1535,12 +1538,13 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const url = btn.dataset.notebooklmUrl;
+                console.log('NotebookLM clicked, URL:', url);
                 navigator.clipboard.writeText(url).then(() => {
                     btn.classList.add('post-card__share-btn--copied');
                     setTimeout(() => {
                         btn.classList.remove('post-card__share-btn--copied');
                     }, 2000);
-                    showToast();
+                    showToast(url);
                     window.open('https://notebooklm.google.com/', '_blank');
                 });
             });
@@ -1551,12 +1555,13 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const url = btn.dataset.chatgptUrl;
+                console.log('ChatGPT clicked, URL:', url);
                 navigator.clipboard.writeText(url).then(() => {
                     btn.classList.add('post-card__share-btn--copied');
                     setTimeout(() => {
                         btn.classList.remove('post-card__share-btn--copied');
                     }, 2000);
-                    showToast();
+                    showToast(url);
                     window.open('https://chatgpt.com/', '_blank');
                 });
             });
@@ -1567,12 +1572,13 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const url = btn.dataset.claudeUrl;
+                console.log('Claude clicked, URL:', url);
                 navigator.clipboard.writeText(url).then(() => {
                     btn.classList.add('post-card__share-btn--copied');
                     setTimeout(() => {
                         btn.classList.remove('post-card__share-btn--copied');
                     }, 2000);
-                    showToast();
+                    showToast(url);
                     window.open('https://claude.ai/', '_blank');
                 });
             });
@@ -1707,12 +1713,13 @@
         // Modal NotebookLM button
         const modalShareNotebooklm = document.getElementById('modal-share-notebooklm');
         modalShareNotebooklm.addEventListener('click', () => {
+            console.log('Modal NotebookLM clicked, URL:', currentArticleUrl);
             navigator.clipboard.writeText(currentArticleUrl).then(() => {
                 modalShareNotebooklm.classList.add('post-card__share-btn--copied');
                 setTimeout(() => {
                     modalShareNotebooklm.classList.remove('post-card__share-btn--copied');
                 }, 2000);
-                showToast();
+                showToast(currentArticleUrl);
                 window.open('https://notebooklm.google.com/', '_blank');
             });
         });
@@ -1720,12 +1727,13 @@
         // Modal ChatGPT button
         const modalShareChatgpt = document.getElementById('modal-share-chatgpt');
         modalShareChatgpt.addEventListener('click', () => {
+            console.log('Modal ChatGPT clicked, URL:', currentArticleUrl);
             navigator.clipboard.writeText(currentArticleUrl).then(() => {
                 modalShareChatgpt.classList.add('post-card__share-btn--copied');
                 setTimeout(() => {
                     modalShareChatgpt.classList.remove('post-card__share-btn--copied');
                 }, 2000);
-                showToast();
+                showToast(currentArticleUrl);
                 window.open('https://chatgpt.com/', '_blank');
             });
         });
@@ -1733,12 +1741,13 @@
         // Modal Claude button
         const modalShareClaude = document.getElementById('modal-share-claude');
         modalShareClaude.addEventListener('click', () => {
+            console.log('Modal Claude clicked, URL:', currentArticleUrl);
             navigator.clipboard.writeText(currentArticleUrl).then(() => {
                 modalShareClaude.classList.add('post-card__share-btn--copied');
                 setTimeout(() => {
                     modalShareClaude.classList.remove('post-card__share-btn--copied');
                 }, 2000);
-                showToast();
+                showToast(currentArticleUrl);
                 window.open('https://claude.ai/', '_blank');
             });
         });
