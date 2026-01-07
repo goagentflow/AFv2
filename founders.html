@@ -784,35 +784,59 @@
 
                         <h3>What you're actually building</h3>
 
-                        <p class="post-card__text">Think of this as giving the AI a workspace and a set of habits.</p>
+                        <p class="post-card__text">Think of this as giving the AI a workspace and a set of habits. Don't worry about how to set it up - we'll give you a prompt that does most of the heavy lifting. For now, just understand what the pieces are.</p>
 
                         <p class="post-card__text">The workspace is a folder on your computer with a few key files. The first is something called CLAUDE.md - essentially an instruction manual that tells the AI who you are, how you like to work, what your priorities are and what it's allowed to do without asking. This means you don't have to re-explain yourself every session. It already knows.</p>
 
-                        <p class="post-card__text">Then you create a few simple files that act as your system. An INBOX.md for capturing things that need processing. A PROJECTS.md that tracks what you're working on and where each thing stands. A WAITING_FOR.md that tracks what you've delegated to others and when you need to chase. A DECISIONS.md that logs what you decided and why - useful when you can't remember why you said no to something three months ago.</p>
+                        <p class="post-card__text">Then there are a few simple files that act as your system. An INBOX.md for capturing things that need processing. A PROJECTS.md that tracks what you're working on and where each thing stands. A WAITING_FOR.md that tracks what you've delegated to others and when you need to chase. A DECISIONS.md that logs what you decided and why. A CLIENTS.md for keeping track of who you're working with. And crucially, an IDEAS.md for capturing those random thoughts and sparks that hit you when you're walking the dog or in the shower - not tasks, just things that need to marinate. When ideas get acted on or dismissed, they move to IDEAS-ARCHIVE.md.</p>
 
-                        <p class="post-card__text">You can also connect Claude Code to your calendar and email using something called MCP - think of it as giving the AI eyes into your schedule so it can say things like "I see you've got a board meeting Thursday, do you want me to pull together your thinking on the three agenda items?"</p>
+                        <p class="post-card__text">The magic is in the surfacing. Your Chief of Staff will bring relevant ideas back to you at the right moment - during check-ins or when you're working on something related. No more losing good thoughts because you didn't have anywhere to put them.</p>
 
-                        <p class="post-card__text">If you're using Google Calendar and Gmail, this is relatively straightforward. If you're using Outlook and Microsoft 365... it's possible, but it's fiddly. You'll need to set up an Azure app registration, configure credentials and permissions, and frankly it's the kind of thing that makes even technically-minded people procrastinate. I still haven't done it myself, and I should.</p>
+                        <p class="post-card__text">Claude Code will create all of this for you. You just need to answer its questions.</p>
 
-                        <p class="post-card__text">My advice: ignore the calendar connection for now. Get the core system working first - the files, the daily rhythm, the habit. You can add the calendar integration later once you've seen the value. Don't let the perfect be the enemy of the good.</p>
+                        <p class="post-card__text">You can also connect Claude Code to your calendar and email - giving the AI eyes into your schedule so it can see what's coming up and help you prepare. We'll come to that once you've got the basics working.</p>
 
                         <h3>Getting your machine ready</h3>
 
                         <p class="post-card__text">Before we install Claude Code, let's make sure you know what we're working with. Don't worry - this is simpler than it sounds.</p>
 
-                        <p class="post-card__text"><strong>What is a terminal?</strong> A terminal is just a window where you type commands instead of clicking buttons. Think of it as texting your computer rather than pointing at things. Every Mac and Windows PC has one built in - you've just probably never opened it.</p>
+                        <p class="post-card__text"><em>What is a terminal?</em></p>
 
-                        <p class="post-card__text"><strong>Opening the terminal on a Mac:</strong> Press Command + Space to open Spotlight, type "Terminal" and hit Enter. A window will open with a blinking cursor. That's it - you're in.</p>
+                        <p class="post-card__text">A terminal is just a window where you type commands instead of clicking buttons. Think of it as texting your computer rather than pointing at things. Every Mac and Windows PC has one built in - you've just probably never opened it.</p>
 
-                        <p class="post-card__text"><strong>Opening the terminal on Windows:</strong> Press the Windows key, type "PowerShell" and hit Enter. Make sure you're opening "Windows PowerShell" not the older "Command Prompt." A blue window will open with a blinking cursor.</p>
+                        <p class="post-card__text"><em>Opening the terminal on a Mac</em></p>
 
-                        <p class="post-card__text"><strong>Installing Claude Code on a Mac:</strong> Copy and paste this line into your terminal and press Enter: <code>curl -fsSL https://claude.ai/install.sh | bash</code></p>
+                        <p class="post-card__text">Press Command + Space to open Spotlight, type "Terminal" and hit Enter. A window will open with a blinking cursor. That's it - you're in.</p>
 
-                        <p class="post-card__text"><strong>Installing Claude Code on Windows:</strong> Copy and paste this line into PowerShell and press Enter: <code>irm https://claude.ai/install.ps1 | iex</code></p>
+                        <p class="post-card__text"><em>Opening the terminal on Windows</em></p>
 
-                        <p class="post-card__text"><strong>Setting up your account:</strong> You'll need either an Anthropic API account with billing set up, or a Claude Pro or Max subscription. If you're already paying for Claude through claude.ai, the Max subscription is probably the simplest option.</p>
+                        <p class="post-card__text">Press the Windows key, type "PowerShell" and hit Enter. Make sure you're opening "Windows PowerShell" not the older "Command Prompt." A blue window will open with a blinking cursor.</p>
 
-                        <p class="post-card__text"><strong>If something goes wrong:</strong> Type <code>claude doctor</code> in your terminal. This runs a diagnostic that checks your installation and tells you what's broken.</p>
+                        <p class="post-card__text"><em>Installing Claude Code on a Mac</em></p>
+
+                        <p class="post-card__text">Copy and paste this line into your terminal and press Enter:</p>
+
+                        <p class="post-card__text"><code>curl -fsSL https://claude.ai/install.sh | bash</code></p>
+
+                        <p class="post-card__text">Wait for it to finish. You'll see some text scrolling - that's normal. When it's done, you'll get a message confirming the installation.</p>
+
+                        <p class="post-card__text"><em>Installing Claude Code on Windows</em></p>
+
+                        <p class="post-card__text">Copy and paste this line into PowerShell and press Enter:</p>
+
+                        <p class="post-card__text"><code>irm https://claude.ai/install.ps1 | iex</code></p>
+
+                        <p class="post-card__text">Same as Mac - wait for it to finish and look for the confirmation message.</p>
+
+                        <p class="post-card__text"><em>Setting up your account</em></p>
+
+                        <p class="post-card__text">You'll need either an Anthropic API account with billing set up, or a Claude Pro or Max subscription. If you're already paying for Claude through claude.ai, the Max subscription is probably the simplest option - it covers both the web interface and Claude Code.</p>
+
+                        <p class="post-card__text">When you first run Claude Code (just type <code>claude</code> in your terminal and press Enter), it will walk you through connecting your account. Follow the prompts - it's just clicking through a browser authentication.</p>
+
+                        <p class="post-card__text"><em>If something goes wrong</em></p>
+
+                        <p class="post-card__text">Type <code>claude doctor</code> in your terminal. This runs a diagnostic that checks your installation and tells you what's broken. Nine times out of ten, it'll either fix the problem automatically or tell you exactly what to do.</p>
 
                         <h3>The setup prompt</h3>
 
@@ -820,11 +844,50 @@
 
                         <p class="post-card__text">Open your terminal, type <code>claude</code> and press Enter. Once Claude Code is running, paste this:</p>
 
-                        <p class="post-card__text"><em>I want you to help me set up an AI Chief of Staff system. This means creating a folder structure and a set of files that will help you maintain context about my work across sessions.</em></p>
+                        <div class="post-card__prompt-block">
+                            <p class="post-card__text"><em>I want you to help me set up an AI Chief of Staff system. This means creating a folder structure and a set of files that will help you maintain context about my work across sessions.</em></p>
 
-                        <p class="post-card__text"><em>Please do the following: 1. Create a folder called "chief-of-staff" in my home directory. 2. Inside that folder, create these files: CLAUDE.md, INBOX.md, PROJECTS.md, WAITING_FOR.md, DECISIONS.md. 3. Create a subfolder called "work-orders". 4. Once the structure is created, interview me to build my CLAUDE.md file. Ask me about who I am and what I do, how I like to work, my current top 3-5 priorities, key people I work with and what you're allowed to do without asking me vs what requires my approval. 5. After the interview, write the CLAUDE.md file based on my answers. 6. Then run me through a quick "Intention Clarifier" - ask me what's been on my mind or nagging at me lately, and help me figure out what the real next step is. 7. Finally, explain how to do an end-of-day reconciliation and a morning check-in so I know how to use this system going forward.</em></p>
+                            <p class="post-card__text"><em>Please do the following:</em></p>
+
+                            <p class="post-card__text"><em>1. Create a folder called "chief-of-staff" in my home directory</em></p>
+
+                            <p class="post-card__text"><em>2. Inside that folder, create these files: CLAUDE.md, INBOX.md, PROJECTS.md, WAITING_FOR.md, DECISIONS.md, CLIENTS.md, IDEAS.md, IDEAS-ARCHIVE.md</em></p>
+
+                            <p class="post-card__text"><em>3. Create a subfolder called "work-orders"</em></p>
+
+                            <p class="post-card__text"><em>4. Once the structure is created, interview me to build my CLAUDE.md file. Ask me about:</em></p>
+                            <p class="post-card__text"><em>- Who I am and what I do</em></p>
+                            <p class="post-card__text"><em>- How I like to work (when I'm most productive, how I prefer to communicate, how I make decisions)</em></p>
+                            <p class="post-card__text"><em>- My current top 3-5 priorities</em></p>
+                            <p class="post-card__text"><em>- Key people I work with and what I rely on them for</em></p>
+                            <p class="post-card__text"><em>- What you're allowed to do without asking me (e.g. drafting, research, organising files) vs what requires my approval (e.g. anything external-facing, anything involving money or commitments)</em></p>
+
+                            <p class="post-card__text"><em>5. After the interview, write the CLAUDE.md file based on my answers</em></p>
+
+                            <p class="post-card__text"><em>6. Then run me through a quick "Intention Clarifier" - ask me what's been on my mind or nagging at me lately, and help me figure out what the real next step is. Capture the output in the appropriate file (PROJECTS.md, WAITING_FOR.md, DECISIONS.md, IDEAS.md or INBOX.md)</em></p>
+
+                            <p class="post-card__text"><em>7. Explain the ideas capture system: IDEAS.md is for thoughts and sparks that need to marinate (not tasks). Ideas get light tags when obvious ([client], [content], [product], [process], [personal]). You'll surface relevant ideas during check-ins or when working on related topics. Ideas that get acted on or dismissed move to IDEAS-ARCHIVE.md.</em></p>
+
+                            <p class="post-card__text"><em>8. Finally, explain how to do an end-of-day reconciliation and a morning check-in so I know how to use this system going forward</em></p>
+
+                            <p class="post-card__text"><em>Ask me your first question when you're ready.</em></p>
+                        </div>
 
                         <p class="post-card__text">That's it. Claude will take it from there. Answer honestly - the more context you give it, the better the system works.</p>
+
+                        <p class="post-card__text">Once you've got the basics working, you can give your Chief of Staff more context by dropping in key documents - your annual strategy, your objectives, your job spec, even org charts or team structures. The more it knows about what you're trying to achieve, the better it can help you prioritise and spot what's missing.</p>
+
+                        <h3>Connecting your calendar and email</h3>
+
+                        <p class="post-card__text">Now you've got the core system running, it's worth connecting Claude Code to your calendar and email. This gives your Chief of Staff eyes into your schedule - it can see what's coming up, help you prepare for meetings and flag when things are getting crowded.</p>
+
+                        <p class="post-card__text">I thought this was going to be painful. Azure app registration, API permissions, tokens - it all sounded like the kind of thing I'd put off forever. Turns out Claude Code just walks you through it. You tell it you want to connect to Outlook and Calendar via MCP, it tells you exactly what to do in Azure step by step, and fifteen minutes later you're connected to Teams, SharePoint, Outlook, Calendar, OneNote and Tasks. Everything you'd want a Chief of Staff to see.</p>
+
+                        <p class="post-card__text">If you're using Google Calendar and Gmail, it's even simpler - just ask Claude Code to help you connect and follow its instructions.</p>
+
+                        <p class="post-card__text">The key is: don't overthink it. Just ask Claude Code what to do and do what it tells you.</p>
+
+                        <p class="post-card__text">Once you've connected your email, your morning check-in gets even better. I email myself ideas when I'm out and about, and my Chief of Staff picks them up overnight, tags them and adds them to IDEAS.md. No more good thoughts lost in an inbox I'll never search.</p>
 
                         <h3>The daily rhythm</h3>
 
