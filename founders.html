@@ -283,6 +283,15 @@
             border-top: 1px solid rgba(255,255,255,0.08);
         }
 
+        .post-card__actions--top {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            padding-top: 0;
+            padding-bottom: 1rem;
+            border-top: none;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
         .post-card__expand-btn {
             display: flex;
             align-items: center;
@@ -1090,7 +1099,7 @@
             });
         }
 
-        // Add action bars to native articles
+        // Add action bars to native articles (top and bottom)
         document.querySelectorAll('.post-card__native').forEach(article => {
             const articleId = article.id;
             if (!articleId) return;
@@ -1102,10 +1111,7 @@
             const linkedinLink = nativeContent.querySelector('.post-card__link')?.href || '';
             const shareUrls = getShareUrls(articleId, title);
 
-            // Create action bar
-            const actionBar = document.createElement('div');
-            actionBar.className = 'post-card__actions';
-            actionBar.innerHTML = `
+            const actionBarHTML = `
                 <button class="post-card__expand-btn" data-article-id="${articleId}">
                     <i data-feather="maximize-2"></i>
                     <span>Read full article</span>
@@ -1128,7 +1134,27 @@
                     </a>
                 </div>
             `;
-            nativeContent.appendChild(actionBar);
+
+            // Create top action bar
+            const topActionBar = document.createElement('div');
+            topActionBar.className = 'post-card__actions post-card__actions--top';
+            topActionBar.innerHTML = actionBarHTML;
+
+            // Create bottom action bar
+            const bottomActionBar = document.createElement('div');
+            bottomActionBar.className = 'post-card__actions';
+            bottomActionBar.innerHTML = actionBarHTML;
+
+            // Insert top bar after title/date, before content
+            const dateEl = nativeContent.querySelector('.post-card__date');
+            if (dateEl && dateEl.nextSibling) {
+                dateEl.parentNode.insertBefore(topActionBar, dateEl.nextSibling);
+            } else {
+                nativeContent.prepend(topActionBar);
+            }
+
+            // Append bottom bar
+            nativeContent.appendChild(bottomActionBar);
         });
 
         // Re-initialize feather icons for dynamically added elements
