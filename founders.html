@@ -292,6 +292,43 @@
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
+        /* Truncated article preview */
+        .post-card__preview {
+            position: relative;
+        }
+
+        .post-card__preview .post-card__full-content {
+            display: none !important;
+        }
+
+        .post-card__preview .post-card__link {
+            display: none;
+        }
+
+        /* Scroll progress bar on left */
+        .scroll-progress {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+            z-index: 1000;
+        }
+
+        .scroll-progress__bar {
+            width: 100%;
+            background: var(--accent-glow);
+            height: 0%;
+            transition: height 0.1s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-progress {
+                width: 3px;
+            }
+        }
+
         .post-card__expand-btn {
             display: flex;
             align-items: center;
@@ -521,6 +558,11 @@
     </style>
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
+    </div>
+
     <!-- Navigation Header -->
     <header class="header" id="header">
         <nav class="nav">
@@ -1066,6 +1108,19 @@
             });
         });
 
+        // Scroll progress bar
+        const scrollProgressBar = document.getElementById('scroll-progress-bar');
+
+        function updateScrollProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgressBar.style.height = scrollPercent + '%';
+        }
+
+        window.addEventListener('scroll', updateScrollProgress);
+        updateScrollProgress();
+
         // Get base URL for sharing
         const baseUrl = 'https://goagentflow.com/founders.html';
 
@@ -1155,6 +1210,30 @@
 
             // Append bottom bar
             nativeContent.appendChild(bottomActionBar);
+
+            // Truncate to show only first 2 paragraphs
+            const allParagraphs = nativeContent.querySelectorAll('.post-card__text');
+            const allH3s = nativeContent.querySelectorAll('h3');
+
+            if (allParagraphs.length > 2) {
+                // Add preview class to card
+                nativeContent.classList.add('post-card__preview');
+
+                // Hide paragraphs after the first 2
+                allParagraphs.forEach((p, index) => {
+                    if (index >= 2) {
+                        p.classList.add('post-card__full-content');
+                    }
+                });
+
+                // Hide all h3s (subheadings)
+                allH3s.forEach(h3 => {
+                    h3.classList.add('post-card__full-content');
+                });
+
+                // Hide the bottom action bar in preview mode (top bar is enough)
+                bottomActionBar.classList.add('post-card__full-content');
+            }
         });
 
         // Re-initialize feather icons for dynamically added elements
