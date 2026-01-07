@@ -1211,27 +1211,36 @@
             // Append bottom bar
             nativeContent.appendChild(bottomActionBar);
 
-            // Truncate to show only first 2 paragraphs
+            // Truncate based on character count (~500 chars for consistent card heights)
+            const maxChars = 500;
             const allParagraphs = nativeContent.querySelectorAll('.post-card__text');
             const allH3s = nativeContent.querySelectorAll('h3');
 
-            if (allParagraphs.length > 2) {
-                // Add preview class to card
-                nativeContent.classList.add('post-card__preview');
+            let charCount = 0;
+            let cutoffReached = false;
 
-                // Hide paragraphs after the first 2
-                allParagraphs.forEach((p, index) => {
-                    if (index >= 2) {
-                        p.classList.add('post-card__full-content');
+            // Add preview class to card
+            nativeContent.classList.add('post-card__preview');
+
+            // Show paragraphs until we hit the character limit
+            allParagraphs.forEach((p) => {
+                if (cutoffReached) {
+                    p.classList.add('post-card__full-content');
+                } else {
+                    charCount += p.textContent.length;
+                    if (charCount > maxChars) {
+                        cutoffReached = true;
                     }
-                });
+                }
+            });
 
-                // Hide all h3s (subheadings)
-                allH3s.forEach(h3 => {
-                    h3.classList.add('post-card__full-content');
-                });
+            // Hide all h3s (subheadings) in preview
+            allH3s.forEach(h3 => {
+                h3.classList.add('post-card__full-content');
+            });
 
-                // Hide the bottom action bar in preview mode (top bar is enough)
+            // Hide the bottom action bar in preview mode (top bar is enough)
+            if (cutoffReached) {
                 bottomActionBar.classList.add('post-card__full-content');
             }
         });
