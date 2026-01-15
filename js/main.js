@@ -189,6 +189,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // ===== HANDLE INITIAL HASH ON PAGE LOAD =====
+    // Scroll to anchor if URL contains a hash (with delay for animations)
+    if (window.location.hash) {
+        const targetElement = document.querySelector(window.location.hash);
+        if (targetElement) {
+            // Small delay to allow page to render and animations to initialize
+            setTimeout(() => {
+                const headerHeight = document.getElementById('header').offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }, 100);
+        }
+    }
+
     // ===== BACK TO TOP FUNCTIONALITY =====
     const backToTopBtn = document.getElementById('back-to-top');
     
