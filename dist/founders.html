@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From the Founders - AgentFlow</title>
+    <meta name="description" content="Insights and perspectives on AI, business strategy and technology from AgentFlow's founders Hamish Nicklin and Stephen Greszczyszyn.">
+
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="0S-C2ZDphhP6ijSEmtrQZk1LVvbb9OUl5HK_tqjaMnc" />
+
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/AgentFlowLogo.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="assets/images/AgentFlowLogo.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LHY2J56X46"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LHY2J56X46');
+    </script>
+
+    <!-- Termly Consent Management -->
+    <script type="text/javascript" src="https://app.termly.io/embed.min.js" data-auto-block="on" data-website-uuid="dc7c6ad3-3c44-4541-b5e2-146d10618f63"></script>
+
+    <link rel="stylesheet" href="css/style.css?v=2026-01-07c">
+
+    <style>
+        /* Founders page - reduce hero and section spacing for better above-fold content */
+        .hero--page {
+            min-height: 25vh;
+        }
+
+        .section {
+            padding: 2rem 0;
+        }
+
+        /* Founders page specific styles */
+        .founders-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .founders-intro {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .founder-bio {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .founder-bio__image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .founder-bio__content {
+            flex: 1;
+        }
+
+        .founder-bio__name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin: 0 0 0.25rem 0;
+        }
+
+        .founder-bio__role {
+            font-size: 0.85rem;
+            color: var(--accent-glow);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .founder-bio__description {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Filter tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: transparent;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-tab:hover {
+            border-color: var(--accent-glow);
+            color: var(--primary-text);
+        }
+
+        .filter-tab.active {
+            background: var(--accent-glow);
+            border-color: var(--accent-glow);
+            color: white;
+        }
+
+        /* Posts grid */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 560px) {
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .post-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .post-card:hover {
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .post-card__author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .post-card__author-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .post-card__author-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin: 0;
+        }
+
+        .post-card__author-handle {
+            font-size: 0.8rem;
+            color: var(--secondary-text);
+            margin: 0;
+        }
+
+        .post-card__embed {
+            display: flex;
+            justify-content: center;
+        }
+
+        .post-card__embed iframe {
+            border-radius: 8px;
+            max-width: 100%;
+        }
+
+        /* Empty state for Stephen */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--secondary-text);
+        }
+
+        .empty-state__icon {
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Native post cards (non-LinkedIn) */
+        .post-card__native {
+            padding: 0;
+        }
+
+        .post-card__native-content {
+            padding: 1.5rem;
+        }
+
+        .post-card__title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .post-card__date {
+            font-size: 0.8rem;
+            color: var(--secondary-text);
+            margin-bottom: 1.25rem;
+        }
+
+        .post-card__text {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .post-card__text:last-child {
+            margin-bottom: 0;
+        }
+
+        .post-card__text--emphasis {
+            /* Same as regular text - no special emphasis */
+        }
+
+        .post-card__text strong {
+            color: var(--primary-text);
+        }
+
+        .post-card__text a {
+            color: var(--accent-glow);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: opacity 0.2s ease;
+        }
+
+        .post-card__text a:hover {
+            opacity: 0.8;
+        }
+
+        .post-card__link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent-glow);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .post-card__link:hover {
+            opacity: 0.8;
+        }
+
+        .post-card__native-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        /* Article action bar (expand + share) */
+        .post-card__actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .post-card__actions--top {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            padding-top: 0;
+            padding-bottom: 1rem;
+            border-top: none;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* Truncated article preview */
+        .post-card__preview {
+            position: relative;
+        }
+
+        .post-card__preview .post-card__full-content {
+            display: none !important;
+        }
+
+        .post-card__preview .post-card__link {
+            display: none;
+        }
+
+        /* Scroll progress bar on left */
+        .scroll-progress {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+            z-index: 1000;
+        }
+
+        .scroll-progress__bar {
+            width: 100%;
+            background: var(--accent-glow);
+            height: 0%;
+            transition: height 0.1s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-progress {
+                width: 3px;
+            }
+        }
+
+        .post-card__expand-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--secondary-text);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .post-card__expand-btn:hover {
+            border-color: var(--accent-glow);
+            color: var(--primary-text);
+        }
+
+        .post-card__expand-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Share buttons */
+        .post-card__share {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .post-card__share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px;
+            color: var(--secondary-text);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .post-card__share-btn:hover {
+            border-color: var(--accent-glow);
+            color: var(--primary-text);
+        }
+
+        .post-card__share-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .post-card__share-btn--copied {
+            border-color: #4ade80;
+            color: #4ade80;
+        }
+
+        /* Tooltip styles */
+        .post-card__share-btn {
+            position: relative;
+        }
+
+        .post-card__share-btn::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.4rem 0.6rem;
+            background: var(--deep-navy, #1a1a2e);
+            color: var(--primary-text, #fff);
+            font-size: 0.75rem;
+            white-space: nowrap;
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            pointer-events: none;
+            margin-bottom: 6px;
+            border: 1px solid rgba(255,255,255,0.15);
+            z-index: 10;
+        }
+
+        .post-card__share-btn:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Two-row action layout */
+        .post-card__actions-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .post-card__actions-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .post-card__actions-row--between {
+            justify-content: space-between;
+        }
+
+        .post-card__share-label {
+            font-size: 0.8rem;
+            color: var(--secondary-text);
+            margin-right: 0.25rem;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--deep-navy, #1a1a2e);
+            color: var(--primary-text, #fff);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.15);
+            font-size: 0.9rem;
+            z-index: 10000;
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            text-align: center;
+            max-width: 90%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .toast__title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: #4ade80;
+        }
+
+        .toast__message {
+            color: var(--secondary-text);
+        }
+
+        /* Modal overlay */
+        .article-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .article-modal.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .article-modal__container {
+            max-width: 720px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .article-modal__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .article-modal__author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .article-modal__author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .article-modal__author-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin: 0 0 0.25rem 0;
+        }
+
+        .article-modal__author-handle {
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+            margin: 0;
+        }
+
+        .article-modal__close {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--secondary-text);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .article-modal__close:hover {
+            border-color: var(--accent-glow);
+            color: var(--primary-text);
+        }
+
+        .article-modal__close svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .article-modal__content {
+            padding: 1rem 0;
+        }
+
+        .article-modal__title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin: 0 0 0.75rem 0;
+            line-height: 1.3;
+        }
+
+        .article-modal__date {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+        }
+
+        .article-modal__text {
+            font-size: 1.15rem;
+            color: var(--secondary-text);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-modal__text strong {
+            color: var(--primary-text);
+        }
+
+        .article-modal__text a {
+            color: var(--accent-glow) !important;
+            text-decoration: underline !important;
+            text-underline-offset: 2px;
+            transition: opacity 0.2s ease;
+        }
+
+        .article-modal__text a:hover {
+            opacity: 0.8;
+        }
+
+        .article-modal__content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin: 2.5rem 0 1rem 0;
+        }
+
+        .article-modal__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .article-modal__share {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .article-modal__share-label {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+        }
+
+        @media (max-width: 768px) {
+            .article-modal__container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+
+            .article-modal__title {
+                font-size: 1.5rem;
+            }
+
+            .article-modal__text {
+                font-size: 1rem;
+            }
+
+            .post-card__actions {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+
+            .post-card__share {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav__container">
+                <a href="index.html" class="nav__logo">
+                    <img src="assets/images/AgentFlow.svg" alt="AgentFlow Logo" class="nav__logo-img">
+                    <span class="nav__logo-text">AgentFlow</span>
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="index.html#solution" class="nav__link">Our Solution</a>
+                        </li>
+                        <li class="nav__item nav__item--dropdown">
+                            <a href="#" class="nav__link nav__link--dropdown">About <i data-feather="chevron-down" class="nav__dropdown-icon"></i></a>
+                            <ul class="nav__dropdown">
+                                <li class="nav__dropdown-item">
+                                    <a href="our-story.html" class="nav__dropdown-link">Our Story</a>
+                                </li>
+                                <li class="nav__dropdown-item">
+                                    <a href="index.html#why-us" class="nav__dropdown-link">Meet the Team</a>
+                                </li>
+                                <li class="nav__dropdown-item">
+                                    <a href="our-approach.html" class="nav__dropdown-link">Our Approach</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a href="index.html#use-cases" class="nav__link">Case Studies</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="founders.html" class="nav__link nav__link--active">From the Founders</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="index.html#contact" class="btn btn--primary">Let's Talk</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i data-feather="menu"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero--page">
+        <div class="hero__container">
+            <div class="hero__content fade-in">
+                <div class="hero__breadcrumb">
+                    <a href="index.html" class="breadcrumb__link">Home</a>
+                    <i data-feather="chevron-right" class="breadcrumb__separator"></i>
+                    <span class="breadcrumb__current">From the Founders</span>
+                </div>
+                <h1 class="hero__title hero__title--page">From the Founders</h1>
+                <p class="hero__subtitle hero__subtitle--page">Perspectives on AI, business and building things that actually work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founders Intro Section -->
+    <section class="section">
+        <div class="container">
+            <!-- Author Bios -->
+            <div class="founders-intro fade-in">
+                <div class="founder-bio">
+                    <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="founder-bio__image">
+                    <div class="founder-bio__content">
+                        <h3 class="founder-bio__name">Hamish Nicklin</h3>
+                        <p class="founder-bio__role">CEO & Co-Founder</p>
+                        <p class="founder-bio__description">How AI changes business - strategy, ops and the bigger picture.</p>
+                    </div>
+                </div>
+                <div class="founder-bio">
+                    <img src="assets/images/StephenUpworkPhoto.png" alt="Stephen Greszczyszyn" class="founder-bio__image">
+                    <div class="founder-bio__content">
+                        <h3 class="founder-bio__name">Stephen Greszczyszyn</h3>
+                        <p class="founder-bio__role">CTO & Co-Founder</p>
+                        <p class="founder-bio__description">Hands-on AI - what I'm learning, building and figuring out.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs fade-in">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="hamish">Hamish</button>
+                <button class="filter-tab" data-filter="stephen">Stephen</button>
+            </div>
+
+            <!-- Posts Grid - Chronological order, newest first -->
+            <div class="posts-grid">
+                <!-- Native Post: Plywood Box -->
+                <article class="post-card post-card__native" id="plywood-box" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">You're Staring at a Plywood Box</h2>
+                        <p class="post-card__date">January 19, 2026</p>
+
+                        <p class="post-card__text">Rant incoming.</p>
+
+                        <p class="post-card__text">Still think AI is overhyped? Are you still boringly wanging on about how everything sounds the same because of it and therefore it's not for you, etc? (Yes, that's a hook, now get over it and read on!)</p>
+
+                        <p class="post-card__text">Well this post is for you.</p>
+
+                        <p class="post-card__text">I don't think your problem's AI, per se... I think it's that you've only used ChatGPT to write a few emails badly, perhaps you've played with Replit or Lovable, or maybe you've just read loads of slop from other people who equally have no f*cking idea how to use the tool and now you think you understand what's possible.</p>
+
+                        <p class="post-card__text"><strong>You don't.</strong></p>
+
+                        <p class="post-card__text">My business partner Stephen has 25 years experience as an engineer from huge global tech companies (and he's the one who builds things properly for our clients) - but he's been through my code on GitHub and couldn't believe what's possible now compared to even just a year ago (nah, 3 months). That's the point. Not that I'm an engineer as I'm obviously not. The point is what these tools can actually do when you stop dismissing them based on a sample size of one badly-prompted chatbot (that's got progressively worse recently).</p>
+
+                        <p class="post-card__text">You sound like Darryl Zanuck, head of 20th Century Fox, who said in 1946 that "television won't hold any market because people will get tired of staring at a plywood box every night." He saw a plywood box and completely missed the revolution that was to come.</p>
+
+                        <p class="post-card__text">And look - if you're still complaining about "ChatGPT tone" it really just shows you have NO IDEA, so maybe stop whingeing and start exploring (and use Claude, it writes better). Or not, I don't care. I know what I've built and I know it works.</p>
+
+                        <p class="post-card__text">I've been holding that in for far too long. But recently there have been too many people I genuinely respect talking about AI in a way that - and I hate to say this - seems to come from a place of total ignorance, and I couldn't hold it in anymore. I love you dearly, but good lord, get in the trenches if you're going to fire shots!</p>
+
+                        <p class="post-card__text">And no, I definitely wouldn't be able to land a 747.</p>
+                    </div>
+                </article>
+
+                <!-- Native Post: Not AI Bias -->
+                <article class="post-card post-card__native" id="not-ai-bias" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">It's not AI bias. It's what we give it to work with.</h2>
+                        <p class="post-card__date">January 14, 2026</p>
+
+                        <p class="post-card__text">I had to read Jon Block's piece in The Media Leader about five or six times before I properly understood what he was arguing. Not because it's poorly written - it's actually a complicated and nuanced subject that needs some serious thinking. So let me try to summarise it, in case you felt the same way.</p>
+
+                        <p class="post-card__text">Here's what I think he's saying: AI agents are starting to make media planning decisions, and they're favouring digital over TV. Not because digital works better, but because the data is denser and easier to compute. His solution is that broadcasters need to build "queryable knowledge architectures" - structured data sources that agents can access in real-time via protocols like MCP (think of it as an API, but specifically built for AI) - rather than falling back on whatever the foundation model learned during training.</p>
+
+                        <p class="post-card__text">I think that's... actually pretty sensible?</p>
+
+                        <p class="post-card__text">But before we move on, I want to push back on one bit of the framing. Block suggests that foundation models are "trained on the open internet" which is "dominated by digital metrics," with the implication being that AI is somehow ignorant of TV's value.</p>
+
+                        <p class="post-card__text">I don't think that's true.</p>
+
+                        <p class="post-card__text">Here's the thing... foundation models have read a lot. They've ingested decades of IPA Effectiveness data, everything Peter Field and Les Binet have written, the Thinkbox research library, Ehrenberg-Bass, Byron Sharp. Claude knows the 60/40 rule. It knows why it's been revised. Ask any LLM "is TV advertising effective?" and you'll get a nuanced answer about reach, attention quality and long-term brand effects. Because it's read the research.</p>
+
+                        <p class="post-card__text">The idea that AI is ignorant of TV's value just doesn't stack up.</p>
+
+                        <p class="post-card__text">Where I agree with Jon - and this matters - is that knowing the theory isn't the same as being able to act on it. Digital wins by default not because AI prefers it, but because digital metrics are easier to compute. Clicks, conversions, last-touch attribution... they're clean signals. Brand lift, memory encoding, attention quality... they're messier and harder to feed into an optimisation loop.</p>
+
+                        <p class="post-card__text">So when agents favour digital, I don't think that's bias per se - and this is important, because "bias" is becoming one of those words thrown around AI quite a lot, in many instances with absolutely good reason. AI assuming people are white middle-aged men, for example. But this isn't one of those occasions. I think that's agent configuration. There's a difference between a foundation model and an agent. Agents use foundation models, yes, but you can point them at specific context and tell them to prioritise it. That's what RAG is for. It takes work to set up properly - I'm not pretending it's trivial - but it's absolutely doable.</p>
+
+                        <p class="post-card__text">Which brings me back to Block's solution - broadcasters building queryable knowledge architectures - an idea I actually really like. Imagine Thinkbox or ITV or Channel 4 creating structured effectiveness data with MCP access that any agent could query would be genuinely useful.</p>
+
+                        <p class="post-card__text">But here's my concern - can you trust broadcasters, or any media owner let's be honest, to be honest brokers of that data? If the MCP says "TV is always the answer," that's just a sales team with an API, isn't it? You'd be swapping one bias for another.</p>
+
+                        <p class="post-card__text">I think the responsibility sits with whoever's building the agent - probably the agency. Use broadcaster data, sure, but as one input among many. Test it, validate it against your own models, blend it with sources you trust. Same as you'd do today with any media owner research. Nobody would just plug into a broadcaster's MCP and say "right, that's our planning sorted."</p>
+
+                        <p class="post-card__text">And let's not forget the most important thing in all of this - keep the human in the loop. The planner absolutely needs to be the one who looks at the plan and has final approval before any execute button is pressed. What makes media planning great is not just data analysis and historical expectations of efficiency - it's the human judgement and experience that you just can't codify. Not yet anyway. So please don't read this as "we can build an agent that actually works so we can get rid of planners and buyers." I just don't believe that's the case.</p>
+
+                        <p class="post-card__text">I'm writing this because I worry articles like this - however well-intentioned - risk creating an anti-AI narrative in TV circles that becomes self-fulfilling. If broadcasters believe AI is inherently biased against them, they'll disengage rather than lean in and help shape how these tools are built. And that would be a shame, because the fix is genuinely within reach.</p>
+                    </div>
+                </article>
+
+                <!-- Native Post: Agreeable Disagreeing About AI -->
+                <article class="post-card post-card__native" id="agreeable-disagreeing-about-ai" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">Some agreeable disagreeing about how to use AI</h2>
+                        <p class="post-card__date">January 12, 2026</p>
+
+                        <p class="post-card__text">Omar Oakes wrote <a href="https://uk.themedialeader.com/after-ai-replaces-technical-labour-we-will-have-to-confront-what-we-accidentally-erased/" target="_blank" rel="noopener noreferrer">a piece this morning</a> that stopped me mid-scroll - I've followed his thinking for a while and normally I'm nodding along to every line, but this one is half brilliant and half dangerous.</p>
+
+                        <p class="post-card__text">The brilliant half: AI used for creative judgment is making everyone sound the same. Verbose and declarative and oddly empty. WPP claiming they've bottled decades of creative expertise into "Super Agents" is exactly the kind of bullshit that deserves calling out. Omar's right - when you use AI to replace thinking rather than sharpen it, you get convergence and you lose friction and, as Omar says, "friction is where meaning lives."</p>
+
+                        <p class="post-card__text">I will die on that hill with you, Omar.</p>
+
+                        <p class="post-card__text">And <a href="https://www.linkedin.com/posts/hamishnicklin_aitransformation-futureofwork-aistrategy-activity-7386298963169292288-X555" target="_blank" rel="noopener noreferrer">I've made the point before</a> that CFOs who see "20% time saved" and immediately think "20% headcount reduction" are making a terrible mistake. Jobs are messy. The friction that people bring - the dissent, the judgment, the "this doesn't feel right" - is exactly what Omar says we're at risk of losing. I agree with that too.</p>
+
+                        <p class="post-card__text">So where's the dangerous half?</p>
+
+                        <p class="post-card__text">It's the risk that Omar's argument gets used to tar all AI automation with the same brush. Because technical automation and creative automation are not the same thing. And treating them as the same problem leads to the wrong conclusions.</p>
+
+                        <p class="post-card__text">For instance... when I was CEO of media at Dentsu, the digital teams had the highest burnout and the highest churn and the lowest satisfaction scores. They weren't burned out because they lacked creative opportunity. They were burned out because the technical work never stopped - pulling data, building reports, troubleshooting performance drops, validating account setups, flagging tracking issues, running optimisations, doing QA. All of it manual and urgent and all of it eating up time they didn't have.</p>
+
+                        <p class="post-card__text">And they were still expected to do the strategic thinking and the client work on top. That's why they burned out. There literally weren't enough hours.</p>
+
+                        <p class="post-card__text">That's not friction where meaning lives. That's just friction.</p>
+
+                        <p class="post-card__text">And here's the bit that really mattered: those people didn't want to be spreadsheet and data monkeys. They wanted to do more strategic work. More client relationships. More of what they thought they were actually getting paid for. The drudgery wasn't just tiring - it was frustrating. It was stopping them doing the work that Omar rightly says matters most.</p>
+
+                        <p class="post-card__text">MCP - Model Context Protocol - is the direction of travel here. Google Ads already has an official MCP (read-only for now), and others are emerging. Even today, AI can query live data, pull reports, and surface issues without anyone touching a spreadsheet. The reporting layer doesn't get faster - it starts to disappear. Write access - letting AI propose and execute optimisations - is coming, but we're not there yet at enterprise scale. When it arrives, the rest of that technical work shrinks dramatically. My back of the fag packet numbers suggest 45% of a typical paid social team's time could be freed up. Some of that's possible today. All of it will be soon.</p>
+
+                        <p class="post-card__text">That 45% isn't creative judgment being automated away. It's people being freed FROM technical drudgery TO exercise more of the judgment and dissent that Omar rightly wants to protect.</p>
+
+                        <p class="post-card__text">And in this instance, everyone wins. The people get to do the work they actually wanted to do - less burnout, more fulfillment. The clients get more strategic thinking on their accounts. The agency gets happier clients who stay longer and spend more. Lower churn or higher revenue - probably both.</p>
+
+                        <p class="post-card__text">That's not "AI takes jobs." And it's not just "AI saves money." It's "AI makes the whole thing work better for everyone."</p>
+
+                        <p class="post-card__text">So Omar - I'm not disagreeing with you. I'm asking you to be more precise. Your headline says "technical labour" but your argument is about creative judgment. Those aren't the same thing. And when you blur the line, you risk scaring people away from the automations that would actually free them to do the work you're trying to protect.</p>
+
+                        <p class="post-card__text">Let me give you a real working example of an AI workflow I use almost every day. It's this LinkedIn piece - and just about every LinkedIn piece I write. Claude helped me draft this. Here's how it worked; I did the thinking - the idea, the structure, the argument, the challenge. Claude put flesh on the bones, then I edited the hell out of it until it sounded like me.</p>
+
+                        <p class="post-card__text">That's the right use of AI for me because I'm not a natural writer. My grammar and spelling are awful and I waffle on and repeat myself and go in circles as I write down what I'm thinking. I find it really hard to edit that rambling mess into something people might actually want to read. It gets overly long and confusing and self-referential. It's not good.</p>
+
+                        <p class="post-card__text">But AI is excellent at sorting out my spelling and grammar and making sense of my circular thinking. It puts it in a form I'm more comfortable with. Yes, I could probably get there myself - but it would take a lot longer. And I'd rather spend that time on the argument.</p>
+
+                        <p class="post-card__text">Which is sort of the whole point I'm making.</p>
+
+                        <p class="post-card__text">What do you think, Omar?</p>
+
+                        <p class="post-card__text"><em>I edited this piece on 14th January 2026 to clarify the current state of MCP integrations that I inadvertently OVER HYPED. The original version overstated what's available today - the direction is right, the timeline was wrong. There ARE MCPs available that technically can do all this today, but they are not official and very brittle. The only official MCP is Google's AdWords read only version and even that is clunky. BUT it IS the direction of travel. The rest of the article still holds true.</em></p>
+                    </div>
+                </article>
+
+                <!-- Native Post: C-Suite AI Understanding -->
+                <article class="post-card post-card__native" id="c-suite-know-what-ai-means" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">C-suite execs: do you actually know what "AI" means?</h2>
+                        <p class="post-card__date">January 11, 2026</p>
+
+                        <p class="post-card__text">I remember when programmatic was the word nobody could define. Header bidding, DSPs, SSPs, PMPs, horizontal auctions - we used to sit on panels debating what "programmatic" actually meant, because everyone used it for whatever they wanted it to mean. Sound familiar?</p>
+
+                        <p class="post-card__text">Back then I spent hours in rooms with whiteboards, learning the plumbing (and the lingo). It was painful. But it meant I could fight for resources at the exec table, back the team when they needed budget and help them navigate vendors... and our CFO who was demanding returns and immediate growth.</p>
+
+                        <p class="post-card__text">We grew Guardian ad revenue when everyone else's was falling because we drove programmatic hard. I'm not taking credit for that - the team were amazing - but I will take credit for giving them exec air cover: the budget, the headcount, the protection from short-term thinking and the backing when vendors or the CFO pushed back. And I could only do that because I understood it at the right level - not in the weeds, not at 30,000ft, but at the level a C-suite exec actually needs to make decisions and back their team.</p>
+
+                        <p class="post-card__text">That's what I'm trying to offer here for AI.</p>
+
+                        <p class="post-card__text">Because at some point soon - if it hasn't happened already - someone's going to walk into your office asking for budget for "an AI project". Or a vendor's going to pitch you "an AI solution". Or the board's going to ask what your AI strategy is.</p>
+
+                        <p class="post-card__text">And you need to know enough to ask: what type of AI? How complex? Is that the right level for the problem? Is this priced right for what it is?</p>
+
+                        <p class="post-card__text">You don't need to know how the models work. But you do need the vocabulary to have the conversation and a sense of what's actually possible.</p>
+
+                        <p class="post-card__text">So here's my working framework:</p>
+
+                        <p class="post-card__text"><strong>Chat</strong> (Claude, ChatGPT, Gemini, Grok if you're a perv)</p>
+
+                        <p class="post-card__text"><strong>Agentic workflows</strong> (you tell AI to do a predefined set of things, it returns with results, you decide what to do next)</p>
+
+                        <p class="post-card__text"><strong>Agents</strong> (you give it an objective and it figures out how to achieve it)</p>
+
+                        <p class="post-card__text"><strong>Agentic systems</strong> (you create an AI boss, give it the overall objective and it decides which agents to create, what systems to interact with, what data to collect, when good is good enough and so on)</p>
+
+                        <p class="post-card__text">That's a rough hierarchy and the lines blur - but it's useful for thinking about what you're actually buying or building. And it's a hell of a range.</p>
+
+                        <p class="post-card__text">I remember when digital was new. I was the junior who actually understood it and my bosses just nodded along hoping I wasn't bullshitting them. I ran rings around them. That wasn't good for them. Don't be them.</p>
+
+                        <p class="post-card__text">If you want help figuring out where to start, that's what we do at AgentFlow. We help you work out where all these AI levels actually fit in your business - whether that's making your team more productive, unlocking new revenue or just making yourself easier to deal with - then build the right solution and support it as you grow. We start with discovery, then figure out what's actually worth building.</p>
+
+                        <p class="post-card__text">DM me or find us at <a href="https://www.goagentflow.com" target="_blank" rel="noopener noreferrer">www.goagentflow.com</a>.</p>
+
+                        <p class="post-card__text">I'm going to try and do more of this - helping C-suite navigate the AI madness. Follow along if that's useful.</p>
+
+                        <a href="https://www.linkedin.com/in/hamishnicklin" target="_blank" rel="noopener noreferrer" class="post-card__linkedin-link">View on LinkedIn →</a>
+                    </div>
+                </article>
+
+                <!-- Native Post: Millennial C-Suite -->
+                <article class="post-card post-card__native" id="millennial-c-suite-boomer-mistake" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">Millennial C-Suite: are you about to make the same mistake the boomers made?</h2>
+                        <p class="post-card__date">January 9, 2026</p>
+
+                        <p class="post-card__text">When I started work in the late 90s, email had just arrived and there were senior execs who'd get their PAs to print them out, annotate them by hand, then have the PA type up the replies. It looked absurd from where we were sitting... but honestly, it made a kind of sense - their two-finger, jabby and pointy, ten words a minute typing genuinely was more expensive than paying someone else to do it, and besides, they were retiring in a few years so you couldn't really argue with it (and because I was Gen X, I didn't).</p>
+
+                        <p class="post-card__text">So what's your excuse for doing the same with AI?</p>
+
+                        <p class="post-card__text">You've got 15+ years of career left and if you're anything like I was 36 months ago, you're nervous about looking stupid, you don't have time to learn something new and you've no idea where to even start. So, what, you've delegated it to the team and told yourself that counts?</p>
+
+                        <p class="post-card__text">It doesn't.</p>
+
+                        <p class="post-card__text">Perhaps try this: imagine an AI Chief of Staff that actually knows your context, your priorities, your decisions. One that maintains a rolling picture of your projects, flags what's stuck, tracks what you're waiting on from others and prepares your thinking before you need it. One that captures all those ideas you email yourself at 11pm and actually surfaces them when they're relevant, instead of letting them rot in your inbox. Not a chatbot you have to re-explain everything to every time - a persistent system that learns how you work.</p>
+
+                        <p class="post-card__text">The tool exists. It's called Claude Code and most people think it's for developers... which is like saying a Swiss Army knife is just for cutting. Yes, you'll need to have a conversation with your SecOps team - we'll give you that argument in the longer piece on our site. But getting Claude Code to become an AI chief of Staff took me 30 minutes and I called it Jarvis. I know. I'm sorry.</p>
+
+                        <p class="post-card__text">The tools aren't hard. But you can't delegate the learning - start with your own workflows. There's a full walkthrough on our website (link in comments) of how I did it - please copy it and give it a go - it's the best way to learn. Or just call us.</p>
+
+                        <p class="post-card__text">I've also got it in a repo in our AgentFlow GitHub if you would rather - but if you know what that means, you probably won't need the link to it - Ask me if you want it and I'll ping it to you.</p>
+
+                        <p class="post-card__text">(And if you've already got a great EA or Chief of Staff? Learn this together. It's not about replacing them - it's about supercharging what you can both do.)</p>
+
+                        <p class="post-card__text">(Credit to Nate B. Jones whose YouTube and Substack first got me thinking about this - give him a follow, he's a legend.)</p>
+
+                        <a href="https://www.linkedin.com/in/hamishnicklin" target="_blank" rel="noopener noreferrer" class="post-card__linkedin-link">View on LinkedIn →</a>
+                    </div>
+                </article>
+
+                <!-- Native Post: How to Build an AI Chief of Staff -->
+                <article class="post-card post-card__native" id="ai-chief-of-staff" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">How to Build an AI Chief of Staff (and How to Get Your SecOps Team to Say Yes)</h2>
+                        <p class="post-card__date">January 8, 2026</p>
+
+                        <p class="post-card__text">So you read the LinkedIn post and you're here for the how.</p>
+
+                        <p class="post-card__text">The pitch was simple: don't delegate learning AI to your team. Start with your own workflows. And what better place to start than building yourself something genuinely useful - an AI Chief of Staff.</p>
+
+                        <p class="post-card__text">A Chief of Staff is someone who tracks everything, spots what you've missed, deals with issues before they reach you and makes sure nothing falls through the cracks. In the British military they call this an ADC - their job is to keep the boss out of trouble.</p>
+
+                        <p class="post-card__text">Here's how to build one.</p>
+
+                        <p class="post-card__text">This article will take you about 10 minutes to read and maybe an hour to implement. That hour is an investment in yourself - learning by doing, not by delegating to someone else.</p>
+
+                        <h3>Why Claude Code (and why it's not just for developers)</h3>
+
+                        <p class="post-card__text">Most people think Claude Code is a tool for software engineers. That's like saying a Swiss Army knife is just for cutting. Yes, it can write code. But what makes it different from ChatGPT or regular Claude is that it persists. It remembers. It can read and write files on your computer. It doesn't reset every time you close the window.</p>
+
+                        <p class="post-card__text">Now, if you're thinking "doesn't Copilot do this?" - fair question. Copilot does know your context, it does learn over time, and if you're already living in Microsoft 365 it's a legitimate option. You could build something similar there. But here's why I prefer Claude Code: the memory is yours. You can see it, edit it, control exactly what it knows and how it thinks about your work. It's not a black box that's learning about you somewhere in the cloud - it's a set of files on your machine that you own. For me, that control matters.</p>
+
+                        <p class="post-card__text">If you've never used a terminal before, this might feel intimidating. I promise it's not as scary as it looks. You're basically just typing instructions instead of clicking buttons. And once it's set up, you'll barely think about it.</p>
+
+                        <h3>What you're actually building</h3>
+
+                        <p class="post-card__text">Think of this as giving the AI a workspace and a set of habits. Don't worry about how to set it up - we'll give you a prompt that does most of the heavy lifting. For now, just understand what the pieces are.</p>
+
+                        <p class="post-card__text">The workspace is a folder on your computer with a few key files. The first is something called CLAUDE.md - essentially an instruction manual that tells the AI who you are, how you like to work, what your priorities are and what it's allowed to do without asking. This means you don't have to re-explain yourself every session. It already knows.</p>
+
+                        <p class="post-card__text">Then there are a few simple files that act as your system. An INBOX.md for capturing things that need processing. A PROJECTS.md that tracks what you're working on and where each thing stands. A WAITING_FOR.md that tracks what you've delegated to others and when you need to chase. A DECISIONS.md that logs what you decided and why. A CLIENTS.md for keeping track of who you're working with. And crucially, an IDEAS.md for capturing those random thoughts and sparks that hit you when you're walking the dog or in the shower - not tasks, just things that need to marinate. When ideas get acted on or dismissed, they move to IDEAS-ARCHIVE.md.</p>
+
+                        <p class="post-card__text">The magic is in the surfacing. Your Chief of Staff will bring relevant ideas back to you at the right moment - during check-ins or when you're working on something related. No more losing good thoughts because you didn't have anywhere to put them.</p>
+
+                        <p class="post-card__text">Claude Code will create all of this for you. You just need to answer its questions.</p>
+
+                        <p class="post-card__text">You can also connect Claude Code to your calendar and email - giving the AI eyes into your schedule so it can see what's coming up and help you prepare. We'll come to that once you've got the basics working.</p>
+
+                        <h3>Getting your machine ready</h3>
+
+                        <p class="post-card__text">Before we install Claude Code, let's make sure you know what we're working with. Don't worry - this is simpler than it sounds.</p>
+
+                        <p class="post-card__text"><em>What is a terminal?</em></p>
+
+                        <p class="post-card__text">A terminal is just a window where you type commands instead of clicking buttons. Think of it as texting your computer rather than pointing at things. Every Mac and Windows PC has one built in - you've just probably never opened it.</p>
+
+                        <p class="post-card__text"><em>Opening the terminal on a Mac</em></p>
+
+                        <p class="post-card__text">Press Command + Space to open Spotlight, type "Terminal" and hit Enter. A window will open with a blinking cursor. That's it - you're in.</p>
+
+                        <p class="post-card__text"><em>Opening the terminal on Windows</em></p>
+
+                        <p class="post-card__text">Press the Windows key, type "PowerShell" and hit Enter. Make sure you're opening "Windows PowerShell" not the older "Command Prompt." A blue window will open with a blinking cursor.</p>
+
+                        <p class="post-card__text"><em>Installing Claude Code on a Mac</em></p>
+
+                        <p class="post-card__text">Copy and paste this line into your terminal and press Enter:</p>
+
+                        <p class="post-card__text"><code>curl -fsSL https://claude.ai/install.sh | bash</code></p>
+
+                        <p class="post-card__text">Wait for it to finish. You'll see some text scrolling - that's normal. When it's done, you'll get a message confirming the installation.</p>
+
+                        <p class="post-card__text"><em>Installing Claude Code on Windows</em></p>
+
+                        <p class="post-card__text">Copy and paste this line into PowerShell and press Enter:</p>
+
+                        <p class="post-card__text"><code>irm https://claude.ai/install.ps1 | iex</code></p>
+
+                        <p class="post-card__text">Same as Mac - wait for it to finish and look for the confirmation message.</p>
+
+                        <p class="post-card__text"><em>Setting up your account</em></p>
+
+                        <p class="post-card__text">You'll need either an Anthropic API account with billing set up, or a Claude Pro or Max subscription. If you're already paying for Claude through claude.ai, the Max subscription is probably the simplest option - it covers both the web interface and Claude Code.</p>
+
+                        <p class="post-card__text">When you first run Claude Code (just type <code>claude</code> in your terminal and press Enter), it will walk you through connecting your account. Follow the prompts - it's just clicking through a browser authentication.</p>
+
+                        <p class="post-card__text"><em>If something goes wrong</em></p>
+
+                        <p class="post-card__text">Type <code>claude doctor</code> in your terminal. This runs a diagnostic that checks your installation and tells you what's broken. Nine times out of ten, it'll either fix the problem automatically or tell you exactly what to do.</p>
+
+                        <h3>The setup prompt</h3>
+
+                        <p class="post-card__text">Now for the good bit. Rather than giving you a long list of manual steps, here's a prompt you can paste into Claude Code that will guide you through building your Chief of Staff system. Claude will ask you questions, create the files and set everything up based on your answers.</p>
+
+                        <p class="post-card__text">Open your terminal, type <code>claude</code> and press Enter. Once Claude Code is running, paste this:</p>
+
+                        <div class="post-card__prompt-block">
+                            <p class="post-card__text"><em>I want you to help me set up an AI Chief of Staff system. This means creating a folder structure and a set of files that will help you maintain context about my work across sessions.</em></p>
+
+                            <p class="post-card__text"><em>Please do the following:</em></p>
+
+                            <p class="post-card__text"><em>1. Create a folder called "chief-of-staff" in my home directory</em></p>
+
+                            <p class="post-card__text"><em>2. Inside that folder, create these files: CLAUDE.md, INBOX.md, PROJECTS.md, WAITING_FOR.md, DECISIONS.md, CLIENTS.md, IDEAS.md, IDEAS-ARCHIVE.md</em></p>
+
+                            <p class="post-card__text"><em>3. Create a subfolder called "work-orders"</em></p>
+
+                            <p class="post-card__text"><em>4. Once the structure is created, interview me to build my CLAUDE.md file. Ask me about:</em></p>
+                            <p class="post-card__text"><em>- Who I am and what I do</em></p>
+                            <p class="post-card__text"><em>- How I like to work (when I'm most productive, how I prefer to communicate, how I make decisions)</em></p>
+                            <p class="post-card__text"><em>- My current top 3-5 priorities</em></p>
+                            <p class="post-card__text"><em>- Key people I work with and what I rely on them for</em></p>
+                            <p class="post-card__text"><em>- What you're allowed to do without asking me (e.g. drafting, research, organising files) vs what requires my approval (e.g. anything external-facing, anything involving money or commitments)</em></p>
+
+                            <p class="post-card__text"><em>5. After the interview, write the CLAUDE.md file based on my answers</em></p>
+
+                            <p class="post-card__text"><em>6. Then run me through a quick "Intention Clarifier" - ask me what's been on my mind or nagging at me lately, and help me figure out what the real next step is. Capture the output in the appropriate file (PROJECTS.md, WAITING_FOR.md, DECISIONS.md, IDEAS.md or INBOX.md)</em></p>
+
+                            <p class="post-card__text"><em>7. Explain the ideas capture system: IDEAS.md is for thoughts and sparks that need to marinate (not tasks). Ideas get light tags when obvious ([client], [content], [product], [process], [personal]). You'll surface relevant ideas during check-ins or when working on related topics. Ideas that get acted on or dismissed move to IDEAS-ARCHIVE.md.</em></p>
+
+                            <p class="post-card__text"><em>8. Finally, explain how to do an end-of-day reconciliation and a morning check-in so I know how to use this system going forward</em></p>
+
+                            <p class="post-card__text"><em>Ask me your first question when you're ready.</em></p>
+                        </div>
+
+                        <p class="post-card__text">That's it. Claude will take it from there. Answer honestly - the more context you give it, the better the system works.</p>
+
+                        <p class="post-card__text">Once you've got the basics working, you can give your Chief of Staff more context by dropping in key documents - your annual strategy, your objectives, your job spec, even org charts or team structures. The more it knows about what you're trying to achieve, the better it can help you prioritise and spot what's missing.</p>
+
+                        <h3>Connecting your calendar and email</h3>
+
+                        <p class="post-card__text">Now you've got the core system running, it's worth connecting Claude Code to your calendar and email. This gives your Chief of Staff eyes into your schedule - it can see what's coming up, help you prepare for meetings and flag when things are getting crowded.</p>
+
+                        <p class="post-card__text">I thought this was going to be painful. Azure app registration, API permissions, tokens - it all sounded like the kind of thing I'd put off forever. Turns out Claude Code just walks you through it. You tell it you want to connect to Outlook and Calendar via MCP, it tells you exactly what to do in Azure step by step, and fifteen minutes later you're connected to Teams, SharePoint, Outlook, Calendar, OneNote and Tasks. Everything you'd want a Chief of Staff to see.</p>
+
+                        <p class="post-card__text">If you're using Google Calendar and Gmail, it's even simpler - just ask Claude Code to help you connect and follow its instructions.</p>
+
+                        <p class="post-card__text">The key is: don't overthink it. Just ask Claude Code what to do and do what it tells you.</p>
+
+                        <p class="post-card__text">Once you've connected your email, your morning check-in gets even better. I email myself ideas when I'm out and about, and my Chief of Staff picks them up overnight, tags them and adds them to IDEAS.md. No more good thoughts lost in an inbox I'll never search.</p>
+
+                        <h3>The daily rhythm</h3>
+
+                        <p class="post-card__text">The system only works if you use it. But "using it" doesn't mean hours of effort - it means a few minutes of intentional check-ins.</p>
+
+                        <p class="post-card__text">In the morning, you open Claude Code and ask it to help you clarify your intentions for the day. Not a to-do list, but a sense of what would make today feel successful. The AI can interview you - asking questions until it's clear what you actually need to do versus what's just floating around in your head.</p>
+
+                        <p class="post-card__text">During the day, you update the files as things happen. Or you ask the AI to update them based on what you tell it. "I just spoke to Sarah and we agreed to push the launch to March - update PROJECTS.md."</p>
+
+                        <p class="post-card__text">At the end of the day, you run a quick reconciliation. What got done? What's still open? What needs to move to tomorrow? This takes five minutes and it means you start the next day with a clean picture instead of a foggy sense of dread.</p>
+
+                        <h3>The governance layer</h3>
+
+                        <p class="post-card__text">This is important. Not everything should be delegated, even to a very smart AI.</p>
+
+                        <p class="post-card__text">The rule is reversibility. If something can be undone easily - drafting a document, researching a topic, reorganising your notes - let the AI do it. If something is irreversible or high stakes - sending an email to the board, making a financial commitment, publishing something publicly - that needs your explicit approval before it happens.</p>
+
+                        <p class="post-card__text">Build this into your CLAUDE.md file. Tell the AI what it can do autonomously and what requires a checkpoint. This isn't about trust, it's about designing a system that doesn't let small errors become big problems.</p>
+
+                        <h3>How to get your SecOps team to say yes</h3>
+
+                        <p class="post-card__text">Now for the conversation you're probably dreading. You want to use this tool. IT will have concerns. Here's how to navigate that.</p>
+
+                        <p class="post-card__text">First, understand what they're actually worried about. It's usually some combination of: where does the data go, who can see it, does this create compliance risk and is this just shadow IT that's going to cause problems later. These are legitimate concerns and dismissing them won't help you.</p>
+
+                        <p class="post-card__text">Second, reframe the conversation. Don't ask for permission to "use AI." Ask for permission to run a controlled pilot. Ninety days. Just you, maybe one or two others. Non-client data only. Your own working documents. Full audit trail. This is much easier to approve than an enterprise-wide rollout.</p>
+
+                        <p class="post-card__text">Third, address their concerns specifically. Anthropic - the company behind Claude - has enterprise agreements with data retention controls and no training on your data. The file-based system you're building creates its own audit trail. You can agree upfront what types of data are in scope and out of scope.</p>
+
+                        <p class="post-card__text">Fourth, make it their win too. If this works, they'll have designed the governance framework before everyone else in the company starts asking. They'll be ahead of the curve when the board wants to know what your AI policy looks like. SecOps people don't want to be blockers - give them a way to be enablers.</p>
+
+                        <p class="post-card__text">And if they still say no? Ask them what specifically they'd need to see to say yes. If the answer is "nothing, ever," then you've got a different conversation to have - probably at exec committee level - about whether your company is serious about staying competitive.</p>
+
+                        <h3>What to expect</h3>
+
+                        <p class="post-card__text">The first few weeks will be clunky. You'll forget to update the files. The AI will misunderstand what you meant. You'll wonder if this is actually saving you time or just creating a new kind of admin.</p>
+
+                        <p class="post-card__text">Push through it. By week four or five, something shifts. You start to notice that you're not carrying as much in your head. That you can pick up a project after a week away and actually know where you left it. That the AI is starting to anticipate what you need before you ask.</p>
+
+                        <p class="post-card__text">By month three, you'll wonder how you worked without it.</p>
+
+                        <h3>Where to start</h3>
+
+                        <p class="post-card__text">If this sounds like something you want to build yourself, start with the CLAUDE.md file. Spend thirty minutes writing down who you are, what you're working on, how you like to communicate and what your priorities are for the next quarter. That document alone - even before you do anything else - will clarify your own thinking in ways you might not expect.</p>
+
+                        <p class="post-card__text">Then install Claude Code, point it at that file and start a conversation. See what happens.</p>
+
+                        <p class="post-card__text">If you'd rather not do this yourself - maybe the terminal feels like a step too far, maybe you're locked into Copilot or Gemini, maybe you just want someone else to figure it out - we can build this for you. Same outcome, tailored to your tools and your workflows, with proper governance designed in from the start. That's what we do. <a href="index.html#contact" style="color: var(--accent-glow);">Get in touch</a>.</p>
+
+                        <p class="post-card__text">And if you're thinking "this is great but my team still can't use the tools we've already got" - <a href="assess/" style="color: var(--accent-glow);">take our Copilot Quiz</a> to see where you are and whether our Copilot Sprint might help.</p>
+
+                        <p class="post-card__text">And if you've already got a brilliant EA or Chief of Staff? Even better. Learn this together - you bring the strategic context, they bring the operational rigour. This isn't about replacing people, it's about giving your whole team leverage. More on how to do that in a future piece.</p>
+
+                        <p class="post-card__text">I should acknowledge Nate B. Jones here - his YouTube channel and Substack were what first got me experimenting with this approach. If you want to go deeper, give him a follow. He's a legend.</p>
+                    </div>
+                </article>
+
+                <!-- Native Post: The AgentFlow Manifesto -->
+                <article class="post-card post-card__native" id="agentflow-manifesto" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">The AgentFlow Manifesto</h2>
+                        <p class="post-card__date">January 2026</p>
+
+                        <p class="post-card__text">Most businesses come to us saying some version of "we need to do something with AI."</p>
+
+                        <p class="post-card__text">And the first thing we ask is: why? What makes you think that?</p>
+
+                        <p class="post-card__text">Not because it's a bad instinct - it's usually right. But because the answer tells us everything about where to start.</p>
+
+                        <p class="post-card__text">Sometimes it's strategic - a board asking questions, competitors making noise, a sense that the world is shifting and they're not sure how to shift with it. Sometimes it's painfully specific - a process that's bleeding time, a team that's drowning, a growth ambition that can't be met without hiring people they can't afford.</p>
+
+                        <p class="post-card__text">And sometimes - honestly - it's just that their team wants to throw their laptops out the window. That's as valid a starting point as any.</p>
+
+                        <h3>AI is a spectrum</h3>
+
+                        <p class="post-card__text">Here's what we've learned: AI isn't one thing. It's not a single solution you bolt on. It's a spectrum - and where you should be on that spectrum depends on the problem you're solving, the risk you're comfortable with and what it's worth to get it right.</p>
+
+                        <p class="post-card__text">At one end, it might be as simple as helping your people actually use the AI tools you've already paid for. Copilot, ChatGPT, whatever's sitting there underutilised. No new tech, no big project - just showing people how to get more from what's already on their desktop.</p>
+
+                        <p class="post-card__text">At the other end, it's agentic systems - AI that doesn't just assist but actively works alongside your team, handling complex workflows with humans in the loop where it matters.</p>
+
+                        <p class="post-card__text">And in between? A whole range of possibilities. Automations that save hours. Workflows that scale without scaling headcount. Tools that turn junior people into experts and experts into superheroes.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">The point is: you don't always need a massive data engineering overhaul to get value from AI. Sometimes you do. Often you don't. And the skill is knowing which is which.</p>
+
+                        <h3>Discover, Build, Embed</h3>
+
+                        <p class="post-card__text">We help businesses figure this out through a simple model: Discover, Build, Embed.</p>
+
+                        <p class="post-card__text"><strong>Discover</strong> is where we help you see the landscape. We use a framework - a simple 2x2 - that maps AI opportunities across two dimensions: whether they're internal or external to your business and whether they're about productivity or growth.</p>
+
+                        <p class="post-card__text">Most people, when they think about AI, only see one corner of this grid. They're thinking about productivity (making things faster) or they're thinking about customer-facing applications - but rarely both and rarely the full picture.</p>
+
+                        <p class="post-card__text">The 2x2 opens their eyes to what's possible. And then - crucially - we don't leave it abstract. We work with you to plot your specific opportunities onto it, with real ROI estimates. It becomes your map.</p>
+
+                        <p class="post-card__text"><strong>Build</strong> is where we help you deliver. The right solution for the right problem - whether that's training your team to use existing tools better, building automated workflows that keep humans in the loop, or developing more sophisticated agentic systems. We're not trying to upsell you to complexity. We're trying to match the solution to the problem.</p>
+
+                        <p class="post-card__text"><strong>Embed</strong> is where we make it stick. Because the graveyard of AI projects is full of brilliant pilots that never made it into the business. We help you get adoption, build capability and make sure the value actually lands.</p>
+
+                        <h3>Outcomes that matter</h3>
+
+                        <p class="post-card__text">The outcome we're working towards? It depends which quadrant matters most to you.</p>
+
+                        <p class="post-card__text">If it's <strong>internal productivity</strong> - we're measuring hours freed. Time your team gets back to do the work that actually matters.</p>
+
+                        <p class="post-card__text">If it's <strong>internal growth</strong> - we're looking at reduced churn, better retention, capability that compounds.</p>
+
+                        <p class="post-card__text">If it's <strong>external productivity</strong> - we're after growth at near-zero marginal cost. Scaling what you do without proportionally scaling what you spend.</p>
+
+                        <p class="post-card__text">If it's <strong>external growth</strong> - we're measuring revenue. New customers, new markets, new opportunities.</p>
+
+                        <h3>What we're not</h3>
+
+                        <p class="post-card__text">Here's what we're not: we're not a big consultancy that'll spend six months telling you what you already know and then hand you a PowerPoint. We're not a tech vendor trying to sell you a platform. We're not pretending AI is magic, or that every problem needs a complex solution.</p>
+
+                        <p class="post-card__text">We're practical. We start with the annoying stuff - the things that make your team want to throw their laptops out the window - and we work towards the strategic stuff: how you grow without proportionally growing cost.</p>
+
+                        <p class="post-card__text">And we're honest. Sometimes the answer is "just use what you've got better." Sometimes it's "you need to build something." Sometimes it's "this isn't actually an AI problem." We'll tell you which.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">That's AgentFlow. We help businesses figure out where AI can actually help, build the right solution for the problem and make sure it sticks. Simple as that.</p>
+                    </div>
+                </article>
+
+                <!-- Hamish Post - Move 37 Moment (7414585750706597888) -->
+                <article class="post-card post-card__native" id="move-37-moment" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">Your Move 37 Moment is Coming</h2>
+                        <p class="post-card__date">January 7, 2026</p>
+
+                        <p class="post-card__text">In 2016, world champion Lee Sedol sat down to defend humanity's honour in Go - the world's most complex board game, with more possible moves than atoms in the universe. A game we'd dominated for 2,500 years. His opponent: Google's AI.</p>
+
+                        <p class="post-card__text">In game two, move 37 changed everything. The AI played a move no human ever had - brilliant, illogical, devastating. But Sedol didn't walk away. He studied, adapted and later made move 78 - a play so creative that AlphaGo faltered and gave up.</p>
+
+                        <p class="post-card__text">I believe most knowledge workers will experience their own "Move 37 moment" this year - that pivotal instance where AI demonstrates capabilities that surpass what you thought was your strength.</p>
+
+                        <p class="post-card__text">Mine happened when AI completed strategic work for AgentFlow in five minutes. Work I previously considered my competitive advantage. My "Move 78" was recognising that while AI handles the heavy lifting, human judgment and experience determine what's genuinely valuable.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">The future doesn't belong to those who fear technology or blindly trust it. It belongs to those who learn to collaborate with it strategically.</p>
+
+                        <p class="post-card__text">What will you do when AI challenges your expertise? How will you find your Move 78?</p>
+
+                        <a href="https://www.linkedin.com/feed/update/urn:li:share:7414585750706597888" class="post-card__link" target="_blank" rel="noopener">View on LinkedIn →</a>
+                    </div>
+                </article>
+
+                <!-- Hamish Post - £2,000 vs 45p (7414203178289680384) -->
+                <article class="post-card post-card__native" id="2000-vs-45p" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">£2,000 and Two Months vs 35 Minutes and 45p</h2>
+                        <p class="post-card__date">January 6, 2026</p>
+
+                        <p class="post-card__text">My wife Helena had a web app built a couple of years ago. It cost £2,000 and took two months. Yesterday I rebuilt it using Claude Code in 35 minutes. It cost 45 pence.</p>
+
+                        <p class="post-card__text">Helena's a WSET-trained sommelier with a brilliant concept called "vinalogy" - wine grapes as character personas. Cabernet Sauvignon is the rugby player who peaked in sixth form. Riesling is your friend who brings obscure cheeses to dinner parties. It's a fun, accessible way to understand wine.</p>
+
+                        <p class="post-card__text">I used Claude Code to research her existing vinalogies, write new ones in her voice, generate character images and build the complete quiz application - all from a simple spreadsheet.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">If you're still using AI just to write emails and summarise meeting notes, you are being left way, way behind.</p>
+
+                        <p class="post-card__text">Six weeks ago, this same project would have required significantly more iteration. The tools are improving that fast. Right now I'm simultaneously running Claude Code sessions building a sales agent and CRM system for AgentFlow.</p>
+
+                        <p class="post-card__text">What could you build in 35 minutes?</p>
+
+                        <a href="https://www.linkedin.com/feed/update/urn:li:share:7414203178289680384" class="post-card__link" target="_blank" rel="noopener">View on LinkedIn →</a>
+                    </div>
+                </article>
+
+                <!-- Hamish Post - Get Your Data in Order (7401688341777174528) -->
+                <article class="post-card post-card__native" id="data-in-order" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">Stop Telling People to "Get Their Data in Order"</h2>
+                        <p class="post-card__date">January 4, 2026</p>
+
+                        <p class="post-card__text">"You need to get your data in order before you do AI."</p>
+
+                        <p class="post-card__text">This advice is everywhere. It's also vague to the point of being meaningless. Which data? In what order? For what purpose?</p>
+
+                        <p class="post-card__text">There are legitimate data considerations: Do you know what systems you have and whether the data is accurate? Can information flow between systems? Is terminology consistent across departments? Is data accessible and legally compliant? Are your processes standardised? Do you have enough historical data for training?</p>
+
+                        <p class="post-card__text">But here's the thing: not all of these factors need addressing simultaneously. Which ones matter depends entirely on your specific use case.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">I've seen clients abandon AI projects unnecessarily, believing their data was too disorganised. Once we clarified which specific elements mattered for their goals, they discovered they were closer to readiness than they thought.</p>
+
+                        <p class="post-card__text">Next time someone tells you to "get your data in order," ask them to specify which aspects matter. If they can't answer clearly, they're probably just repeating what they've heard.</p>
+
+                        <a href="https://www.linkedin.com/feed/update/urn:li:share:7401688341777174528" class="post-card__link" target="_blank" rel="noopener">View on LinkedIn →</a>
+                    </div>
+                </article>
+
+                <!-- Hamish Post - Bad AI Days (7400584869606481920) -->
+                <article class="post-card post-card__native" id="its-you-not-ai" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">It's You, Not Your AI</h2>
+                        <p class="post-card__date">November 13, 2025</p>
+
+                        <p class="post-card__text">I was getting frustrated with Claude Code yesterday. Nothing was working. Then I saw its internal reasoning: "The user seems frustrated. I have attempted this fix three times without success..."</p>
+
+                        <p class="post-card__text">I felt guilty. Like I'd been shouting at Dobby.</p>
+
+                        <p class="post-card__text">My business partner and I have coined a term: "Bad AI Days." Those days when nothing seems to work, when the AI feels broken, when you're ready to throw your laptop out the window.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">Here's the uncomfortable truth: the AI isn't having a bad day. You are. Garbage prompts lead to beautifully articulated and believable garbage out.</p>
+
+                        <p class="post-card__text">Users who lack proper prompting skills consistently experience poor AI results. It's not the tool - it's how you're using it.</p>
+
+                        <p class="post-card__text">That's why we've built a diagnostic tool to help people distinguish between problematic AI performance and problematic prompting habits. We're looking for beta testers.</p>
+
+                        <p class="post-card__text">And for what it's worth, Claude Code with Opus 4.5 outperforms everything else I've tried. The problem was me.</p>
+
+                        <a href="https://www.linkedin.com/feed/update/urn:li:share:7400584869606481920" class="post-card__link" target="_blank" rel="noopener">View on LinkedIn →</a>
+                    </div>
+                </article>
+
+                <!-- Hamish Post - C-Suite Finding Time -->
+                <article class="post-card post-card__native" id="c-suite-finding-time" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">C-Suite: You Have to Find the Time</h2>
+                        <p class="post-card__date">November 2025</p>
+
+                        <p class="post-card__text">If you're C-suite, you probably spent most of yesterday in meetings. And today. And tomorrow's already booked solid too. God knows how you have the time to read this (but please do).</p>
+
+                        <p class="post-card__text">When I was doing your job it meant my thinking time happened in the shower, on the loo, walking the dog, on the commute. I know this is easier for me to say now that I'm not drowning in back-to-backs, but...</p>
+
+                        <p class="post-card__text">Were I still in a C-suite job, I have no idea how I'd have kept up with AI. Almost certainly from skimming think-pieces in Campaign, sitting through jargon-heavy presentations and nodding along in meetings thinking I 'got' it. And I may have even actually 'got' some of it.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">And that is properly dangerous. AI will touch every part of your business and the same for your customers and clients. What's more, it's changing every month, every week, every day.</p>
+
+                        <p class="post-card__text">In my experience, you only really understand it when you properly take the time to play with it. And that doesn't mean accessing an LLM via a chatbot. It means building something you actually care about. What annoys you outside of work? What hobby could use a simple tool? Use something like Loveable and spend a weekend solving a problem that's been bugging you for years.</p>
+
+                        <p class="post-card__text">But you are so busy, where are you going to find the time? I bet your CTO hasn't even had the chance to vibe code anything and see whether the hype is real.</p>
+
+                        <p class="post-card__text">So how the hell are you and your leaders making the decisions you need to make to keep up? By the time AI insights filter up to you, they're already diluted by well-meaning people who probably don't really understand it themselves - or, just as dangerous, out of date. I guarantee that last week's "don't let your developers vibe code" advice is being turned on its head by new approaches that genuinely work. If you're relying on memos and second-hand reports, you're in trouble.</p>
+
+                        <p class="post-card__text">This isn't something you can let happen without you understanding it. And you can't hope it goes away or becomes old news.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">YOU AND YOUR LEADERSHIP TEAM HAVE TO FIND THE TIME. Admit what you don't know. Get your hands dirty. Learn.</p>
+
+                        <p class="post-card__text">If you don't, either someone will sell you something that will destroy your business, you'll make a horrible decision about an implementation, or you'll just miss it all entirely.</p>
+
+                        <p class="post-card__text">If any of this makes sense to you and you fancy a chat about practical ways to get your team properly up to speed, drop me a line. Even if it's just to swap notes about learning on the loo.</p>
+                    </div>
+                </article>
+
+                <!-- Hamish Post - UK Productivity (7399879469387370499) -->
+                <article class="post-card post-card__native" id="ai-wont-fix-business" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">Why AI Won't Fix Your Business (Unless You Change How You Work)</h2>
+                        <p class="post-card__date">November 10, 2025</p>
+
+                        <p class="post-card__text">UK productivity growth stalled in 2008. Despite billions spent on "digital transformation," we're barely more productive than we were fifteen years ago.</p>
+
+                        <p class="post-card__text">Here's the uncomfortable parallel: when factories first adopted electric motors, they didn't see productivity gains either. Why? They kept the same work structures. They replaced steam engines with electric ones but left everything else unchanged.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">We've done exactly the same with digital. We still work the way we always worked, more or less. Just with digital tools.</p>
+
+                        <p class="post-card__text">The real challenge isn't technology adoption - it's organisational willingness to fundamentally redesign workflows. Smaller, agile firms are more willing to rethink processes from scratch. Larger corporations struggle with legacy systems and entrenched management layers.</p>
+
+                        <p class="post-card__text">The critical question: are you brave enough to restructure operations comprehensively to realise AI's true potential? Or are you just bolting AI onto existing processes?</p>
+
+                        <p class="post-card__text">Because if it's the latter, you're going to spend a lot of money to stay exactly where you are.</p>
+
+                        <a href="https://www.linkedin.com/feed/update/urn:li:share:7399879469387370499" class="post-card__link" target="_blank" rel="noopener">View on LinkedIn →</a>
+                    </div>
+                </article>
+
+                <!-- Hamish Post - Experience & Judgment (7393985452627877890) -->
+                <article class="post-card post-card__native" id="judgment-layer" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">We Cut the Judgment Layer. Now We Need It Back.</h2>
+                        <p class="post-card__date">October 19, 2025</p>
+
+                        <p class="post-card__text">When I arrived at Google in 2006, experienced professionals were rare. At 31, I felt "ancient" despite having minimal work experience. That was the culture then - young, experimental, move fast.</p>
+
+                        <p class="post-card__text">Years later, as an executive, I made difficult decisions cutting middle-management roles. People with 15-25 years of experience whose value wasn't "directly billable enough." Financially necessary at the time. But I knew we were losing something.</p>
+
+                        <p class="post-card__text">Institutional judgment. The ability to look at something and know - from experience, not data - whether it was right or wrong.</p>
+
+                        <p class="post-card__text">Now, watching AI-generated content flood social platforms, the consequence is clear.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">You'd absolutely kill to have those people back now, wouldn't you? That layer of judgment sitting between the machine and what goes out the door.</p>
+
+                        <p class="post-card__text">The economics haven't improved. But experienced judgment has become demonstrably more valuable. "Cheap energy" from AI cannot replace scarce human wisdom and discernment.</p>
+
+                        <p class="post-card__text">My advice to clients: balance AI implementation with sufficient human judgment. Without enough human judgment and with too much AI - you can really cock things up.</p>
+
+                        <a href="https://www.linkedin.com/feed/update/urn:li:share:7393985452627877890" class="post-card__link" target="_blank" rel="noopener">View on LinkedIn →</a>
+                    </div>
+                </article>
+
+                <!-- Hamish Post - Rise of Haphazards (7393752913673613313) -->
+                <article class="post-card post-card__native" id="rise-of-haphazards" data-author="hamish">
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">The Rise of the Haphazards: Three Types of AI User</h2>
+                        <p class="post-card__date">October 7, 2025</p>
+
+                        <p class="post-card__text">I've noticed three types of AI users emerging in organisations:</p>
+
+                        <p class="post-card__text"><strong>The Haphazards</strong> are well-meaning, curious people who've started using AI without any real process or permission. They experiment with ChatGPT and Copilot, sometimes succeeding brilliantly, sometimes failing spectacularly. But they're learning what's possible.</p>
+
+                        <p class="post-card__text"><strong>The Human Hands</strong> are traditional experts whose deep skills and experience are being challenged. Their concern: someone with half their experience plus AI literacy and decent prompts can now match their output.</p>
+
+                        <p class="post-card__text"><strong>The Hundies</strong> are the rare few who've mastered AI effectively, combining technical fluency with sound judgment about the tool's limitations and capabilities.</p>
+
+                        <p class="post-card__text post-card__text--emphasis">Rather than viewing Haphazards as problematic, leaders should recognise them as the messy, chaotic first wave preceding structural normalisation.</p>
+
+                        <p class="post-card__text">My advice: Nurture experimental users with proper tools and education. Reassure experienced professionals that AI augmentation creates value. Develop coherent AI strategies integrated into actual workflows. Create collaborative learning spaces rather than competitive environments.</p>
+
+                        <p class="post-card__text">The future winners won't simply automate fastest. They'll be those who combine curiosity and capability with judgment.</p>
+
+                        <a href="https://www.linkedin.com/feed/update/urn:li:share:7393752913673613313" class="post-card__link" target="_blank" rel="noopener">View on LinkedIn →</a>
+                    </div>
+                </article>
+
+                <!-- Stephen Placeholder -->
+                <div class="post-card" data-author="stephen" style="display: none;">
+                    <div class="empty-state">
+                        <div class="empty-state__icon">
+                            <i data-feather="edit-3" style="width: 48px; height: 48px;"></i>
+                        </div>
+                        <p>Stephen's first post coming soon...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty state for Stephen filter -->
+            <div id="stephen-empty" class="empty-state fade-in" style="display: none;">
+                <div class="empty-state__icon">
+                    <i data-feather="edit-3" style="width: 48px; height: 48px;"></i>
+                </div>
+                <p>Stephen's posts coming soon. Check back for practical, hands-on guides.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="cta__content fade-in">
+                <h2 class="cta__title">Want to Discuss These Ideas?</h2>
+                <p class="cta__subtitle">We're always happy to talk about AI, business transformation and what might work for your situation.</p>
+                <a href="index.html#contact" class="btn btn--primary btn--large">Start a Conversation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Modal -->
+    <div class="article-modal" id="article-modal">
+        <div class="article-modal__container">
+            <div class="article-modal__header">
+                <div class="article-modal__author">
+                    <img src="" alt="" class="article-modal__author-image" id="modal-author-image">
+                    <div>
+                        <p class="article-modal__author-name" id="modal-author-name"></p>
+                        <p class="article-modal__author-handle" id="modal-author-handle"></p>
+                    </div>
+                </div>
+                <button class="article-modal__close" id="modal-close" aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="article-modal__content" id="modal-content">
+                <!-- Content injected by JS -->
+            </div>
+            <div class="article-modal__footer">
+                <a href="" class="post-card__link" id="modal-linkedin-link" target="_blank" rel="noopener" style="margin: 0;">View on LinkedIn →</a>
+                <div class="post-card__actions-wrapper" style="align-items: flex-end;">
+                    <div class="article-modal__share">
+                        <span class="article-modal__share-label">Share:</span>
+                        <button class="post-card__share-btn" id="modal-share-copy" data-tooltip="Copy link" aria-label="Copy link">
+                            <i data-feather="link"></i>
+                        </button>
+                        <a href="" class="post-card__share-btn" id="modal-share-linkedin" target="_blank" rel="noopener" data-tooltip="LinkedIn" aria-label="Share on LinkedIn">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="" class="post-card__share-btn" id="modal-share-twitter" target="_blank" rel="noopener" data-tooltip="X" aria-label="Share on X">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="" class="post-card__share-btn" id="modal-share-whatsapp" target="_blank" rel="noopener" data-tooltip="WhatsApp" aria-label="Share on WhatsApp">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                        <a href="" class="post-card__share-btn" id="modal-share-email" data-tooltip="Email" aria-label="Share via Email">
+                            <i data-feather="mail"></i>
+                        </a>
+                    </div>
+                    <div class="article-modal__share">
+                        <span class="article-modal__share-label">Discuss with AI:</span>
+                        <button class="post-card__share-btn" id="modal-share-notebooklm" data-tooltip="Opens NotebookLM – paste link to discuss" aria-label="Add to NotebookLM">
+                            <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M4 4h10l6 6v10a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M14 4v6h6" stroke="currentColor" stroke-width="2" fill="none"/><path d="M7 13h10M7 17h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </button>
+                        <button class="post-card__share-btn" id="modal-share-chatgpt" data-tooltip="Opens ChatGPT – paste link to discuss" aria-label="Discuss with ChatGPT">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/></svg>
+                        </button>
+                        <button class="post-card__share-btn" id="modal-share-claude" data-tooltip="Opens Claude – paste link to discuss" aria-label="Discuss with Claude">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M4.709 15.955l4.72-2.647.08-.08v-.16l-.08-.08-2.2-.144-.08-.08.08-.112 2.92-.624.08-.064V11.8l-.064-.08-2.024-.464-.08-.08.048-.112 2.728-.336.08-.08v-.16l-.08-.08-1.832-.768-.064-.096.064-.096 2.536-.048.08-.064.016-.16-.08-.08-1.568-1.04-.048-.112.08-.08 2.216.224.08-.048.032-.16-.064-.08-1.216-1.296-.032-.112.096-.064 1.808.56.096-.032.048-.16-.048-.096-.784-1.472.016-.112.112-.048 1.328.88.096-.016.064-.144-.032-.096-.288-1.584.048-.096.112-.032.784 1.136.112.016.08-.128v-.112l.24-1.616.064-.08.112.016.24 1.376.096.048.096-.096.016-.112.688-1.488.08-.048.096.048-.176 1.504.064.112.128.016.048-.08 1.072-1.216.096-.016.08.08-.56 1.472.032.128.144.032.064-.064 1.392-.88.08.032.048.112-.944 1.328v.144l.144.048.08-.048 1.632-.496.064.048.016.112-1.264 1.12-.016.144.128.064.096-.032 1.792-.096.048.08-.016.112-1.504.864-.032.144.112.08h.112l1.856.304.032.096-.048.096-1.712.576-.048.144.096.096.096.016 1.808.688.016.096-.064.08-1.824.272-.064.128.064.112.08.032 1.664 1.04v.112l-.08.064-1.824-.016-.08.112.048.128.064.048 1.424 1.344-.032.112-.096.048-1.728-.32-.096.096.016.128.048.064 1.104 1.568-.064.096-.112.016-1.536-.624-.112.064-.016.144.032.064.704 1.712-.08.08-.112-.016-1.264-.912-.128.032-.048.128.016.08.272 1.76-.096.064-.096-.032-.928-1.168-.128-.016-.08.112v.096l-.176 1.76-.112.032-.08-.048-.544-1.36-.128-.032-.096.08-.016.096-.624 1.648-.112.016-.064-.08-.128-1.488-.112-.064-.112.048-.032.08-1.04 1.456-.096-.016-.048-.096.304-1.536-.08-.096-.128-.016-.048.064-1.392 1.168-.08-.032-.016-.112.72-1.488-.048-.112-.128-.032-.064.048-1.664.816-.064-.048.016-.128 1.088-1.344-.016-.128-.112-.048-.08.032-1.824.4-.048-.064.048-.112 1.392-1.12.016-.128-.096-.08-.096.016-1.856-.016-.016-.096.064-.08 1.616-.816.048-.128-.064-.096-.08-.016-1.776-.432.016-.112.08-.064z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast__title">Link copied!</div>
+        <div class="toast__message">Paste it to start discussing this article</div>
+        <div class="toast__url" id="toast-url" style="font-size: 0.75rem; margin-top: 0.5rem; color: var(--accent-glow); word-break: break-all;"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i data-feather="chevron-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__links">
+                    <a href="privacy-policy.html" class="footer__link">Privacy Policy</a>
+                    <a href="#" class="termly-display-preferences footer__link">Consent Preferences</a>
+                </div>
+                <div class="footer__copyright">
+                    <p>&copy; 2025 AgentFlow Ltd. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js?v=2026-01-07c"></script>
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+
+        // Filter functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const postCards = document.querySelectorAll('.post-card');
+        const stephenEmpty = document.getElementById('stephen-empty');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filter = tab.dataset.filter;
+                let visibleCount = 0;
+
+                postCards.forEach(card => {
+                    const author = card.dataset.author;
+                    if (filter === 'all' || author === filter) {
+                        card.style.display = 'block';
+                        if (author === filter || filter === 'all') visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (filter === 'stephen') {
+                    stephenEmpty.style.display = 'block';
+                    document.querySelector('.posts-grid').style.display = 'none';
+                } else {
+                    stephenEmpty.style.display = 'none';
+                    document.querySelector('.posts-grid').style.display = 'grid';
+                }
+            });
+        });
+
+        // Scroll progress bar
+        const scrollProgressBar = document.getElementById('scroll-progress-bar');
+
+        function updateScrollProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgressBar.style.height = scrollPercent + '%';
+        }
+
+        window.addEventListener('scroll', updateScrollProgress);
+        updateScrollProgress();
+
+        // Get base URL for sharing
+        const baseUrl = 'https://goagentflow.com/founders.html';
+
+        // Generate share URLs
+        function getShareUrls(articleId, title) {
+            const url = encodeURIComponent(baseUrl + '#' + articleId);
+            const text = encodeURIComponent(title + ' - From the Founders at AgentFlow');
+            return {
+                linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+                twitter: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
+                whatsapp: `https://wa.me/?text=${text}%20${url}`,
+                email: `mailto:?subject=${text}&body=Check out this article: ${url}`
+            };
+        }
+
+        // Copy to clipboard
+        function copyToClipboard(text, button) {
+            navigator.clipboard.writeText(text).then(() => {
+                button.classList.add('post-card__share-btn--copied');
+                const icon = button.querySelector('svg, i');
+                if (icon) {
+                    const originalHTML = button.innerHTML;
+                    button.innerHTML = '<i data-feather="check"></i>';
+                    feather.replace();
+                    setTimeout(() => {
+                        button.innerHTML = originalHTML;
+                        feather.replace();
+                        button.classList.remove('post-card__share-btn--copied');
+                    }, 2000);
+                }
+            });
+        }
+
+        // Add action bars to native articles (top and bottom)
+        document.querySelectorAll('.post-card__native').forEach(article => {
+            const articleId = article.id;
+            if (!articleId) return;
+
+            const nativeContent = article.querySelector('.post-card__native-content');
+            if (!nativeContent) return;
+
+            const title = nativeContent.querySelector('.post-card__title')?.textContent || 'Article';
+            const linkedinLink = nativeContent.querySelector('.post-card__link')?.href || '';
+            const shareUrls = getShareUrls(articleId, title);
+
+            const actionBarHTML = `
+                <div class="post-card__actions-wrapper">
+                    <div class="post-card__actions-row post-card__actions-row--between">
+                        <button class="post-card__expand-btn" data-article-id="${articleId}">
+                            <i data-feather="maximize-2"></i>
+                            <span>Read full article</span>
+                        </button>
+                        <div class="post-card__actions-row">
+                            <span class="post-card__share-label">Share:</span>
+                            <button class="post-card__share-btn" data-copy-url="${baseUrl}#${articleId}" data-tooltip="Copy link" aria-label="Copy link">
+                                <i data-feather="link"></i>
+                            </button>
+                            <a href="${shareUrls.linkedin}" class="post-card__share-btn" target="_blank" rel="noopener" data-tooltip="LinkedIn" aria-label="Share on LinkedIn">
+                                <i data-feather="linkedin"></i>
+                            </a>
+                            <a href="${shareUrls.twitter}" class="post-card__share-btn" target="_blank" rel="noopener" data-tooltip="X" aria-label="Share on X">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                            <a href="${shareUrls.whatsapp}" class="post-card__share-btn" target="_blank" rel="noopener" data-tooltip="WhatsApp" aria-label="Share on WhatsApp">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            </a>
+                            <a href="${shareUrls.email}" class="post-card__share-btn" data-tooltip="Email" aria-label="Share via Email">
+                                <i data-feather="mail"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="post-card__actions-row">
+                        <span class="post-card__share-label">Discuss with AI:</span>
+                        <button class="post-card__share-btn" data-notebooklm-url="${baseUrl}#${articleId}" data-tooltip="Opens NotebookLM – paste link to discuss" aria-label="Add to NotebookLM">
+                            <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M4 4h10l6 6v10a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M14 4v6h6" stroke="currentColor" stroke-width="2" fill="none"/><path d="M7 13h10M7 17h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </button>
+                        <button class="post-card__share-btn" data-chatgpt-url="${baseUrl}#${articleId}" data-tooltip="Opens ChatGPT – paste link to discuss" aria-label="Discuss with ChatGPT">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/></svg>
+                        </button>
+                        <button class="post-card__share-btn" data-claude-url="${baseUrl}#${articleId}" data-tooltip="Opens Claude – paste link to discuss" aria-label="Discuss with Claude">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M4.709 15.955l4.72-2.647.08-.08v-.16l-.08-.08-2.2-.144-.08-.08.08-.112 2.92-.624.08-.064V11.8l-.064-.08-2.024-.464-.08-.08.048-.112 2.728-.336.08-.08v-.16l-.08-.08-1.832-.768-.064-.096.064-.096 2.536-.048.08-.064.016-.16-.08-.08-1.568-1.04-.048-.112.08-.08 2.216.224.08-.048.032-.16-.064-.08-1.216-1.296-.032-.112.096-.064 1.808.56.096-.032.048-.16-.048-.096-.784-1.472.016-.112.112-.048 1.328.88.096-.016.064-.144-.032-.096-.288-1.584.048-.096.112-.032.784 1.136.112.016.08-.128v-.112l.24-1.616.064-.08.112.016.24 1.376.096.048.096-.096.016-.112.688-1.488.08-.048.096.048-.176 1.504.064.112.128.016.048-.08 1.072-1.216.096-.016.08.08-.56 1.472.032.128.144.032.064-.064 1.392-.88.08.032.048.112-.944 1.328v.144l.144.048.08-.048 1.632-.496.064.048.016.112-1.264 1.12-.016.144.128.064.096-.032 1.792-.096.048.08-.016.112-1.504.864-.032.144.112.08h.112l1.856.304.032.096-.048.096-1.712.576-.048.144.096.096.096.016 1.808.688.016.096-.064.08-1.824.272-.064.128.064.112.08.032 1.664 1.04v.112l-.08.064-1.824-.016-.08.112.048.128.064.048 1.424 1.344-.032.112-.096.048-1.728-.32-.096.096.016.128.048.064 1.104 1.568-.064.096-.112.016-1.536-.624-.112.064-.016.144.032.064.704 1.712-.08.08-.112-.016-1.264-.912-.128.032-.048.128.016.08.272 1.76-.096.064-.096-.032-.928-1.168-.128-.016-.08.112v.096l-.176 1.76-.112.032-.08-.048-.544-1.36-.128-.032-.096.08-.016.096-.624 1.648-.112.016-.064-.08-.128-1.488-.112-.064-.112.048-.032.08-1.04 1.456-.096-.016-.048-.096.304-1.536-.08-.096-.128-.016-.048.064-1.392 1.168-.08-.032-.016-.112.72-1.488-.048-.112-.128-.032-.064.048-1.664.816-.064-.048.016-.128 1.088-1.344-.016-.128-.112-.048-.08.032-1.824.4-.048-.064.048-.112 1.392-1.12.016-.128-.096-.08-.096.016-1.856-.016-.016-.096.064-.08 1.616-.816.048-.128-.064-.096-.08-.016-1.776-.432.016-.112.08-.064z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Create top action bar
+            const topActionBar = document.createElement('div');
+            topActionBar.className = 'post-card__actions post-card__actions--top';
+            topActionBar.innerHTML = actionBarHTML;
+
+            // Create bottom action bar
+            const bottomActionBar = document.createElement('div');
+            bottomActionBar.className = 'post-card__actions';
+            bottomActionBar.innerHTML = actionBarHTML;
+
+            // Insert top bar after title/date, before content
+            const dateEl = nativeContent.querySelector('.post-card__date');
+            if (dateEl && dateEl.nextSibling) {
+                dateEl.parentNode.insertBefore(topActionBar, dateEl.nextSibling);
+            } else {
+                nativeContent.prepend(topActionBar);
+            }
+
+            // Append bottom bar
+            nativeContent.appendChild(bottomActionBar);
+
+            // Truncate based on character count (~500 chars for consistent card heights)
+            const maxChars = 500;
+            const allParagraphs = nativeContent.querySelectorAll('.post-card__text');
+            const allH3s = nativeContent.querySelectorAll('h3');
+
+            let charCount = 0;
+            let cutoffReached = false;
+
+            // Add preview class to card
+            nativeContent.classList.add('post-card__preview');
+
+            // Show paragraphs until we hit the character limit
+            allParagraphs.forEach((p) => {
+                if (cutoffReached) {
+                    p.classList.add('post-card__full-content');
+                } else {
+                    charCount += p.textContent.length;
+                    if (charCount > maxChars) {
+                        cutoffReached = true;
+                    }
+                }
+            });
+
+            // Hide all h3s (subheadings) in preview
+            allH3s.forEach(h3 => {
+                h3.classList.add('post-card__full-content');
+            });
+
+            // Hide the bottom action bar in preview mode (top bar is enough)
+            if (cutoffReached) {
+                bottomActionBar.classList.add('post-card__full-content');
+            }
+        });
+
+        // Re-initialize feather icons for dynamically added elements
+        feather.replace();
+
+        // Copy button handlers
+        document.querySelectorAll('[data-copy-url]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                copyToClipboard(btn.dataset.copyUrl, btn);
+            });
+        });
+
+        // Toast notification helper
+        const toast = document.getElementById('toast');
+        const toastUrl = document.getElementById('toast-url');
+        let toastTimeout;
+
+        function showToast(url) {
+            clearTimeout(toastTimeout);
+            toastUrl.textContent = url;
+            toast.classList.add('show');
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }
+
+        // NotebookLM button handlers - copy URL and open NotebookLM
+        document.querySelectorAll('[data-notebooklm-url]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = btn.dataset.notebooklmUrl;
+                console.log('NotebookLM clicked, URL:', url);
+                navigator.clipboard.writeText(url).then(() => {
+                    btn.classList.add('post-card__share-btn--copied');
+                    setTimeout(() => {
+                        btn.classList.remove('post-card__share-btn--copied');
+                    }, 2000);
+                    showToast(url);
+                    window.open('https://notebooklm.google.com/', '_blank');
+                });
+            });
+        });
+
+        // ChatGPT button handlers - copy URL and open ChatGPT
+        document.querySelectorAll('[data-chatgpt-url]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = btn.dataset.chatgptUrl;
+                console.log('ChatGPT clicked, URL:', url);
+                navigator.clipboard.writeText(url).then(() => {
+                    btn.classList.add('post-card__share-btn--copied');
+                    setTimeout(() => {
+                        btn.classList.remove('post-card__share-btn--copied');
+                    }, 2000);
+                    showToast(url);
+                    window.open('https://chatgpt.com/', '_blank');
+                });
+            });
+        });
+
+        // Claude button handlers - copy URL and open Claude
+        document.querySelectorAll('[data-claude-url]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const url = btn.dataset.claudeUrl;
+                console.log('Claude clicked, URL:', url);
+                navigator.clipboard.writeText(url).then(() => {
+                    btn.classList.add('post-card__share-btn--copied');
+                    setTimeout(() => {
+                        btn.classList.remove('post-card__share-btn--copied');
+                    }, 2000);
+                    showToast(url);
+                    window.open('https://claude.ai/', '_blank');
+                });
+            });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('article-modal');
+        const modalClose = document.getElementById('modal-close');
+        const modalContent = document.getElementById('modal-content');
+        const modalAuthorImage = document.getElementById('modal-author-image');
+        const modalAuthorName = document.getElementById('modal-author-name');
+        const modalAuthorHandle = document.getElementById('modal-author-handle');
+        const modalLinkedinLink = document.getElementById('modal-linkedin-link');
+        const modalShareCopy = document.getElementById('modal-share-copy');
+        const modalShareLinkedin = document.getElementById('modal-share-linkedin');
+        const modalShareTwitter = document.getElementById('modal-share-twitter');
+        const modalShareWhatsapp = document.getElementById('modal-share-whatsapp');
+        const modalShareEmail = document.getElementById('modal-share-email');
+
+        let currentArticleUrl = '';
+
+        function openModal(articleId) {
+            const article = document.getElementById(articleId);
+            if (!article) return;
+
+            const nativeContent = article.querySelector('.post-card__native-content');
+            const authorSection = article.querySelector('.post-card__author');
+
+            // Get author info
+            const authorImage = authorSection.querySelector('.post-card__author-image')?.src || '';
+            const authorName = authorSection.querySelector('.post-card__author-name')?.textContent || '';
+            const authorHandle = authorSection.querySelector('.post-card__author-handle')?.textContent || '';
+
+            // Get content (clone and modify for modal)
+            const contentClone = nativeContent.cloneNode(true);
+
+            // Remove the action bar from clone
+            const actionBar = contentClone.querySelector('.post-card__actions');
+            if (actionBar) actionBar.remove();
+
+            // Remove the original LinkedIn link from clone (we'll put it in footer)
+            const linkedinLink = contentClone.querySelector('.post-card__link');
+            const linkedinUrl = linkedinLink?.href || '';
+            if (linkedinLink) linkedinLink.remove();
+
+            // Get title and date
+            const title = contentClone.querySelector('.post-card__title');
+            const date = contentClone.querySelector('.post-card__date');
+
+            // Build modal content
+            let modalHTML = '';
+            if (title) {
+                modalHTML += `<h1 class="article-modal__title">${title.textContent}</h1>`;
+                title.remove();
+            }
+            if (date) {
+                modalHTML += `<p class="article-modal__date">${date.textContent}</p>`;
+                date.remove();
+            }
+
+            // Convert remaining content
+            contentClone.querySelectorAll('.post-card__text').forEach(p => {
+                p.className = 'article-modal__text';
+            });
+            contentClone.querySelectorAll('h3').forEach(h => {
+                h.className = '';
+            });
+
+            modalHTML += contentClone.innerHTML;
+
+            // Set modal content
+            modalAuthorImage.src = authorImage;
+            modalAuthorImage.alt = authorName;
+            modalAuthorName.textContent = authorName;
+            modalAuthorHandle.textContent = authorHandle;
+            modalContent.innerHTML = modalHTML;
+
+            // Set LinkedIn link
+            if (linkedinUrl) {
+                modalLinkedinLink.href = linkedinUrl;
+                modalLinkedinLink.style.display = 'inline-block';
+            } else {
+                modalLinkedinLink.style.display = 'none';
+            }
+
+            // Set share URLs
+            currentArticleUrl = baseUrl + '#' + articleId;
+            const articleTitle = title?.textContent || 'Article';
+            const shareUrls = getShareUrls(articleId, articleTitle);
+
+            modalShareLinkedin.href = shareUrls.linkedin;
+            modalShareTwitter.href = shareUrls.twitter;
+            modalShareWhatsapp.href = shareUrls.whatsapp;
+            modalShareEmail.href = shareUrls.email;
+
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Re-initialize feather icons in modal
+            feather.replace();
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Expand button handlers
+        document.querySelectorAll('.post-card__expand-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                openModal(btn.dataset.articleId);
+            });
+        });
+
+        // Close modal handlers
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Modal copy button
+        modalShareCopy.addEventListener('click', () => {
+            copyToClipboard(currentArticleUrl, modalShareCopy);
+        });
+
+        // Modal NotebookLM button
+        const modalShareNotebooklm = document.getElementById('modal-share-notebooklm');
+        modalShareNotebooklm.addEventListener('click', () => {
+            console.log('Modal NotebookLM clicked, URL:', currentArticleUrl);
+            navigator.clipboard.writeText(currentArticleUrl).then(() => {
+                modalShareNotebooklm.classList.add('post-card__share-btn--copied');
+                setTimeout(() => {
+                    modalShareNotebooklm.classList.remove('post-card__share-btn--copied');
+                }, 2000);
+                showToast(currentArticleUrl);
+                window.open('https://notebooklm.google.com/', '_blank');
+            });
+        });
+
+        // Modal ChatGPT button
+        const modalShareChatgpt = document.getElementById('modal-share-chatgpt');
+        modalShareChatgpt.addEventListener('click', () => {
+            console.log('Modal ChatGPT clicked, URL:', currentArticleUrl);
+            navigator.clipboard.writeText(currentArticleUrl).then(() => {
+                modalShareChatgpt.classList.add('post-card__share-btn--copied');
+                setTimeout(() => {
+                    modalShareChatgpt.classList.remove('post-card__share-btn--copied');
+                }, 2000);
+                showToast(currentArticleUrl);
+                window.open('https://chatgpt.com/', '_blank');
+            });
+        });
+
+        // Modal Claude button
+        const modalShareClaude = document.getElementById('modal-share-claude');
+        modalShareClaude.addEventListener('click', () => {
+            console.log('Modal Claude clicked, URL:', currentArticleUrl);
+            navigator.clipboard.writeText(currentArticleUrl).then(() => {
+                modalShareClaude.classList.add('post-card__share-btn--copied');
+                setTimeout(() => {
+                    modalShareClaude.classList.remove('post-card__share-btn--copied');
+                }, 2000);
+                showToast(currentArticleUrl);
+                window.open('https://claude.ai/', '_blank');
+            });
+        });
+    </script>
+</body>
+</html>

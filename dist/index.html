@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agent Flow - Stop Wasting Your Best People's Time</title>
+    <title>AgentFlow - AI Solutions Matched to Your Problem</title>
     <meta name="description" content="We partner with business leaders to eliminate operational bottlenecks that drain your team, liberating their true potential to drive your business forward.">
+    <base href="/">
+    
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="0S-C2ZDphhP6ijSEmtrQZk1LVvbb9OUl5HK_tqjaMnc" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/AgentFlowLogo.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="assets/images/AgentFlowLogo.svg" type="image/svg+xml">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +39,7 @@
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2025-09-06a">
 </head>
 <body>
     <!-- Navigation Header -->
@@ -46,19 +54,30 @@
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="#problem" class="nav__link">Your Challenges</a>
+                            <a href="#solution" class="nav__link">Our Solution</a>
+                        </li>
+                        <li class="nav__item nav__item--dropdown">
+                            <a href="#" class="nav__link nav__link--dropdown" aria-haspopup="true" aria-expanded="false" aria-controls="about-menu">About <i data-feather="chevron-down" class="nav__dropdown-icon"></i></a>
+                            <ul class="nav__dropdown" id="about-menu" role="menu">
+                                <li class="nav__dropdown-item" role="none">
+                                    <a href="our-story.html" class="nav__dropdown-link" role="menuitem" tabindex="-1">Our Story</a>
+                                </li>
+                                <li class="nav__dropdown-item" role="none">
+                                    <a href="#why-us" class="nav__dropdown-link" role="menuitem" tabindex="-1">Meet the Team</a>
+                                </li>
+                                <li class="nav__dropdown-item" role="none">
+                                    <a href="our-approach.html" class="nav__dropdown-link" role="menuitem" tabindex="-1">Our Approach</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav__item">
-                            <a href="#solution" class="nav__link">How We Solve Them</a>
+                            <a href="#use-cases" class="nav__link">Case Studies</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#why-us" class="nav__link">Why Us</a>
+                            <a href="founders.html" class="nav__link">From the Founders</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#use-cases" class="nav__link">Use Cases</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#contact" class="nav__link nav__cta">Let's Talk</a>
+                            <a href="#contact" class="btn btn--primary">Let's Talk</a>
                         </li>
                     </ul>
                 </div>
@@ -75,56 +94,122 @@
         <div class="hero__container">
             <div class="hero__content fade-in">
                 <div class="hero__visual">
-                    <img src="assets/images/AgentFlow.svg" alt="AgentFlow Logo" class="hero__logo">
+                    <img src="assets/images/AgentFlowLogo.svg" alt="AgentFlow Logo" class="hero__logo">
                 </div>
                 <h2 class="hero__brand">AgentFlow</h2>
                 <h1 class="hero__title">AI That Frees Your People, Grows Your Business</h1>
-                <p class="hero__subtitle">We help business owners free their best people from repetitive tasks and give them AI superpowers to be more strategic, more creative and more effective.</p>
+                <p class="hero__subtitle">From helping your team get more from Copilot, to building agents that work while you sleep - we match the right solution to the right problem. No upselling to complexity. Just what actually works for your business.</p>
                 <div class="hero__buttons">
-                    <button class="btn btn--primary" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/hamish-goagentflow/30-minute-intro-call?utm_source=agentflow_website&utm_medium=hero_button&utm_campaign=discovery_call', prefill: {name: '', email: '', customAnswers: {a1: 'AgentFlow Website - Hero Section'}}});">Let's Talk</button>
+                    <a href="#contact" class="btn btn--primary">Let's Talk</a>
                     <a href="#problem" class="btn btn--secondary">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section (The Mirror) -->
-    <section class="section">
+    <!-- AI Landscape Section (2x2 Framework) -->
+    <section class="section" id="ai-four-ways">
         <div class="container">
             <div class="section__header fade-in" id="problem">
-                <h2 class="section__title">Sound Familiar?</h2>
-                <p style="font-size: 1.15rem; line-height: 1.6; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem; text-align: justify;">Are your best people spending their time on the wrong things?</p>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto; text-align: justify;">You hired brilliant people to think strategically and drive your business forward. But they're stuck copying data, chasing updates, and doing research that takes days. The high-value work keeps getting pushed aside.</p>
+                <h2 class="section__title">AI Can Help in Four Ways</h2>
+                <p style="font-size: 1.15rem; line-height: 1.6; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem; text-align: center;">Most businesses aren't sure where to start. Here's the landscape.</p>
             </div>
-            <div class="problem__grid">
-                <div class="problem__card fade-in">
-                    <div class="problem__icon">
-                        <i data-feather="zap"></i>
+
+            <!-- 2x2 Grid - AI Treasure Map Style -->
+            <div class="fade-in" style="max-width: 1100px; margin: 0 auto;">
+                <!-- Main layout: descriptions on sides, grid in center -->
+                <div style="display: grid; grid-template-columns: 200px 1fr 200px; gap: 1.5rem; align-items: center;">
+
+                    <!-- Left side descriptions -->
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <!-- Customer Service description (top-left quadrant) -->
+                        <div style="text-align: right; padding-right: 1rem;">
+                            <h4 style="font-size: 1rem; font-weight: 700; color: #a78bfa; margin: 0 0 0.5rem 0;">The Customer Service</h4>
+                            <p style="font-size: 0.85rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">Make yourself easier to deal with and watch customer satisfaction and loyalty sky rocket</p>
+                        </div>
+                        <!-- Quick Win description (bottom-left quadrant) -->
+                        <div style="text-align: right; padding-right: 1rem;">
+                            <h4 style="font-size: 1rem; font-weight: 700; color: #86efac; margin: 0 0 0.5rem 0;">The Quick Win</h4>
+                            <p style="font-size: 0.85rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">Boring, repetitive tasks. Possibly solved by Copilot or ChatGPT sprints bespoke to your workflows</p>
+                        </div>
                     </div>
-                    <h3 class="problem__card-title">Strategic Work at Human Speed</h3>
-                    <p class="problem__card-text">Your best people are brilliant at strategic thinking, but they're stuck waiting for the intelligence they need. Market research takes weeks, competitive analysis takes days, and customer insights drag on for months. By the time they have the data, opportunities have moved on and decisions get made on gut feel instead of proper intelligence.</p>
-                </div>
-                <div class="problem__card fade-in">
-                    <div class="problem__icon">
-                        <i data-feather="help-circle"></i>
+
+                    <!-- Center: The 2x2 grid with axes -->
+                    <div style="position: relative; padding: 2.5rem 0;">
+                        <!-- EXTERNAL label (top) -->
+                        <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); text-align: center;">
+                            <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--primary-text);">EXTERNAL</div>
+                            <div style="width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 8px solid #8b5cf6; margin: 4px auto 0;"></div>
+                        </div>
+
+                        <!-- INTERNAL label (bottom) -->
+                        <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); text-align: center;">
+                            <div style="width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 8px solid #8b5cf6; margin: 0 auto 4px;"></div>
+                            <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--primary-text);">INTERNAL</div>
+                        </div>
+
+                        <!-- PRODUCTIVITY label (left) -->
+                        <div style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 4px; z-index: 20;">
+                            <div style="width: 0; height: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-right: 8px solid #8b5cf6;"></div>
+                            <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--primary-text); background: var(--bg-primary); padding: 0.25rem 0.5rem;">PRODUCTIVITY</div>
+                        </div>
+
+                        <!-- GROWTH label (right) -->
+                        <div style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 4px; z-index: 20;">
+                            <div style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--primary-text); background: var(--bg-primary); padding: 0.25rem 0.5rem;">GROWTH</div>
+                            <div style="width: 0; height: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 8px solid #8b5cf6;"></div>
+                        </div>
+
+                        <!-- The grid itself -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 3px; margin: 1.5rem 5rem; position: relative;">
+                            <!-- Vertical axis line -->
+                            <div style="position: absolute; left: 50%; top: -1rem; bottom: -1rem; width: 3px; background: #8b5cf6; transform: translateX(-50%); z-index: 10;"></div>
+                            <!-- Horizontal axis line -->
+                            <div style="position: absolute; top: 50%; left: -1rem; right: -1rem; height: 3px; background: #8b5cf6; transform: translateY(-50%); z-index: 10;"></div>
+
+                            <!-- External Productivity (top-left) - Purple -->
+                            <div style="background: rgba(167, 139, 250, 0.25); padding: 2rem 1.5rem; border-radius: 12px 0 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 140px;">
+                                <i data-feather="smile" style="width: 32px; height: 32px; color: #a78bfa; margin-bottom: 0.75rem;"></i>
+                                <span style="font-size: 0.9rem; font-weight: 600; color: var(--primary-text); text-align: center;">External<br>Productivity</span>
+                            </div>
+
+                            <!-- External Growth (top-right) - Coral/Salmon -->
+                            <div style="background: rgba(248, 113, 113, 0.25); padding: 2rem 1.5rem; border-radius: 0 12px 0 0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 140px;">
+                                <i data-feather="star" style="width: 32px; height: 32px; color: #f87171; margin-bottom: 0.75rem;"></i>
+                                <span style="font-size: 0.9rem; font-weight: 600; color: var(--primary-text); text-align: center;">External<br>Growth</span>
+                            </div>
+
+                            <!-- Internal Productivity (bottom-left) - Green -->
+                            <div style="background: rgba(134, 239, 172, 0.25); padding: 2rem 1.5rem; border-radius: 0 0 0 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 140px;">
+                                <i data-feather="zap" style="width: 32px; height: 32px; color: #86efac; margin-bottom: 0.75rem;"></i>
+                                <span style="font-size: 0.9rem; font-weight: 600; color: var(--primary-text); text-align: center;">Internal<br>Productivity</span>
+                            </div>
+
+                            <!-- Internal Growth (bottom-right) - Blue -->
+                            <div style="background: rgba(147, 197, 253, 0.25); padding: 2rem 1.5rem; border-radius: 0 0 12px 0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 140px;">
+                                <i data-feather="trending-up" style="width: 32px; height: 32px; color: #93c5fd; margin-bottom: 0.75rem;"></i>
+                                <span style="font-size: 0.9rem; font-weight: 600; color: var(--primary-text); text-align: center;">Internal<br>Growth</span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="problem__card-title">You Know AI Could Help, But Where Do You Actually Start?</h3>
-                    <p class="problem__card-text">Everyone's talking about AI transforming businesses, but when you try to figure out what that means for your company, it's either marketing nonsense or technical jargon. You know AI could eliminate tedious work AND give your people superpowers, but the path forward feels completely unclear.</p>
-                </div>
-                <div class="problem__card fade-in">
-                    <div class="problem__icon">
-                        <i data-feather="bar-chart"></i>
+
+                    <!-- Right side descriptions -->
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <!-- Magic Quadrant description (top-right quadrant) -->
+                        <div style="text-align: left; padding-left: 1rem;">
+                            <h4 style="font-size: 1rem; font-weight: 700; color: #f87171; margin: 0 0 0.5rem 0;">The Magic Quadrant</h4>
+                            <p style="font-size: 0.85rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">Entirely new revenue streams unlocked by AI. Let your creativity run wild here.</p>
+                        </div>
+                        <!-- New Superpower description (bottom-right quadrant) -->
+                        <div style="text-align: left; padding-left: 1rem;">
+                            <h4 style="font-size: 1rem; font-weight: 700; color: #93c5fd; margin: 0 0 0.5rem 0;">The New Superpower</h4>
+                            <p style="font-size: 0.85rem; color: var(--secondary-text); margin: 0; line-height: 1.5;">Give your team new tools to dramatically accelerate high-skilled work</p>
+                        </div>
                     </div>
-                    <h3 class="problem__card-title">Are your best people stuck doing admin work?</h3>
-                    <p class="problem__card-text">It's ridiculous - you're trying to run a business but getting basic answers means logging into four different systems, downloading spreadsheets, and manually building reports. By the time you've got the data, it's already out of date and you're making decisions based on last week's numbers.</p>
                 </div>
-                <div class="problem__card fade-in">
-                    <div class="problem__icon">
-                        <i data-feather="clock"></i>
-                    </div>
-                    <h3 class="problem__card-title">Does new client setup take forever?</h3>
-                    <p class="problem__card-text">Your clients absolutely notice when things are clunky behind the scenes. They say yes to working with you, then wait nearly a week for a contract while you're internally juggling spreadsheets and chasing people for information. It doesn't exactly scream "premium service," does it?</p>
-                </div>
+
+                <!-- Footer text -->
+                <p style="text-align: center; margin-top: 2rem; font-size: 1rem; color: var(--secondary-text);">Not sure which quadrant fits? Most businesses aren't - <a href="#contact" style="color: var(--accent-glow);">that's why discovery is always the first step.</a></p>
             </div>
         </div>
     </section>
@@ -134,59 +219,324 @@
         <div class="container">
             <div class="section__header fade-in" id="solution">
                 <h2 class="section__title">How We Work With You</h2>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto; text-align: justify;">Every AI partnership starts with understanding your specific situation, then building the right solution, and supporting it as your business grows. We don't sell you something off the shelf - we figure out what'll actually work for your business and build it properly.</p>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto; text-align: center;">Every AI partnership starts with understanding your specific situation, then building the right solution and supporting it as your business grows.</p>
             </div>
-            <div class="solution__content">
-                <div class="solution__step fade-in">
-                    <div class="solution__step-header">
-                        <h3 class="solution__step-title">Discover: Where We Begin</h3>
+
+            <!-- Vertical Timeline -->
+            <div class="fade-in" style="max-width: 800px; margin: 3rem auto 0; position: relative;">
+                <!-- Connector Line -->
+                <div style="position: absolute; left: 28px; top: 40px; bottom: 40px; width: 2px; background: linear-gradient(to bottom, var(--accent-glow), rgba(255,182,193,0.3)); z-index: 0;"></div>
+
+                <!-- Step 1: Discover -->
+                <div style="display: flex; gap: 2rem; margin-bottom: 2.5rem; position: relative; z-index: 1;">
+                    <div style="flex-shrink: 0; width: 58px; display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 58px; height: 58px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-glow) 0%, #ff6b9d 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(255,107,157,0.3);">
+                            <i data-feather="compass" style="width: 26px; height: 26px; color: white;"></i>
+                        </div>
                     </div>
-                    <div class="solution__step-content">
-                        <p class="solution__step-text">Depending on where you are right now, we might start in different ways:</p>
-                        <p class="solution__step-text">If you've already got AI tools like Copilot or Gemini but your team isn't really using them properly, we'll run focused workshops to get everyone up to speed and show you how these integrate with your existing systems.</p>
-                        <p class="solution__step-text">If you know AI could help but aren't sure where to start, we'll work with your leadership team to map out which processes will give you the biggest return on investment.</p>
-                        <p class="solution__step-text">If you've already identified the area that's driving everyone mad but don't know what's possible, we'll audit that workflow end-to-end and show you exactly what AI can do, what it'll cost, and what your ROI looks like.</p>
+                    <div style="flex: 1; padding-top: 0.25rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-glow); text-transform: uppercase; letter-spacing: 0.05em;">Step 1</span>
+                        </div>
+                        <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--primary-text); margin: 0 0 0.75rem 0;">Discover: See the Landscape</h3>
+                        <p style="font-size: 1rem; color: var(--secondary-text); line-height: 1.7; margin: 0 0 0.75rem 0;">AI can help in four main ways: making internal work faster (the quick wins), giving your team new superpowers (growth capabilities), improving customer experience (service), or opening entirely new revenue streams (the magic quadrant). Most businesses aren't sure which to prioritise.</p>
+                        <p style="font-size: 1rem; color: var(--secondary-text); line-height: 1.7; margin: 0;">We help you see the full landscape and figure out where to start. Sometimes that's a workshop to get your team using Copilot properly. Sometimes it's mapping your processes to find the biggest ROI opportunities. Sometimes it's auditing a workflow that's driving everyone mad. It depends on where you are.</p>
                     </div>
                 </div>
-                <div class="solution__step fade-in">
-                    <div class="solution__step-header">
-                        <h3 class="solution__step-title">Implement: We Build It Properly</h3>
+
+                <!-- Step 2: Build -->
+                <div style="display: flex; gap: 2rem; margin-bottom: 2.5rem; position: relative; z-index: 1;">
+                    <div style="flex-shrink: 0; width: 58px; display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 58px; height: 58px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-glow) 0%, #ff6b9d 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(255,107,157,0.3);">
+                            <i data-feather="tool" style="width: 26px; height: 26px; color: white;"></i>
+                        </div>
                     </div>
-                    <div class="solution__step-content">
-                        <p class="solution__step-text">Once we understand what needs doing, we build intelligent solutions that don't just eliminate manual work - they enhance what your people can achieve. Whether that's AI agents that research and qualify leads overnight, systems that create first drafts of marketing content, or tools that analyze data and surface insights you'd never spot manually. You can see examples of what we build in our use cases below.</p>
+                    <div style="flex: 1; padding-top: 0.25rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-glow); text-transform: uppercase; letter-spacing: 0.05em;">Step 2</span>
+                        </div>
+                        <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--primary-text); margin: 0 0 0.75rem 0;">Build: The Right Solution for the Problem</h3>
+                        <p style="font-size: 1rem; color: var(--secondary-text); line-height: 1.7; margin: 0 0 0.75rem 0;">Not every problem needs a custom AI agent. Sometimes the answer is training your team to use Copilot properly. Sometimes it's smart automations that connect your existing tools. Sometimes it's agentic workflows that handle complex tasks. And yes, sometimes it's autonomous agents that work while you sleep.</p>
+                        <p style="font-size: 1rem; color: var(--secondary-text); line-height: 1.7; margin: 0;">We match the right solution to the problem - not the most impressive one, not the most expensive one, but the one that actually makes sense for your situation. You can see examples of what we build in our case studies below.</p>
                     </div>
                 </div>
-                <div class="solution__step fade-in">
-                    <div class="solution__step-header">
-                        <h3 class="solution__step-title">Support: We Keep You Ahead</h3>
+
+                <!-- Step 3: Embed -->
+                <div style="display: flex; gap: 2rem; position: relative; z-index: 1;">
+                    <div style="flex-shrink: 0; width: 58px; display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 58px; height: 58px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-glow) 0%, #ff6b9d 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(255,107,157,0.3);">
+                            <i data-feather="users" style="width: 26px; height: 26px; color: white;"></i>
+                        </div>
                     </div>
-                    <div class="solution__step-content">
-                        <p class="solution__step-text">Technology evolves fast, and new AI capabilities emerge constantly. We remain your AI partner - maintaining your systems, implementing new features, and helping you take advantage of the latest developments. You're not just getting support, you're getting ongoing access to cutting-edge AI applications as they become available.</p>
+                    <div style="flex: 1; padding-top: 0.25rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-glow); text-transform: uppercase; letter-spacing: 0.05em;">Step 3</span>
+                        </div>
+                        <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--primary-text); margin: 0 0 0.75rem 0;">Embed: Make It Stick</h3>
+                        <p style="font-size: 1rem; color: var(--secondary-text); line-height: 1.7; margin: 0 0 0.75rem 0;">The best technology fails when people don't actually use it. We've seen it happen - expensive AI implementations that sit unused because nobody was brought along for the journey.</p>
+                        <p style="font-size: 1rem; color: var(--secondary-text); line-height: 1.7; margin: 0;">We help your team understand why this matters for them (not just the business), build confidence through hands-on practice and create the habits that make AI part of how they work - not another tool they avoid. Technology without adoption is just expensive software gathering dust.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Us Section -->
+    <!-- Case Studies Section -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section__header fade-in" id="use-cases">
+                <h2 class="section__title">Case Studies</h2>
+                <p class="section__subtitle" style="font-size: 1.1rem; color: var(--accent-glow); margin-bottom: 1rem;">What we've built and what we're building</p>
+                <p class="section__description">Real solutions for real businesses. We can't name names, but we can show you what we do.</p>
+            </div>
+            <div class="use-cases__accordion">
+                <!-- Case Study: FD Productised Service -->
+                <div class="use-case__card use-case__card--expandable fade-in" data-case="1">
+                    <div class="use-case__header">
+                        <div class="use-case__icon">
+                            <i data-feather="pie-chart"></i>
+                        </div>
+                        <div class="use-case__titles">
+                            <h3 class="use-case__title">Your Consulting Is Valuable But It Doesn't Scale</h3>
+                            <p class="use-case__subtitle">Turn Weekly Analysis Into a Product</p>
+                        </div>
+                        <button class="use-case__toggle" aria-label="Expand case study">
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="use-case__content">
+                        <p class="use-case__problem">You've spent years advising SMEs on cash flow. You know exactly what to look for - burn rate, working capital, debtor days, the accounts that actually matter. But your expertise lives in your head. Every client engagement means starting from scratch, manually analysing their data, explaining the same concepts. Your knowledge is worth a lot - but you can only sell your hours.</p>
+                        <div class="use-case__solution">
+                            <h4 class="use-case__solution-title">What we built:</h4>
+                            <p class="use-case__problem">A finance consultancy wanted to offer "FD-as-a-service" to SMEs who couldn't afford a full-time Finance Director. The problem: the manual analysis made it uneconomic at SME price points. We built a platform that encodes their analytical methodology - account classification, cash calculations, risk assessment - and uses AI to generate the narrative summary they'd normally write themselves. Upload a file, get the FD's analysis in 60 seconds.</p>
+                            <h4 class="use-case__solution-title">The outcome:</h4>
+                            <ul class="use-case__features">
+                                <li>A consulting service became a scalable product</li>
+                                <li>One consultant can now serve 20x more clients</li>
+                                <li>New recurring revenue stream at price points that weren't viable before</li>
+                                <li>The consultant stays in the loop for judgment calls - AI handles the grind</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study: Restaurant Invoice Processing -->
+                <div class="use-case__card use-case__card--expandable fade-in" data-case="2">
+                    <div class="use-case__header">
+                        <div class="use-case__icon">
+                            <i data-feather="file-text"></i>
+                        </div>
+                        <div class="use-case__titles">
+                            <h3 class="use-case__title">Your Restaurant Runs on Paper and Hope</h3>
+                            <p class="use-case__subtitle">AI That Actually Understands Invoices</p>
+                        </div>
+                        <button class="use-case__toggle" aria-label="Expand case study">
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="use-case__content">
+                        <p class="use-case__problem">Every week it's the same. Invoices arrive by email, WhatsApp, paper. Someone has to open them, read them, type the numbers somewhere, remember to pay, file them for the accountant. It's not hard work - it's just endless. And it's eating time you could spend on the business.</p>
+                        <div class="use-case__solution">
+                            <h4 class="use-case__solution-title">What we built:</h4>
+                            <p class="use-case__problem">A Quebec restaurant group needed invoice processing that actually worked with how suppliers send things - emails, WhatsApp photos, the lot. We built an AI system that captures invoices from any channel, extracts supplier details, amounts, tax breakdowns, line items - and flags when prices go up. One-tap approval. One-click export for the accountant. All in French, because that's what the team speaks.</p>
+                            <h4 class="use-case__solution-title">The outcome:</h4>
+                            <ul class="use-case__features">
+                                <li>2+ hours per week per location back in the owner's pocket</li>
+                                <li>Supplier price increases caught and challenged</li>
+                                <li>The accountant gets clean data instead of a shoebox</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case__card use-case__card--expandable fade-in" data-case="3">
+                    <div class="use-case__header">
+                        <div class="use-case__icon">
+                            <i data-feather="zap"></i>
+                        </div>
+                        <div class="use-case__titles">
+                            <h3 class="use-case__title">You're Paying for Copilot But Nobody's Using It</h3>
+                            <p class="use-case__subtitle">Get Real Value From Tools You Already Have</p>
+                        </div>
+                        <button class="use-case__toggle" aria-label="Expand case study">
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="use-case__content">
+                        <p class="use-case__problem">You rolled out Copilot across the team. Six months later, half of them have forgotten it exists and the other half use it to fix typos. Meanwhile you're paying per seat for a tool that could be transforming how they work.</p>
+                        <div class="use-case__solution">
+                            <h4 class="use-case__solution-title">What we did:</h4>
+                            <p class="use-case__problem">A consultancy running repeatable client projects wasn't getting any value from their Microsoft 365 investment. We ran a focused workshop showing their team how Copilot could handle the admin that was eating their days - drafting client emails, researching participants, summarising meetings, creating agendas. Then we built small automations: email templates that auto-populate from project documents, follow-up trackers that flag who hasn't responded.</p>
+                            <h4 class="use-case__solution-title">The outcome:</h4>
+                            <ul class="use-case__features">
+                                <li>15-20% efficiency gain across the team</li>
+                                <li>Not from fancy AI - from actually using what they already had</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case__card use-case__card--expandable fade-in" data-case="2">
+                    <div class="use-case__header">
+                        <div class="use-case__icon">
+                            <i data-feather="check-square"></i>
+                        </div>
+                        <div class="use-case__titles">
+                            <h3 class="use-case__title">Your PMs Are Updating Spreadsheets Instead of Managing Projects</h3>
+                            <p class="use-case__subtitle">Automate the Admin, Free the Humans</p>
+                        </div>
+                        <button class="use-case__toggle" aria-label="Expand case study">
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="use-case__content">
+                        <p class="use-case__problem">Your project managers are good at managing projects. So why are they spending hours every week copying status updates into spreadsheets and manually adjusting Gantt charts? By the time the timeline's updated, it's already wrong again.</p>
+                        <div class="use-case__solution">
+                            <h4 class="use-case__solution-title">What we built:</h4>
+                            <p class="use-case__problem">A professional services firm had a spreadsheet with project timelines that needed constant manual updates. Every status change meant someone had to find the right row, adjust the blocks, update the dates. We built an automation that reads their status documents and updates the project charts automatically.</p>
+                            <h4 class="use-case__solution-title">The outcome:</h4>
+                            <ul class="use-case__features">
+                                <li>Hours of PM admin time reduced to minutes</li>
+                                <li>Project visibility went from "best guess" to "always current"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case__card use-case__card--expandable fade-in" data-case="3">
+                    <div class="use-case__header">
+                        <div class="use-case__icon">
+                            <i data-feather="trending-up"></i>
+                        </div>
+                        <div class="use-case__titles">
+                            <h3 class="use-case__title">Your Strategists Are Doing Research Instead of Strategy</h3>
+                            <p class="use-case__subtitle">60 Hours of Work in 5</p>
+                        </div>
+                        <button class="use-case__toggle" aria-label="Expand case study">
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="use-case__content">
+                        <p class="use-case__problem">Your best people should be thinking strategically and advising clients. Instead they're manually trawling competitor websites, downloading ad libraries, reading forum threads and trying to spot patterns in Google Trends data. The research takes so long that by the time they get to the strategic thinking, they're rushing.</p>
+                        <div class="use-case__solution">
+                            <h4 class="use-case__solution-title">What we built:</h4>
+                            <p class="use-case__problem">A research consultancy needed competitive intelligence across multiple channels - brand positioning, ad creative, community sentiment, search trends. Their analysts were spending 60+ hours per project on manual research. We built an agent that takes a research brief, searches all their sources via APIs, interprets the findings, writes the reports and even scores everything on their strategic framework.</p>
+                            <h4 class="use-case__solution-title">The outcome:</h4>
+                            <ul class="use-case__features">
+                                <li>60 hours of research reduced to 5</li>
+                                <li>Human stays in the loop for judgement calls</li>
+                                <li>The team can now take on more clients without hiring - growth at almost no extra cost</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case__card use-case__card--expandable fade-in" data-case="4">
+                    <div class="use-case__header">
+                        <div class="use-case__icon">
+                            <i data-feather="users"></i>
+                        </div>
+                        <div class="use-case__titles">
+                            <h3 class="use-case__title">Your Clients Are Chasing You For Updates</h3>
+                            <p class="use-case__subtitle">Make Yourself Easier to Do Business With</p>
+                        </div>
+                        <button class="use-case__toggle" aria-label="Expand case study">
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="use-case__content">
+                        <p class="use-case__problem">Your delivery is excellent. Your communication isn't. Clients email asking for updates because they can't see what's happening. Your team spends time answering questions instead of doing work. Worse, the clients who go quiet are the ones you should worry about - they're not happy, they're just not telling you.</p>
+                        <div class="use-case__solution">
+                            <h4 class="use-case__solution-title">What we built:</h4>
+                            <p class="use-case__problem">A professional services firm with multiple concurrent client projects needed a better way to keep everyone informed. We built a client portal where everything lives in one place - project status, upcoming sessions, documents, notifications. AI sorts and prioritises across workstreams, surfaces what needs attention and keeps clients in the loop without your team having to chase.</p>
+                            <h4 class="use-case__solution-title">The outcome:</h4>
+                            <ul class="use-case__features">
+                                <li>Clients stop chasing because they can see everything</li>
+                                <li>Your team focuses on delivery instead of status updates</li>
+                                <li>Client satisfaction goes up. Churn goes down.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case__card use-case__card--expandable fade-in" data-case="5">
+                    <div class="use-case__header">
+                        <div class="use-case__icon">
+                            <i data-feather="database"></i>
+                        </div>
+                        <div class="use-case__titles">
+                            <h3 class="use-case__title">Your Expertise Is Buried in Notebooks and Emails</h3>
+                            <p class="use-case__subtitle">Make Your Knowledge Searchable</p>
+                        </div>
+                        <button class="use-case__toggle" aria-label="Expand case study">
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="use-case__content">
+                        <p class="use-case__problem">You've spent years building expertise. It's in your head, your notebooks, scattered across emails and documents. When you need to recall something specific, you're digging through files or relying on memory. Your knowledge is valuable - but it's not accessible.</p>
+                        <div class="use-case__solution">
+                            <h4 class="use-case__solution-title">What we built:</h4>
+                            <p class="use-case__problem">An industry expert with thousands of detailed assessments built up over years had no way to search or retrieve their own knowledge. We built a personal knowledge base that captures everything in one place - structured, tagged, searchable. Every assessment, every note, instantly accessible.</p>
+                            <h4 class="use-case__solution-title">The outcome:</h4>
+                            <ul class="use-case__features">
+                                <li>Years of expertise, now at your fingertips</li>
+                                <li>No more "I know I reviewed this somewhere..." - just search and find</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case__card use-case__card--expandable fade-in" data-case="6">
+                    <div class="use-case__header">
+                        <div class="use-case__icon">
+                            <i data-feather="dollar-sign"></i>
+                        </div>
+                        <div class="use-case__titles">
+                            <h3 class="use-case__title">Turn Your Knowledge Into a New Revenue Stream</h3>
+                            <p class="use-case__subtitle">Monetise Expertise You Already Have</p>
+                        </div>
+                        <button class="use-case__toggle" aria-label="Expand case study">
+                            <i data-feather="chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="use-case__content">
+                        <p class="use-case__problem">You've built genuine expertise over years. People pay for your advice. But you can only be in one place at a time and there's a limit to how many clients you can serve personally. Your knowledge is valuable - but it doesn't scale.</p>
+                        <div class="use-case__solution">
+                            <h4 class="use-case__solution-title">What we built:</h4>
+                            <p class="use-case__problem">An industry expert with a loyal following wanted to reach more people without diluting their personal brand. We built a consumer app that puts their expertise in people's pockets - curated recommendations, personalised suggestions, AI-powered matching. Free tier to try, subscription for full access.</p>
+                            <h4 class="use-case__solution-title">The outcome:</h4>
+                            <ul class="use-case__features">
+                                <li>A new revenue stream from expertise they already had</li>
+                                <li>Their knowledge now serves thousands instead of dozens</li>
+                                <li>The expert focuses on high-value work while the app handles the rest</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Believe Section -->
     <section class="section" id="why-us">
         <div class="container">
             <div class="section__header fade-in">
-                <h2 class="section__title">We Actually Know How Businesses Work</h2>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem; text-align: justify;">We've spent decades growing companies faster than the competition. We know what it takes to build market-leading businesses - and how AI can accelerate that.</p>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem; text-align: justify;">AI can replace manual work or enhance human capability - depending on what your business needs. Whether you want to reduce costs through automation or make your existing team more strategic and creative, we focus on solutions that drive measurable results.</p>
-                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto; text-align: justify;">We don't get distracted by shiny tech. We only recommend AI that delivers real business value for your specific situation.</p>
+                <h2 class="section__title">What We Believe</h2>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem; text-align: justify;">In 2016, world champion Lee Sedol sat down to defend humanity's honour in Go - the world's most complex board game, with more possible moves than atoms in the universe. A game we'd dominated for 2,500 years. His opponent: Google's AI. In game two, move 37 changed everything - the AI played a move no human ever had: brilliant, illogical, devastating. But Sedol didn't walk away. He studied, adapted and later made move 78 - a play so creative that AlphaGo faltered and gave up.</p>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto 1.5rem; text-align: justify;">We believe every knowledge worker will have their own Move 37 moment: the instant they see AI do something they can't. Those who keep learning will reach their Move 78 - when human creativity and machine capability work in harmony.</p>
+                <p style="font-size: 1.05rem; line-height: 1.7; color: var(--secondary-text); max-width: 800px; margin: 0 auto 2.5rem; text-align: justify;"><strong style="color: var(--primary-text);">That's what we help organisations achieve.</strong></p>
+                <h3 style="font-size: 1.5rem; font-weight: 600; color: var(--primary-text); margin: 0 auto 1rem; text-align: center;">Meet the Team</h3>
             </div>
             <div class="why-us__content">
                 <div class="founder__card fade-in">
                     <div class="founder__image">
-                        <img src="assets/images/Hamish Headshot.jpg" alt="Hamish Nicklin - Co-Founder and CEO" class="founder__photo">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin - Co-Founder and CEO" class="founder__photo">
                     </div>
                     <div class="founder__info">
                         <h3 class="founder__name">Hamish Nicklin</h3>
                         <p class="founder__title">Co-Founder and CEO</p>
                         <p class="founder__bio">Hamish spent 25 years building and scaling media businesses, including as CEO of dentsu Media UK where he grew £1.3bn in turnover and led 2,000+ people. At The Guardian, as Chief Revenue Officer, he helped reverse a £100m cash loss trajectory to achieve operational break-even within three years, turning advertising revenue decline to growth ahead of his competition. Before that, he spent nearly a decade at Google helping agencies transform their businesses through digital-first strategies.</p>
-                        <p class="founder__bio">He's lived through the operational challenges that hold businesses back - but more importantly, he's proven how to solve them profitably. He knows what it takes to drive revenue growth, scale operations faster than competitors, and build market-leading businesses. That's why he understands exactly where AI can accelerate growth and where it's just expensive distraction.</p>
+                        <p class="founder__bio">He's lived through the operational challenges that hold businesses back - but more importantly, he's proven how to solve them profitably. He knows what it takes to drive revenue growth, scale operations faster than competitors and build market-leading businesses. That's why he understands exactly where AI can accelerate growth and where it's just expensive distraction.</p>
                     </div>
                 </div>
                 <div class="founder__card fade-in">
@@ -196,282 +546,26 @@
                     <div class="founder__info">
                         <h3 class="founder__name">Stephen Greszczyszyn</h3>
                         <p class="founder__title">Co-Founder, CTO</p>
-                        <p class="founder__bio">Stephen's been building systems and automating workflows for 25 years - properly building them, not just cobbling things together with Zapier. He's the technical brain who turns business problems into elegant solutions that actually work. While most people talk about AI like it's magic, Stephen understands what it can really do, where it fits, and how to build automation that won't break when your business grows.</p>
+                        <p class="founder__bio">Stephen spent 20+ years at Cisco learning what separates automation that actually works from automation that just wastes your money. Now he builds AI agents that run your business while you sleep.</p>
+                        <p class="founder__bio">His track record is impressive: £2M+ saved annually through proper automation at Cisco. 920+ engineering hours freed up per year. Systems that turned 3-day analysis tasks into 3-minute reports. But here's what really matters - he knows how to make these enterprise-grade solutions work for growing businesses without the enterprise price tag or the nonsense complexity.</p>
+                        <p class="founder__bio">From AI that writes brilliant cold emails to agents that handle customer support 24/7, Stephen bridges the gap between "AI could do this" and "AI is doing this, right now, making us money." He's fluent in both Fortune 500 and startup, which means your automation actually scales when you do.</p>
+                        <p class="founder__bio">Stephen is obsessed with making sure you understand and own your automation, not creating some weird dependency where you can't function without him. He's proven how to build systems that solve real problems profitably.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Use Cases Section -->
-    <section class="section section--alt">
+    <!-- Copilot Assessment Promo Section -->
+    <section class="section assess-promo">
         <div class="container">
-            <div class="section__header fade-in" id="use-cases">
-                <h2 class="section__title">Common Business Challenges We Fix</h2>
-                <p class="section__description">AI isn't about showing off with fancy technology - it's about freeing up your people's time to focus on what matters most: serving clients better, generating new revenue, or working on the strategic thinking that sets you apart from competitors. Every business is different, but the operational challenges are remarkably similar across industries.</p>
-            </div>
-            <div class="use-cases__accordion">
-                <div class="use-case__card use-case__card--expandable fade-in" data-case="1">
-                    <div class="use-case__header">
-                        <div class="use-case__icon">
-                            <i data-feather="trending-down"></i>
-                        </div>
-                        <div class="use-case__titles">
-                            <h3 class="use-case__title">Your Leads Are Going Nowhere</h3>
-                            <p class="use-case__subtitle">Stop Losing Deals to Faster Competitors</p>
-                        </div>
-                        <button class="use-case__toggle" aria-label="Expand use case">
-                            <i data-feather="chevron-down"></i>
-                        </button>
-                    </div>
-                    <div class="use-case__content">
-                        <p class="use-case__problem">We're spending thousands on marketing but leads are slipping through the cracks. It takes us two days to respond to enquiries, half our follow-ups never happen, and my sales team spends more time on admin than actually selling. We're losing deals to faster competitors.</p>
-                        <div class="use-case__solution">
-                            <h4 class="use-case__solution-title">Here's what we build:</h4>
-                            <ul class="use-case__features">
-                                <li>Every lead gets captured instantly, no matter where it comes from</li>
-                                <li>An AI agent asks the qualifying questions so you know who's worth chasing</li>
-                                <li>Leads get sorted automatically into "drop everything," "worth a call," and "maybe later"</li>
-                                <li>Your sales team gets pinged immediately when a proper opportunity comes in, with all the context they need</li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="assess-promo__content fade-in">
+                <div class="assess-promo__icon">
+                    <i data-feather="activity" style="width: 3rem; height: 3rem;"></i>
                 </div>
-                
-                <div class="use-case__card use-case__card--expandable fade-in" data-case="2">
-                    <div class="use-case__header">
-                        <div class="use-case__icon">
-                            <i data-feather="user-plus"></i>
-                        </div>
-                        <div class="use-case__titles">
-                            <h3 class="use-case__title">New Client Chaos</h3>
-                            <p class="use-case__subtitle">Stop Making Your Best Clients Wait Around</p>
-                        </div>
-                        <button class="use-case__toggle" aria-label="Expand use case">
-                            <i data-feather="chevron-down"></i>
-                        </button>
-                    </div>
-                    <div class="use-case__content">
-                        <p class="use-case__problem">A client says yes to working with us, then sits there for a week while we scramble to get contracts generated, chase down signatures, and set them up across our different systems. It's embarrassing - we look completely disorganised when we should be demonstrating why they made the right choice.</p>
-                        <div class="use-case__solution">
-                            <h4 class="use-case__solution-title">Here's what happens instead:</h4>
-                            <ul class="use-case__features">
-                                <li>The second you mark a deal as won, everything kicks off automatically</li>
-                                <li>Contracts get generated and sent for signature without you lifting a finger</li>
-                                <li>Once they've signed, project folders appear, kickoff calls get booked, billing gets sorted</li>
-                                <li>Your new client thinks you're incredibly organised instead of wondering what they've got themselves into</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="use-case__card use-case__card--expandable fade-in" data-case="3">
-                    <div class="use-case__header">
-                        <div class="use-case__icon">
-                            <i data-feather="bar-chart"></i>
-                        </div>
-                        <div class="use-case__titles">
-                            <h3 class="use-case__title">Flying Blind With Your Own Business</h3>
-                            <p class="use-case__subtitle">Actually Know How You're Doing This Month</p>
-                        </div>
-                        <button class="use-case__toggle" aria-label="Expand use case">
-                            <i data-feather="chevron-down"></i>
-                        </button>
-                    </div>
-                    <div class="use-case__content">
-                        <p class="use-case__problem">I ask my team 'how are we doing this month?' and someone has to spend half a day logging into our accounting software, CRM, and project management system just to piece together basic numbers. By the time I get the report, we're already two weeks into the next month and the data's useless for making decisions.</p>
-                        <div class="use-case__solution">
-                            <h4 class="use-case__solution-title">Here's what we build instead:</h4>
-                            <ul class="use-case__features">
-                                <li>A dashboard that pulls everything together automatically - accounting, timesheets, project management, the lot</li>
-                                <li>Weekly reports that just appear in your inbox with the numbers that actually matter</li>
-                                <li>Alerts when something's going wrong financially, so you can fix it before it becomes a problem</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="use-case__card use-case__card--expandable fade-in" data-case="4">
-                    <div class="use-case__header">
-                        <div class="use-case__icon">
-                            <i data-feather="user-x"></i>
-                        </div>
-                        <div class="use-case__titles">
-                            <h3 class="use-case__title">Everything Falls Apart When Sarah Goes on Holiday</h3>
-                            <p class="use-case__subtitle">Stop Being Held Hostage by Key People</p>
-                        </div>
-                        <button class="use-case__toggle" aria-label="Expand use case">
-                            <i data-feather="chevron-down"></i>
-                        </button>
-                    </div>
-                    <div class="use-case__content">
-                        <p class="use-case__problem">Our most critical processes live entirely in Sarah's head. When she took two weeks off last month, we had clients calling asking for updates and nobody could tell them anything because only Sarah knew how to access the information. We can't take on bigger projects or hire more people because everything runs through the same two key staff members.</p>
-                        <div class="use-case__solution">
-                            <h4 class="use-case__solution-title">Here's what we fix:</h4>
-                            <ul class="use-case__features">
-                                <li>Critical processes get automated so they run the same way every time, regardless of who's in the office</li>
-                                <li>An internal chatbot that knows all your processes, so staff can get answers instantly instead of waiting for Sarah</li>
-                                <li>Remove the dependencies that are stopping you from scaling properly</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="use-case__card use-case__card--expandable fade-in" data-case="5">
-                    <div class="use-case__header">
-                        <div class="use-case__icon">
-                            <i data-feather="user-check"></i>
-                        </div>
-                        <div class="use-case__titles">
-                            <h3 class="use-case__title">New Starters Think You're Completely Disorganised</h3>
-                            <p class="use-case__subtitle">Make a Good First Impression on People You Actually Want to Keep</p>
-                        </div>
-                        <button class="use-case__toggle" aria-label="Expand use case">
-                            <i data-feather="chevron-down"></i>
-                        </button>
-                    </div>
-                    <div class="use-case__content">
-                        <p class="use-case__problem">Every new hire has a completely different onboarding experience, and frankly it's chaos every time. IT takes weeks to set up their laptop and accounts, contracts go missing in email chains, and my managers are constantly fielding the same basic questions about holiday policies and expenses instead of actually helping people settle into their roles. We're making terrible first impressions on the exact people we've just convinced to join us.</p>
-                        <div class="use-case__solution">
-                            <h4 class="use-case__solution-title">Here's what happens instead:</h4>
-                            <ul class="use-case__features">
-                                <li>The entire onboarding process kicks off automatically the moment someone accepts the job</li>
-                                <li>An HR chatbot answers all the basic questions 24/7, so new people don't feel abandoned</li>
-                                <li>Managers can focus on the stuff that actually matters - helping people settle in and do good work</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="use-case__card use-case__card--expandable fade-in" data-case="6">
-                    <div class="use-case__header">
-                        <div class="use-case__icon">
-                            <i data-feather="trending-down"></i>
-                        </div>
-                        <div class="use-case__titles">
-                            <h3 class="use-case__title">Clients Are Leaving and You Had No Idea Why</h3>
-                            <p class="use-case__subtitle">Spot the Warning Signs Before It's Too Late</p>
-                        </div>
-                        <button class="use-case__toggle" aria-label="Expand use case">
-                            <i data-feather="chevron-down"></i>
-                        </button>
-                    </div>
-                    <div class="use-case__content">
-                        <p class="use-case__problem">My account managers are always firefighting, but it's the quiet clients that worry me. We had three major accounts cancel last quarter with no warning - just polite emails saying they wouldn't be renewing. By then it was too late.</p>
-                        <div class="use-case__solution">
-                            <h4 class="use-case__solution-title">Here's what we build:</h4>
-                            <ul class="use-case__features">
-                                <li>A client health system that spots trouble before it becomes trouble</li>
-                                <li>Automatic analysis of communication patterns, support tickets, and usage to flag risky accounts</li>
-                                <li>Your account managers can be proactive instead of reactive, focusing their time where it'll actually make a difference</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="use-case__card use-case__card--expandable fade-in" data-case="7">
-                    <div class="use-case__header">
-                        <div class="use-case__icon">
-                            <i data-feather="edit-3"></i>
-                        </div>
-                        <div class="use-case__titles">
-                            <h3 class="use-case__title">Your Marketing Team Is Drowning in Admin</h3>
-                            <p class="use-case__subtitle">Free Them Up to Actually Be Creative</p>
-                        </div>
-                        <button class="use-case__toggle" aria-label="Expand use case">
-                            <i data-feather="chevron-down"></i>
-                        </button>
-                    </div>
-                    <div class="use-case__content">
-                        <p class="use-case__problem">My marketing team spends 80% of their time researching competitors and reformatting old content for different channels. I hired them to be creative and strategic, but they've become glorified content administrators. They barely have time for the big picture thinking that actually differentiates us from our competitors.</p>
-                        <div class="use-case__solution">
-                            <h4 class="use-case__solution-title">Here's how we fix it:</h4>
-                            <ul class="use-case__features">
-                                <li>AI agents do the initial research and provide proper briefs instead of your team spending hours googling</li>
-                                <li>First drafts get generated from your data and insights, giving the team something to work with</li>
-                                <li>One piece of content automatically becomes a dozen social posts, freeing your team to focus on the big picture stuff</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="use-case__card use-case__card--expandable fade-in" data-case="8">
-                    <div class="use-case__header">
-                        <div class="use-case__icon">
-                            <i data-feather="dollar-sign"></i>
-                        </div>
-                        <div class="use-case__titles">
-                            <h3 class="use-case__title">Your Finance Team Is Buried in Digital Paperwork</h3>
-                            <p class="use-case__subtitle">Let Them Focus on Analysis Instead of Data Entry</p>
-                        </div>
-                        <button class="use-case__toggle" aria-label="Expand use case">
-                            <i data-feather="chevron-down"></i>
-                        </button>
-                    </div>
-                    <div class="use-case__content">
-                        <p class="use-case__problem">My finance team spends most of their week chasing invoices and processing expenses instead of giving me business insights. I'm paying qualified accountants to do admin work. When I need financial analysis, they're too buried in paperwork.</p>
-                        <div class="use-case__solution">
-                            <h4 class="use-case__solution-title">Here's what gets automated:</h4>
-                            <ul class="use-case__features">
-                                <li>The entire invoice process - creation, sending, chasing late payments, the works</li>
-                                <li>Expense reporting that doesn't make everyone want to cry</li>
-                                <li>Monthly financial reports that actually happen on time because the data pulls together automatically</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="use-case__card use-case__card--expandable fade-in" data-case="9">
-                    <div class="use-case__header">
-                        <div class="use-case__icon">
-                            <i data-feather="check-square"></i>
-                        </div>
-                        <div class="use-case__titles">
-                            <h3 class="use-case__title">Projects Are Always Behind and Nobody Knows Why</h3>
-                            <p class="use-case__subtitle">Stop Chasing People and Start Delivering</p>
-                        </div>
-                        <button class="use-case__toggle" aria-label="Expand use case">
-                            <i data-feather="chevron-down"></i>
-                        </button>
-                    </div>
-                    <div class="use-case__content">
-                        <p class="use-case__problem">My project managers spend half their week chasing people for status updates instead of actually managing projects. We miss deadlines because nobody spots the warning signs early enough, and I'm constantly getting calls from clients asking for progress updates because our communication is so poor.</p>
-                        <div class="use-case__solution">
-                            <h4 class="use-case__solution-title">Here's what we automate:</h4>
-                            <ul class="use-case__features">
-                                <li>Project status updates happen automatically - no more chasing people for information</li>
-                                <li>Alerts for upcoming deadlines and potential problems, so you can fix things before they break</li>
-                                <li>New projects get set up consistently across all your systems, same way every time</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="use-case__card use-case__card--expandable fade-in" data-case="10">
-                    <div class="use-case__header">
-                        <div class="use-case__icon">
-                            <i data-feather="trending-up"></i>
-                        </div>
-                        <div class="use-case__titles">
-                            <h3 class="use-case__title">Market Research Takes Forever and Misses Half the Important Stuff</h3>
-                            <p class="use-case__subtitle">Wake Up to Proper Intelligence Every Morning</p>
-                        </div>
-                        <button class="use-case__toggle" aria-label="Expand use case">
-                            <i data-feather="chevron-down"></i>
-                        </button>
-                    </div>
-                    <div class="use-case__content">
-                        <p class="use-case__problem">One of my team spends half their week manually trawling through competitor websites and industry news sites trying to keep up with market developments. It takes forever, they miss crucial announcements, and the intelligence we get is completely inconsistent depending on who's doing it and what mood they're in.</p>
-                        <div class="use-case__solution">
-                            <h4 class="use-case__solution-title">Here's what we build instead:</h4>
-                            <ul class="use-case__features">
-                                <li>An AI agent that does all the research overnight and gives you a proper briefing by 9am</li>
-                                <li>Automatic tracking of what customers are saying about you across all channels</li>
-                                <li>Turn the slow manual research process into a proper competitive intelligence machine</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <h2 class="assess-promo__title">Already have Copilot but not seeing the value?</h2>
+                <p class="assess-promo__description">Take our free 5-minute assessment. We'll show you where you are, what you're missing and give you specific prompts to try tomorrow. No sales pitch - just practical recommendations.</p>
+                <a href="/assess" class="btn btn--primary btn--large">See Where You Stand</a>
             </div>
         </div>
     </section>
@@ -563,20 +657,20 @@
                     
                     <!-- Single column for problem description -->
                     <div class="form-group">
-                        <textarea id="bottleneck-problem" name="problem" rows="4" required placeholder="e.g., Creating proposals takes forever because we're starting from scratch every time. Copy-pasting from old documents, updating pricing manually, reformatting - it should take 30 minutes but ends up being half a day."></textarea>
-                        <label for="bottleneck-problem">What's the specific problem that's driving you mad? *</label>
+                        <textarea id="bottleneck-problem" name="problem" rows="4" required placeholder="e.g., Our team spends too long on admin... We want to give our people AI superpowers... We're curious what AI could do for our customer experience... We want to explore new AI-enabled services..."></textarea>
+                        <label for="bottleneck-problem">What would you like to explore? *</label>
                     </div>
                     
-                    <!-- Single column for time impact -->
+                    <!-- Single column for goal -->
                     <div class="form-group">
-                        <select id="bottleneck-impact" name="time_wasted">
-                            <option value="">Select time wasted...</option>
-                            <option value="5-10 hours">5-10 hours per week</option>
-                            <option value="10-20 hours">10-20 hours per week</option>
-                            <option value="20+ hours">20+ hours per week</option>
-                            <option value="Multiple days">Multiple days per week</option>
+                        <select id="bottleneck-goal" name="goal">
+                            <option value="">What are you hoping to achieve?</option>
+                            <option value="Save time">Save time on repetitive work</option>
+                            <option value="New capabilities">Give my team new capabilities</option>
+                            <option value="Customer experience">Improve customer experience</option>
+                            <option value="New revenue">Explore new revenue opportunities</option>
                         </select>
-                        <label for="bottleneck-impact">How much time does this waste each week?</label>
+                        <label for="bottleneck-goal">What are you hoping to achieve?</label>
                     </div>
                     <button type="button" class="btn btn--primary" id="bottleneck-next-btn">Next: Book Your Call</button>
                 </form>
@@ -657,7 +751,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=2025-09-06a"></script>
     <script>
         // Initialize Feather icons
         feather.replace();
