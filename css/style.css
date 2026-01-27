@@ -11,7 +11,11 @@
   --sage-green: #a1bba2;
   --dark-grey: #3c3c3c;
   --medium-grey: #6b6b6b;
-  
+
+  /* VectorFlow Brand Colours */
+  --royal-blue: #3d5fa8;
+  --rich-violet: #7952b3;
+
   /* Tech Noir Theme Colors */
   --primary-bg: #0a0e1a;
   --secondary-bg: var(--deep-navy);
@@ -3132,5 +3136,497 @@ textarea:focus,
 
   .assess-promo__description {
     font-size: var(--fs-md);
+  }
+}
+
+/* ===== VECTORFLOW LANDING PAGE ===== */
+
+/* VectorFlow Section Backgrounds */
+.vf-section--navy {
+  background: var(--deep-navy);
+  color: var(--warm-cream);
+}
+
+.vf-section--cream {
+  background: var(--warm-cream);
+  color: var(--dark-grey);
+}
+
+/* VectorFlow Hero */
+.vf-hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.vf-hero__content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.vf-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: var(--space-lg);
+  color: var(--warm-cream);
+}
+
+.vf-hero__subtitle {
+  font-size: var(--fs-lg);
+  line-height: 1.7;
+  color: var(--gradient-blue);
+  margin-bottom: var(--space-xl);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* VectorFlow Brand Styling */
+.vf-brand em {
+  font-style: italic;
+}
+
+.vf-brand sup {
+  font-size: 0.5em;
+  vertical-align: super;
+}
+
+/* VectorFlow Split Layout */
+.vf-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+  padding: var(--space-3xl) 0;
+}
+
+@media (min-width: 768px) {
+  .vf-split {
+    grid-template-columns: 40% 60%;
+  }
+
+  .vf-split--reverse {
+    grid-template-columns: 60% 40%;
+  }
+
+  .vf-split--reverse .vf-split__stat {
+    order: 2;
+  }
+
+  .vf-split--reverse .vf-split__content {
+    order: 1;
+  }
+}
+
+/* VectorFlow Stat Block */
+.vf-stat {
+  text-align: center;
+}
+
+.vf-stat__number {
+  font-family: var(--font-heading);
+  font-size: clamp(4rem, 10vw, 6rem);
+  font-weight: 800;
+  color: var(--royal-blue);
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+}
+
+.vf-stat__label {
+  font-size: var(--fs-lg);
+  color: var(--dark-grey);
+  margin-bottom: var(--space-xs);
+}
+
+.vf-stat__source {
+  font-size: var(--fs-sm);
+  font-style: italic;
+  color: var(--medium-grey);
+}
+
+/* VectorFlow Content Blocks */
+.vf-content__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.vf-section--cream .vf-content__title {
+  color: var(--royal-blue);
+}
+
+.vf-section--navy .vf-content__title {
+  color: var(--warm-cream);
+}
+
+.vf-content__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-lg) 0;
+}
+
+.vf-content__list li {
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  padding: var(--space-xs) 0;
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.vf-section--cream .vf-content__list li {
+  color: var(--dark-grey);
+  border-left: 2px solid var(--royal-blue);
+}
+
+.vf-content__bridge {
+  font-style: italic;
+  font-size: var(--fs-md);
+  line-height: 1.7;
+  color: var(--medium-grey);
+  margin-top: var(--space-lg);
+}
+
+/* VectorFlow Centred Section */
+.vf-centred {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.vf-centred__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+}
+
+.vf-section--navy .vf-centred__title {
+  color: var(--warm-cream);
+}
+
+.vf-section--cream .vf-centred__title {
+  color: var(--royal-blue);
+}
+
+.vf-centred__text {
+  font-size: var(--fs-lg);
+  line-height: 1.8;
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.vf-section--navy .vf-centred__text {
+  color: var(--gradient-blue);
+}
+
+.vf-section--cream .vf-centred__text {
+  color: var(--dark-grey);
+}
+
+/* VectorFlow Flow Diagram */
+.vf-flow {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.vf-flow__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  color: var(--royal-blue);
+}
+
+.vf-flow__steps {
+  position: relative;
+}
+
+.vf-step {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  position: relative;
+}
+
+/* Vertical connector line */
+.vf-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 1.25rem;
+  top: 3.5rem;
+  width: 2px;
+  height: calc(100% - 1.5rem);
+  background: linear-gradient(180deg, var(--gradient-blue) 0%, var(--gradient-purple) 100%);
+}
+
+.vf-step__marker {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--warm-cream);
+}
+
+/* Ownership colour-coding */
+.vf-step--you .vf-step__marker {
+  background: var(--royal-blue);
+}
+
+.vf-step--we .vf-step__marker {
+  background: var(--rich-violet);
+}
+
+.vf-step--together .vf-step__marker {
+  background: linear-gradient(135deg, var(--royal-blue) 0%, var(--rich-violet) 100%);
+}
+
+.vf-step__content {
+  flex: 1;
+}
+
+.vf-step__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+  color: var(--dark-grey);
+}
+
+.vf-step__desc {
+  font-size: var(--fs-sm);
+  color: var(--medium-grey);
+}
+
+/* Divider arrow between phases */
+.vf-flow__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg) 0;
+  color: var(--rich-violet);
+}
+
+.vf-flow__divider svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.vf-flow__footer {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--medium-grey);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* VectorFlow Toolkit Cards */
+.vf-toolkit {
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.vf-toolkit__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  color: var(--warm-cream);
+}
+
+.vf-toolkit__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .vf-toolkit__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.vf-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(166, 195, 232, 0.3);
+  border-radius: 12px;
+  padding: var(--space-lg);
+  transition: var(--transition);
+}
+
+.vf-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(166, 195, 232, 0.5);
+  transform: translateY(-4px);
+}
+
+.vf-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--gradient-blue);
+  margin-bottom: var(--space-sm);
+}
+
+.vf-card__desc {
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--warm-cream);
+  margin-bottom: var(--space-sm);
+}
+
+.vf-card__list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0;
+}
+
+.vf-card__list li {
+  font-size: var(--fs-sm);
+  color: var(--gradient-blue);
+  padding: var(--space-xs) 0;
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.vf-card__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--rich-violet);
+  border-radius: 50%;
+}
+
+.vf-card__used {
+  font-size: var(--fs-xs);
+  font-style: italic;
+  color: var(--medium-grey);
+  margin-top: var(--space-sm);
+}
+
+/* VectorFlow Outcomes */
+.vf-outcomes {
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.vf-outcomes__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  color: var(--royal-blue);
+}
+
+.vf-outcomes__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .vf-outcomes__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.vf-outcome {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.vf-outcome__title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--dark-grey);
+  margin-bottom: var(--space-sm);
+}
+
+.vf-outcome__desc {
+  font-size: var(--fs-sm);
+  color: var(--medium-grey);
+  line-height: 1.6;
+}
+
+/* VectorFlow CTA Section */
+.vf-cta {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.vf-cta__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--warm-cream);
+  margin-bottom: var(--space-md);
+}
+
+.vf-cta__text {
+  font-size: var(--fs-lg);
+  color: var(--gradient-blue);
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* VectorFlow Responsive Adjustments */
+@media (max-width: 767px) {
+  .vf-hero {
+    min-height: auto;
+    padding: var(--space-2xl) var(--space-sm);
+  }
+
+  .vf-split {
+    padding: var(--space-2xl) var(--space-sm);
+  }
+
+  .vf-stat__number {
+    font-size: 4rem;
+  }
+
+  .vf-centred {
+    padding: var(--space-2xl) var(--space-sm);
+  }
+
+  .vf-flow {
+    padding: var(--space-xl) var(--space-sm);
+  }
+
+  .vf-toolkit {
+    padding: var(--space-2xl) var(--space-sm);
+  }
+
+  .vf-outcomes {
+    padding: var(--space-2xl) var(--space-sm);
+  }
+
+  .vf-cta {
+    padding: var(--space-2xl) var(--space-sm);
   }
 }
