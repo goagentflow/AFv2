@@ -661,6 +661,105 @@ ul {
   }
 }
 
+/* ===== SUBNAV (Tool Pages Secondary Navigation) ===== */
+.subnav {
+  background: rgba(10, 14, 26, 0.98);
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, var(--gradient-blue), transparent) 1;
+  box-shadow: 0 1px 8px rgba(166, 195, 232, 0.15);
+  position: fixed;
+  top: 4.5rem;
+  left: 0;
+  width: 100%;
+  z-index: calc(var(--z-header) - 1);
+}
+
+.subnav__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 2.5rem;
+}
+
+.subnav__left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.subnav__brand {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-text);
+  white-space: nowrap;
+}
+
+.subnav__links {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.subnav__link {
+  font-size: 0.85rem;
+  color: var(--secondary-text);
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.subnav__link:hover {
+  color: var(--primary-text);
+  background: rgba(166, 195, 232, 0.1);
+}
+
+.subnav__separator {
+  color: var(--border-glow);
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+.subnav__cta {
+  padding: 0.35rem 1rem;
+  font-size: 0.8rem;
+  background: linear-gradient(135deg, var(--cta-electric), rgba(247, 168, 157, 0.8));
+  color: var(--primary-bg);
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.subnav__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(247, 168, 157, 0.3);
+}
+
+/* Desktop: show links */
+@media (min-width: 768px) {
+  .subnav__links {
+    display: flex;
+  }
+}
+
+/* Adjust body padding when subnav is present */
+.has-subnav {
+  padding-top: 7rem; /* 4.5rem nav + 2.5rem subnav */
+}
+
+/* Adjust hero padding for pages with subnav */
+.has-subnav .vf-hero,
+.has-subnav .hero {
+  padding-top: 3rem;
+}
+
 /* ===== HERO SECTION ===== */
 .hero {
   min-height: 100vh;
@@ -828,6 +927,241 @@ ul {
 
 .section--alt {
   background: rgba(44, 62, 80, 0.1);
+}
+
+/* Site-wide section backgrounds - Cream/Navy alternating pattern */
+.section--navy {
+  background: var(--deep-navy);
+  color: var(--warm-cream);
+}
+
+.section--cream {
+  background: var(--warm-cream);
+  color: var(--dark-grey);
+  /* Override CSS variables for cream sections so inline styles work correctly */
+  --primary-text: var(--dark-grey);
+  --secondary-text: var(--medium-grey);
+  --bg-primary: var(--warm-cream);
+  --card-bg: white;
+  --border-glow: rgba(44, 62, 80, 0.15);
+  --accent-glow: var(--royal-blue);
+}
+
+/* Text colour adjustments for cream sections */
+.section--cream .section__title {
+  color: var(--royal-blue);
+}
+
+.section--cream .section__subtitle {
+  color: var(--dark-grey);
+}
+
+.section--cream .section__description {
+  color: var(--medium-grey);
+}
+
+/* Card adjustments for cream sections */
+.section--cream .use-case__card {
+  background: white;
+  border: 1px solid rgba(44, 62, 80, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.section--cream .use-case__title,
+.section--cream .use-case__subtitle {
+  color: var(--dark-grey);
+}
+
+.section--cream .use-case__problem,
+.section--cream .use-case__solution-title,
+.section--cream .use-case__features li {
+  color: var(--medium-grey);
+}
+
+.section--cream .use-case__icon {
+  background: linear-gradient(135deg, var(--royal-blue), var(--rich-violet));
+}
+
+/* Founder cards on cream */
+.section--cream .founder__card {
+  background: white;
+  border: 1px solid rgba(44, 62, 80, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.section--cream .founder__name {
+  color: var(--dark-grey);
+}
+
+.section--cream .founder__title {
+  color: var(--royal-blue);
+}
+
+.section--cream .founder__bio {
+  color: var(--medium-grey);
+}
+
+/* Inline style overrides for cream sections */
+.section--cream [style*="color: var(--primary-text)"] {
+  color: var(--dark-grey) !important;
+}
+
+.section--cream [style*="color: var(--secondary-text)"] {
+  color: var(--medium-grey) !important;
+}
+
+/* CTA section on cream */
+.section--cream.cta-section {
+  background: var(--warm-cream);
+}
+
+.section--cream.cta-section::before {
+  background:
+    radial-gradient(circle at 25% 25%, rgba(61, 95, 168, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(121, 82, 179, 0.06) 0%, transparent 50%);
+}
+
+.section--cream .cta__title {
+  color: var(--royal-blue);
+}
+
+.section--cream .cta__subtitle {
+  color: var(--medium-grey);
+}
+
+.section--cream .cta__process-steps li {
+  color: var(--dark-grey);
+}
+
+/* Assess promo on cream */
+.section--cream.assess-promo {
+  background: var(--warm-cream);
+}
+
+.section--cream.assess-promo::before {
+  background:
+    radial-gradient(circle at 20% 50%, rgba(61, 95, 168, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 80% 50%, rgba(121, 82, 179, 0.08) 0%, transparent 40%);
+}
+
+.section--cream .assess-promo__title,
+.section--cream.assess-promo .assess-promo__title {
+  color: var(--royal-blue) !important;
+}
+
+.section--cream .assess-promo__description,
+.section--cream.assess-promo .assess-promo__description {
+  color: var(--medium-grey) !important;
+}
+
+.section--cream .assess-promo__icon,
+.section--cream.assess-promo .assess-promo__icon {
+  color: var(--royal-blue) !important;
+}
+
+/* AI Four Ways grid on cream */
+.section--cream [style*="background: var(--bg-primary)"] {
+  background: var(--warm-cream) !important;
+}
+
+/* Hero on navy - ensure consistent styling */
+.hero.section--navy {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(61, 95, 168, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(121, 82, 179, 0.2) 0%, transparent 50%),
+    var(--deep-navy);
+}
+
+/* Content pages on cream */
+.section--cream .content-wrapper {
+  color: var(--dark-grey);
+}
+
+.section--cream .content__text {
+  color: var(--medium-grey);
+}
+
+.section--cream .content__text--lead {
+  color: var(--dark-grey);
+}
+
+.section--cream .content__text--emphasis {
+  color: var(--dark-grey);
+}
+
+.section--cream .content__title {
+  color: var(--royal-blue);
+}
+
+.section--cream .content__title::before {
+  background: var(--royal-blue);
+}
+
+/* Founders page specific cream adjustments */
+.section--cream .founders-intro {
+  color: var(--dark-grey);
+}
+
+.section--cream .founder-bio {
+  background: white;
+  border-color: rgba(44, 62, 80, 0.1);
+}
+
+.section--cream .founder-bio__name {
+  color: var(--dark-grey);
+}
+
+.section--cream .founder-bio__role {
+  color: var(--royal-blue);
+}
+
+.section--cream .founder-bio__description {
+  color: var(--medium-grey);
+}
+
+.section--cream .filter-tab {
+  border-color: rgba(44, 62, 80, 0.2);
+  color: var(--medium-grey);
+}
+
+.section--cream .filter-tab:hover {
+  border-color: var(--royal-blue);
+  color: var(--dark-grey);
+}
+
+.section--cream .filter-tab.active {
+  background: var(--royal-blue);
+  border-color: var(--royal-blue);
+  color: white;
+}
+
+.section--cream .post-card {
+  background: white;
+  border-color: rgba(44, 62, 80, 0.1);
+}
+
+.section--cream .post-card__author-name {
+  color: var(--dark-grey);
+}
+
+.section--cream .post-card__author-handle {
+  color: var(--medium-grey);
+}
+
+.section--cream .post-card__title {
+  color: var(--dark-grey);
+}
+
+.section--cream .post-card__date {
+  color: var(--medium-grey);
+}
+
+.section--cream .post-card__text {
+  color: var(--medium-grey);
+}
+
+.section--cream .post-card__text strong {
+  color: var(--dark-grey);
 }
 
 .section__header {
