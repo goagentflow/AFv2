@@ -3333,9 +3333,13 @@ textarea:focus,
 
 /* VectorFlow Flow Diagram */
 .vf-flow {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
   padding: var(--space-2xl) var(--space-lg);
+}
+
+.vf-flow--build {
+  padding-top: var(--space-xl);
 }
 
 .vf-flow__title {
@@ -3347,42 +3351,98 @@ textarea:focus,
   color: var(--royal-blue);
 }
 
+/* Timeline Container */
+.vf-flow__timeline {
+  position: relative;
+  padding-left: 3.5rem;
+}
+
+/* Animated Progress Line */
+.vf-flow__progress-line {
+  position: absolute;
+  left: 1.75rem;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg,
+    var(--gradient-blue) 0%,
+    var(--gradient-purple) 100%
+  );
+  border-radius: 2px;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vf-flow__progress-line.animated {
+  transform: scaleY(1);
+}
+
+.vf-flow__progress-line--build {
+  background: linear-gradient(180deg,
+    var(--gradient-purple) 0%,
+    var(--warm-cream) 100%
+  );
+}
+
+/* Steps Container */
 .vf-flow__steps {
   position: relative;
 }
 
+/* Individual Step */
 .vf-step {
   display: flex;
   gap: var(--space-md);
-  padding: var(--space-md) 0;
+  padding: var(--space-sm) 0;
   position: relative;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Vertical connector line */
-.vf-step:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  left: 1.25rem;
-  top: 3.5rem;
-  width: 2px;
-  height: calc(100% - 1.5rem);
-  background: linear-gradient(180deg, var(--gradient-blue) 0%, var(--gradient-purple) 100%);
+.vf-step.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
+/* Stagger animation delays */
+.vf-step[data-step="1"] { transition-delay: 0.1s; }
+.vf-step[data-step="2"] { transition-delay: 0.2s; }
+.vf-step[data-step="3"] { transition-delay: 0.3s; }
+.vf-step[data-step="4"] { transition-delay: 0.4s; }
+.vf-step[data-step="5"] { transition-delay: 0.5s; }
+.vf-step[data-step="6"] { transition-delay: 0.1s; }
+.vf-step[data-step="7"] { transition-delay: 0.2s; }
+
+/* Step Marker - Larger with icon */
 .vf-step__marker {
-  width: 2.5rem;
-  height: 2.5rem;
+  position: absolute;
+  left: -3.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-weight: 700;
-  font-size: var(--fs-sm);
   color: var(--warm-cream);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Ownership colour-coding */
+.vf-step.visible .vf-step__marker {
+  transform: scale(1);
+}
+
+.vf-step__marker svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Ownership colour-coding for markers */
 .vf-step--you .vf-step__marker {
   background: var(--royal-blue);
 }
@@ -3395,37 +3455,281 @@ textarea:focus,
   background: linear-gradient(135deg, var(--royal-blue) 0%, var(--rich-violet) 100%);
 }
 
-.vf-step__content {
+/* Step Card */
+.vf-step__card {
   flex: 1;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
+.vf-step__card:hover {
+  border-color: rgba(61, 95, 168, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.vf-step__card--build {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(166, 195, 232, 0.2);
+}
+
+.vf-step__card--build:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(166, 195, 232, 0.4);
+}
+
+/* Card Header (clickable) */
+.vf-step__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.vf-step__header:hover {
+  background: rgba(61, 95, 168, 0.04);
+}
+
+.vf-step__card--build .vf-step__header:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.vf-step__header:focus {
+  outline: 2px solid var(--royal-blue);
+  outline-offset: -2px;
+}
+
+.vf-step__header:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.vf-step__header:focus-visible {
+  outline: 2px solid var(--royal-blue);
+  outline-offset: -2px;
+}
+
+.vf-step__header-main {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Title and Tagline */
 .vf-step__title {
   font-family: var(--font-heading);
   font-size: var(--fs-lg);
   font-weight: 700;
-  margin-bottom: var(--space-xs);
+  margin-bottom: 0.25rem;
   color: var(--dark-grey);
+}
+
+.vf-step__card--build .vf-step__title {
+  color: var(--warm-cream);
+}
+
+.vf-step__tagline {
+  font-size: var(--fs-sm);
+  color: var(--medium-grey);
+  margin: 0;
+}
+
+.vf-step__card--build .vf-step__tagline {
+  color: var(--gradient-blue);
+}
+
+/* Ownership Badge */
+.vf-step__badge {
+  flex-shrink: 0;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.vf-step__badge--you {
+  background: rgba(61, 95, 168, 0.12);
+  color: var(--royal-blue);
+}
+
+.vf-step__badge--we {
+  background: rgba(121, 82, 179, 0.12);
+  color: var(--rich-violet);
+}
+
+.vf-step__badge--together {
+  background: linear-gradient(135deg, rgba(61, 95, 168, 0.12) 0%, rgba(121, 82, 179, 0.12) 100%);
+  color: var(--rich-violet);
+}
+
+.vf-step__card--build .vf-step__badge--together {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--warm-cream);
+}
+
+.vf-step__card--build .vf-step__badge--we {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--warm-cream);
+}
+
+/* Toggle Icon */
+.vf-step__toggle {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--medium-grey);
+  transition: transform 0.3s ease;
+}
+
+.vf-step__card--build .vf-step__toggle {
+  color: var(--gradient-blue);
+}
+
+.vf-step__toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.vf-step__header[aria-expanded="true"] .vf-step__toggle {
+  transform: rotate(180deg);
+}
+
+/* Expandable Content */
+.vf-step__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.3s ease;
+  padding: 0 var(--space-md);
+}
+
+.vf-step__header[aria-expanded="true"] + .vf-step__content {
+  max-height: 400px;
+  padding: 0 var(--space-md) var(--space-md);
 }
 
 .vf-step__desc {
   font-size: var(--fs-sm);
-  color: var(--medium-grey);
+  line-height: 1.7;
+  color: var(--dark-grey);
+  margin-bottom: var(--space-md);
 }
 
-/* Divider arrow between phases */
-.vf-flow__divider {
+.vf-step__card--build .vf-step__desc {
+  color: var(--gradient-blue);
+}
+
+/* Meta Info (Tool + Outcome) */
+.vf-step__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.vf-step__card--build .vf-step__meta {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.vf-step__tool,
+.vf-step__outcome {
+  display: flex;
+  gap: 0.5rem;
+  font-size: var(--fs-xs);
+}
+
+.vf-step__tool-label,
+.vf-step__outcome-label {
+  font-weight: 600;
+  color: var(--medium-grey);
+  flex-shrink: 0;
+}
+
+.vf-step__card--build .vf-step__tool-label,
+.vf-step__card--build .vf-step__outcome-label {
+  color: var(--gradient-purple);
+}
+
+.vf-step__tool-name {
+  color: var(--royal-blue);
+  font-weight: 500;
+}
+
+.vf-step__card--build .vf-step__tool-name {
+  color: var(--warm-cream);
+}
+
+.vf-step__outcome-text {
+  color: var(--dark-grey);
+}
+
+.vf-step__card--build .vf-step__outcome-text {
+  color: var(--gradient-blue);
+}
+
+/* Phase Divider */
+.vf-phase-divider {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: var(--space-lg) 0;
-  color: var(--rich-violet);
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  background: linear-gradient(180deg, var(--warm-cream) 0%, var(--deep-navy) 100%);
 }
 
-.vf-flow__divider svg {
+.vf-phase-divider__line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg,
+    var(--gradient-blue) 0%,
+    var(--gradient-purple) 100%
+  );
+  opacity: 0.5;
+}
+
+.vf-phase-divider__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.vf-phase-divider__content svg {
   width: 2rem;
   height: 2rem;
+  color: var(--rich-violet);
+  animation: bounce 2s ease-in-out infinite;
 }
 
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.vf-phase-divider__text {
+  font-family: var(--font-heading);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--deep-navy);
+  white-space: nowrap;
+}
+
+/* Build Phase Section */
+.vf-section--build {
+  padding-top: 0;
+}
+
+/* Footer for Build Phase */
 .vf-flow__footer {
   text-align: center;
   font-size: var(--fs-sm);
@@ -3433,6 +3737,11 @@ textarea:focus,
   margin-top: var(--space-lg);
   padding-top: var(--space-lg);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.vf-flow__footer--build {
+  color: var(--gradient-blue);
+  border-top-color: rgba(255, 255, 255, 0.1);
 }
 
 /* VectorFlow Toolkit Cards */
@@ -3618,6 +3927,97 @@ textarea:focus,
     padding: var(--space-xl) var(--space-sm);
   }
 
+  /* Timeline adjustments for mobile */
+  .vf-flow__timeline {
+    padding-left: 2.75rem;
+  }
+
+  .vf-flow__progress-line {
+    left: 1.25rem;
+    width: 2px;
+  }
+
+  .vf-step__marker {
+    left: -2.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .vf-step__marker svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .vf-step__header {
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+  }
+
+  .vf-step__header-main {
+    flex: 1 1 100%;
+    order: 1;
+  }
+
+  .vf-step__badge {
+    order: 2;
+    font-size: 0.65rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .vf-step__toggle {
+    order: 3;
+    margin-left: auto;
+  }
+
+  .vf-step__title {
+    font-size: var(--fs-md);
+  }
+
+  .vf-step__tagline {
+    font-size: var(--fs-xs);
+  }
+
+  .vf-step__content {
+    padding: 0 var(--space-sm);
+  }
+
+  .vf-step__header[aria-expanded="true"] + .vf-step__content {
+    padding: 0 var(--space-sm) var(--space-sm);
+  }
+
+  .vf-step__desc {
+    font-size: var(--fs-xs);
+  }
+
+  .vf-step__meta {
+    gap: var(--space-xs);
+  }
+
+  .vf-step__tool,
+  .vf-step__outcome {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  /* Phase divider mobile */
+  .vf-phase-divider {
+    flex-direction: column;
+    padding: var(--space-lg) var(--space-sm);
+    gap: var(--space-sm);
+  }
+
+  .vf-phase-divider__line {
+    width: 60%;
+    height: 2px;
+  }
+
+  .vf-phase-divider__text {
+    font-size: var(--fs-sm);
+    white-space: normal;
+    line-height: 1.4;
+  }
+
   .vf-toolkit {
     padding: var(--space-2xl) var(--space-sm);
   }
@@ -3628,5 +4028,35 @@ textarea:focus,
 
   .vf-cta {
     padding: var(--space-2xl) var(--space-sm);
+  }
+}
+
+/* Extra small screens (480px and below) */
+@media (max-width: 480px) {
+  .vf-flow__timeline {
+    padding-left: 2.25rem;
+  }
+
+  .vf-flow__progress-line {
+    left: 1rem;
+  }
+
+  .vf-step__marker {
+    left: -2.25rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .vf-step__marker svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .vf-step__badge {
+    display: none;
+  }
+
+  .vf-step__card {
+    border-radius: 8px;
   }
 }

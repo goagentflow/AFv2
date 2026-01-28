@@ -617,7 +617,102 @@ document.addEventListener('DOMContentLoaded', function() {
             expandCard(clickedCard);
         }
     }
-    
+
+    // ===== VECTORFLOW STEP CARDS FUNCTIONALITY =====
+    const vfStepHeaders = document.querySelectorAll('.vf-step__header');
+    const vfProgressLines = document.querySelectorAll('.vf-flow__progress-line');
+    const vfSteps = document.querySelectorAll('.vf-step');
+
+    // Accordion functionality for VectorFlow step cards
+    vfStepHeaders.forEach(header => {
+        const toggleVfStep = () => {
+            const isExpanded = header.getAttribute('aria-expanded') === 'true';
+            const contentId = header.getAttribute('aria-controls');
+            const content = document.getElementById(contentId);
+            const title = header.querySelector('.vf-step__title')?.textContent.trim();
+
+            // Collapse all other steps first (accordion behaviour)
+            vfStepHeaders.forEach(otherHeader => {
+                if (otherHeader !== header && otherHeader.getAttribute('aria-expanded') === 'true') {
+                    otherHeader.setAttribute('aria-expanded', 'false');
+                    const otherTitle = otherHeader.querySelector('.vf-step__title')?.textContent.trim();
+                    otherHeader.setAttribute('aria-label', `Expand ${otherTitle} step details`);
+                }
+            });
+
+            // Toggle current step
+            if (isExpanded) {
+                header.setAttribute('aria-expanded', 'false');
+                header.setAttribute('aria-label', `Expand ${title} step details`);
+            } else {
+                header.setAttribute('aria-expanded', 'true');
+                header.setAttribute('aria-label', `Collapse ${title} step details`);
+            }
+        };
+
+        // Click handler
+        header.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleVfStep();
+        });
+
+        // Keyboard handler
+        header.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleVfStep();
+            }
+        });
+
+        // Set initial ARIA label
+        const title = header.querySelector('.vf-step__title')?.textContent.trim();
+        header.setAttribute('aria-label', `Expand ${title} step details`);
+    });
+
+    // Scroll-triggered animations for VectorFlow
+    if (vfSteps.length > 0 || vfProgressLines.length > 0) {
+        const vfObserverOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        // Observer for individual steps
+        const vfStepObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Keep observing to handle scroll-up/down scenarios
+                }
+            });
+        }, vfObserverOptions);
+
+        vfSteps.forEach(step => {
+            vfStepObserver.observe(step);
+        });
+
+        // Observer for progress lines
+        const vfLineObserverOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const vfLineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Delay the animation slightly for visual effect
+                    setTimeout(() => {
+                        entry.target.classList.add('animated');
+                    }, 200);
+                    vfLineObserver.unobserve(entry.target);
+                }
+            });
+        }, vfLineObserverOptions);
+
+        vfProgressLines.forEach(line => {
+            vfLineObserver.observe(line);
+        });
+    }
+
     // ===== DEVELOPMENT HELPERS =====
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
         console.log('Development mode detected. Additional debugging available.');
