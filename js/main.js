@@ -1,5 +1,12 @@
 /* Agent Flow Website JavaScript */
 
+// ===== GOOGLE ANALYTICS HELPER =====
+function trackGA4Event(eventName, params) {
+    if (typeof gtag === 'function') {
+        gtag('event', eventName, params);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // ===== NAVIGATION FUNCTIONALITY =====
     const navToggle = document.getElementById('nav-toggle');
@@ -293,6 +300,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 if (response.ok) {
+                    // Track successful form submission
+                    trackGA4Event('form_submission', {
+                        form_id: 'contact_form',
+                        form_type: 'contact',
+                        page: window.location.pathname
+                    });
+
                     // Success
                     this.reset();
                     const successMsg = document.createElement('div');
@@ -351,6 +365,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check Calendly configuration on load
     window.checkCalendlyConfig();
 
+    // ===== CTA BUTTON TRACKING =====
+    // Track all CTA button clicks
+    document.querySelectorAll('.btn--primary, .btn--secondary').forEach(button => {
+        button.addEventListener('click', function() {
+            const buttonText = this.textContent.trim();
+            const buttonHref = this.getAttribute('href') || '';
+            const isCalendly = this.getAttribute('onclick')?.includes('Calendly') ||
+                               this.getAttribute('onclick')?.includes('openBottleneckFlow');
+
+            trackGA4Event('cta_click', {
+                button_text: buttonText,
+                button_location: window.location.pathname,
+                destination: buttonHref,
+                is_calendly: isCalendly
+            });
+        });
+    });
+
+    // ===== CALENDLY POPUP TRACKING =====
+    // Track when Calendly popup opens
+    if (window.Calendly) {
+        const originalPopup = window.Calendly.initPopupWidget;
+        if (originalPopup) {
+            window.Calendly.initPopupWidget = function(options) {
+                trackGA4Event('calendly_popup_open', {
+                    page: window.location.pathname
+                });
+                return originalPopup.call(this, options);
+            };
+        }
+    }
+
     // ===== BOTTLENECK FLOW FUNCTIONALITY =====
     const bottleneckModal = document.getElementById('bottleneck-flow-modal');
     const bottleneckClose = document.getElementById('bottleneck-flow-close');
@@ -400,6 +446,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadCalendlyWidget() {
         const calendlyContainer = document.getElementById('calendly-inline-widget');
         if (calendlyContainer && window.Calendly) {
+            // Track Calendly widget load (intent to book)
+            trackGA4Event('calendly_widget_loaded', {
+                page: window.location.pathname,
+                flow: 'bottleneck_discovery'
+            });
             const company = document.getElementById('bottleneck-company')?.value || '';
             const role = document.getElementById('bottleneck-role')?.value || '';
             const problem = document.getElementById('bottleneck-problem')?.value || '';
@@ -443,6 +494,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .then(response => {
                     if (response.ok) {
+                        // Track successful discovery form submission
+                        trackGA4Event('form_submission', {
+                            form_id: 'bottleneck_discovery',
+                            form_type: 'discovery_call',
+                            page: window.location.pathname,
+                            goal: document.getElementById('bottleneck-goal')?.value || ''
+                        });
+
                         // Success - move to step 2
                         showBottleneckStep(2);
                     } else {
@@ -543,8 +602,86 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== ERROR HANDLING =====
     window.addEventListener('error', (e) => {
         console.error('JavaScript error:', e.error);
-        // Could send error to analytics service here
     });
+
+    // ===== SCROLL DEPTH TRACKING =====
+    // Track when users scroll to 25%, 50%, 75%, and 100% of the page
+    const scrollMilestones = { 25: false, 50: false, 75: false, 100: false };
+
+    window.addEventListener('scroll', throttle(function() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+
+        [25, 50, 75, 100].forEach(milestone => {
+            if (scrollPercent >= milestone && !scrollMilestones[milestone]) {
+                scrollMilestones[milestone] = true;
+                trackGA4Event('scroll_depth', {
+                    percent: milestone,
+                    page: window.location.pathname
+                });
+            }
+        });
+    }, 500));
+
+    // ===== NAVIGATION TRACKING =====
+    // Track menu link clicks
+    document.querySelectorAll('.nav__link, .nav__dropdown-link').forEach(link => {
+        link.addEventListener('click', function() {
+            const linkText = this.textContent.trim();
+            const linkHref = this.getAttribute('href') || '';
+
+            trackGA4Event('navigation_click', {
+                link_text: linkText,
+                destination: linkHref,
+                page: window.location.pathname
+            });
+        });
+    });
+
+    // ===== OUTBOUND LINK TRACKING =====
+    // Track clicks on external links
+    document.querySelectorAll('a[href^="http"]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && !href.includes(window.location.hostname) && !href.includes('goagentflow.com')) {
+            link.addEventListener('click', function() {
+                trackGA4Event('outbound_link_click', {
+                    url: href,
+                    link_text: this.textContent.trim(),
+                    page: window.location.pathname
+                });
+            });
+        }
+    });
+
+    // ===== FOUNDERS ARTICLE VIEW TRACKING =====
+    // Track when articles on founders.html scroll into view
+    if (window.location.pathname.includes('founders')) {
+        const articleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const article = entry.target;
+                    const articleId = article.id || 'unknown';
+                    const articleTitle = article.querySelector('.post-card__title')?.textContent.trim() || 'Unknown';
+                    const articleAuthor = article.dataset.author || 'unknown';
+
+                    trackGA4Event('article_view', {
+                        article_id: articleId,
+                        article_title: articleTitle,
+                        article_author: articleAuthor,
+                        page: window.location.pathname
+                    });
+
+                    // Only track once per article
+                    articleObserver.unobserve(article);
+                }
+            });
+        }, { threshold: 0.5 }); // 50% of article must be visible
+
+        document.querySelectorAll('.post-card').forEach(article => {
+            articleObserver.observe(article);
+        });
+    }
 
     // ===== USE CASES EXPANDABLE FUNCTIONALITY =====
     const useCaseCards = document.querySelectorAll('.use-case__card--expandable');
@@ -586,6 +723,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const content = card.querySelector('.use-case__content');
         if (content) content.style.maxHeight = content.scrollHeight + 'px';
         updateAriaLabels(card, true);
+
+        // Track case study expansion
+        const title = card.querySelector('.use-case__title')?.textContent.trim() || 'Unknown';
+        trackGA4Event('case_study_expand', {
+            case_study_title: title,
+            page: window.location.pathname
+        });
     }
 
     function updateAriaLabels(card, isExpanded) {
