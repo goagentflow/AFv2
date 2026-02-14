@@ -2,9 +2,16 @@
 .git
 .gitignore
 
-# Documentation
+# Documentation (exclude non-content markdown, allow llms.txt and .html.md files)
 README.md
-*.md
+CLAUDE.md
+docs/hardsecops.md
+new_af_plan.md
+site_update.md
+ui_audit_action_plan.md
+
+# Claude Code config
+.claude
 
 # IDE/Editor files
 .vscode

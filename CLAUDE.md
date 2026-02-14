@@ -59,6 +59,13 @@ When adding new articles/posts to founders.html, ALWAYS:
 4. Include a "View on LinkedIn →" link if the post originated from LinkedIn
 5. After adding, provide the direct link to the user: `goagentflow.com/founders.html#article-slug`
 
+AI Discoverability (llms.txt & Markdown):
+The site serves structured markdown versions of pages for AI agents. When page content changes:
+1. Update the corresponding `.html.md` file (e.g., `index.html` → `index.html.md`)
+2. If adding a new HTML page, create a matching `.html.md` file and add it to `llms.txt`
+3. When adding new articles to `founders.html`, also add a summary entry to `founders.html.md`
+4. The `.dockerignore` allows `llms.txt` and `*.html.md` files through — do not re-exclude them
+
 JavaScript & User Interaction:
 Syntax: Use modern JavaScript (ES6+). Prefer const over let.
 User Feedback & Error Handling:

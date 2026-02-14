@@ -5,3 +5,7 @@ Allow: /
 # Disallow the private/hidden brief page path
 Disallow: /briefs/unlocking-business-growth-ai/
 
+# AI agent discovery
+# See https://llmstxt.org for the llms.txt standard
+Llms-Txt: https://www.goagentflow.com/llms.txt
+

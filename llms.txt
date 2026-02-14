@@ -1,0 +1,33 @@
+# AgentFlow
+
+> AgentFlow is an AI consultancy that partners with business leaders to eliminate operational bottlenecks, build AI-powered solutions and embed them into daily workflows. Founded by Hamish Nicklin (CEO, ex-CEO dentsu Media UK, ex-CRO The Guardian) and Stephen Greszczyszyn (CTO, 20+ years at Cisco).
+
+- Website: https://www.goagentflow.com
+- Location: United Kingdom
+- Founded: 2025
+- Contact: https://www.goagentflow.com/discovery-call.html
+
+## What AgentFlow Does
+
+AgentFlow helps established businesses figure out where AI can genuinely help, builds the right solution for the problem and makes sure it sticks. Services range from Copilot training workshops to custom AI agent development.
+
+### Methodology: VectorFlow
+
+A three-phase approach — Discover, Build, Embed — that takes businesses from "we should do something with AI" to working solutions their teams use every day.
+
+### AI Opportunity Framework
+
+A 2x2 framework mapping opportunities across internal/external and productivity/growth dimensions. Four quadrants: The Quick Win (internal productivity), The New Superpower (internal growth), The Customer Service (external productivity), The Magic Quadrant (external growth).
+
+## Pages
+
+- [Homepage](https://www.goagentflow.com/index.html.md): Services overview, case studies, team bios and how AgentFlow works with clients.
+- [Our Story](https://www.goagentflow.com/our-story.html.md): The founding story and mission behind AgentFlow.
+- [Our Approach](https://www.goagentflow.com/our-approach.html.md): The VectorFlow methodology and AI Opportunity Map explained in detail.
+- [From the Founders](https://www.goagentflow.com/founders.html.md): Articles and perspectives on AI, business strategy and technology.
+- [Discovery Call](https://www.goagentflow.com/discovery-call.html.md): Book a free 30-minute strategy session.
+
+## Free Tools
+
+- [Copilot Check-up](https://www.goagentflow.com/assess/): Free 5-minute assessment showing where you stand with Microsoft Copilot adoption.
+- [Opportunity Finder](https://www.goagentflow.com/discovery/): Interactive tool to discover AI opportunities in your business.
