@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building AI Capability at Kao UK - AgentFlow</title>
+    <meta name="description" content="A programme to activate, discover and build AI expertise across the Consumer Products leadership team.">
+
+    <!-- PRIVATE PAGE - Do not index -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/AgentFlowLogo.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css?v=2026-02-14">
+    <style>
+        /* ============================================
+           KAO PROPOSAL LANDING PAGE STYLES
+           ============================================ */
+
+        .proposal {
+            min-height: 100vh;
+            background: var(--warm-cream);
+        }
+
+        /* --- Hero --- */
+        .proposal-hero {
+            background: var(--deep-navy);
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .proposal-hero::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 50%;
+            background: var(--gradient-blue);
+        }
+
+        .proposal-hero::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 5px;
+            height: 50%;
+            background: #7952B3;
+        }
+
+        .proposal-hero__container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .proposal-hero__badge {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gradient-blue);
+            border: 1px solid rgba(166, 195, 232, 0.3);
+            border-radius: 2rem;
+            padding: 0.4rem 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .proposal-hero__title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--warm-cream);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .proposal-hero__subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            color: var(--gradient-blue);
+            line-height: 1.6;
+            max-width: 650px;
+            margin-bottom: 1rem;
+        }
+
+        .proposal-hero__meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--medium-grey);
+        }
+
+        .proposal-hero__logos {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(166, 195, 232, 0.15);
+        }
+
+        .proposal-hero__logo-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--medium-grey);
+        }
+
+        .proposal-hero__logo-af {
+            height: 28px;
+            opacity: 0.9;
+        }
+
+        .proposal-hero__logo-divider {
+            width: 1px;
+            height: 30px;
+            background: rgba(166, 195, 232, 0.25);
+        }
+
+        .proposal-hero__kao-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--warm-cream);
+            letter-spacing: 0.08em;
+        }
+
+        /* --- Video Section --- */
+        .proposal-video {
+            padding: 4rem 2rem;
+            background: var(--warm-cream);
+        }
+
+        .proposal-video__container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .proposal-video__label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #7952B3;
+            margin-bottom: 0.75rem;
+        }
+
+        .proposal-video__heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 1rem;
+        }
+
+        .proposal-video__desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--medium-grey);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .proposal-video__embed {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(44, 62, 80, 0.12);
+            background: var(--deep-navy);
+        }
+
+        .proposal-video__embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .proposal-video__placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gradient-blue);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            gap: 0.5rem;
+        }
+
+        .proposal-video__placeholder-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(166, 195, 232, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* --- Brands Section --- */
+        .proposal-brands {
+            padding: 3rem 2rem;
+            background: #f5f3f0;
+        }
+
+        .proposal-brands__container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .proposal-brands__label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--medium-grey);
+            margin-bottom: 1.5rem;
+        }
+
+        .proposal-brands__grid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .proposal-brands__item {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--deep-navy);
+            opacity: 0.7;
+            letter-spacing: 0.02em;
+        }
+
+        /* --- Download Section --- */
+        .proposal-download {
+            padding: 4rem 2rem;
+            background: var(--warm-cream);
+        }
+
+        .proposal-download__container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .proposal-download__content {
+            flex: 1;
+        }
+
+        .proposal-download__label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gradient-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .proposal-download__heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .proposal-download__desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--medium-grey);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .proposal-download__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--warm-cream);
+            background: var(--deep-navy);
+            padding: 0.85rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .proposal-download__btn:hover {
+            background: #3d5fa8;
+            transform: translateY(-1px);
+        }
+
+        .proposal-download__btn-icon {
+            font-size: 1.1rem;
+        }
+
+        /* --- CTA Section --- */
+        .proposal-cta {
+            padding: 5rem 2rem;
+            background: var(--deep-navy);
+            text-align: center;
+        }
+
+        .proposal-cta__container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .proposal-cta__heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--warm-cream);
+            margin-bottom: 1rem;
+        }
+
+        .proposal-cta__desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            color: var(--gradient-blue);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .proposal-cta__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--deep-navy);
+            background: var(--soft-coral);
+            padding: 1rem 2.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .proposal-cta__btn:hover {
+            background: #f5917e;
+            transform: translateY(-1px);
+        }
+
+        .proposal-cta__contact {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--medium-grey);
+            margin-top: 1.5rem;
+        }
+
+        .proposal-cta__contact a {
+            color: var(--gradient-blue);
+            text-decoration: none;
+        }
+
+        .proposal-cta__contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Footer override for proposal page --- */
+        .proposal .footer {
+            background: var(--deep-navy);
+            border-top: 1px solid rgba(166, 195, 232, 0.1);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .proposal-hero {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .proposal-hero__logos {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .proposal-download__container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .proposal-brands__grid {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="proposal">
+
+    <!-- Hero -->
+    <section class="proposal-hero">
+        <div class="proposal-hero__container">
+            <span class="proposal-hero__badge">Private Proposal</span>
+            <h1 class="proposal-hero__title">Building AI Capability<br>at Kao UK</h1>
+            <p class="proposal-hero__subtitle">A programme to activate, discover and build AI expertise across the Consumer Products leadership team.</p>
+            <p class="proposal-hero__meta">Prepared for Wendy Brown | February 2026 | Confidential</p>
+
+            <div class="proposal-hero__logos">
+                <div>
+                    <p class="proposal-hero__logo-label">Prepared by</p>
+                    <img src="../assets/images/AgentFlow.svg" alt="AgentFlow" class="proposal-hero__logo-af">
+                </div>
+                <div class="proposal-hero__logo-divider"></div>
+                <div>
+                    <p class="proposal-hero__logo-label">Prepared for</p>
+                    <span class="proposal-hero__kao-text">Kao UK</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section class="proposal-video">
+        <div class="proposal-video__container">
+            <p class="proposal-video__label">The Pitch</p>
+            <h2 class="proposal-video__heading">Watch the overview</h2>
+            <p class="proposal-video__desc">A 2-minute summary of why this matters, what we propose, and how it works.</p>
+
+            <div class="proposal-video__embed">
+                <iframe
+                    src="https://www.youtube.com/embed/_BKVxIgjsHA?rel=0&modestbranding=1&color=white"
+                    title="Building AI Capability at Kao UK"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kao Brands -->
+    <section class="proposal-brands">
+        <div class="proposal-brands__container">
+            <p class="proposal-brands__label">Kao UK Consumer Brands</p>
+            <div class="proposal-brands__grid">
+                <span class="proposal-brands__item">John Frieda</span>
+                <span class="proposal-brands__item">Bioré</span>
+                <span class="proposal-brands__item">Curél</span>
+                <span class="proposal-brands__item">Jergens</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download -->
+    <section class="proposal-download">
+        <div class="proposal-download__container">
+            <div class="proposal-download__content">
+                <p class="proposal-download__label">Full Proposal</p>
+                <h2 class="proposal-download__heading">Download the presentation</h2>
+                <p class="proposal-download__desc">The complete proposal with programme detail, pricing and next steps.</p>
+                <a href="../assets/KAO-AI-Capability-Proposal.pptx" download class="proposal-download__btn">
+                    <span class="proposal-download__btn-icon">&#8595;</span>
+                    Download PowerPoint
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="proposal-cta">
+        <div class="proposal-cta__container">
+            <h2 class="proposal-cta__heading">Ready to get started?</h2>
+            <p class="proposal-cta__desc">We'd love to talk through the proposal and answer any questions. Book a call with Hamish or get in touch directly.</p>
+            <a href="https://calendly.com/hamish-goagentflow/discovery-call" target="_blank" rel="noopener" class="proposal-cta__btn">
+                Book a Call
+            </a>
+            <p class="proposal-cta__contact">
+                Or email <a href="mailto:hamish@goagentflow.com">hamish@goagentflow.com</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__links">
+                    <a href="../privacy-policy.html" class="footer__link">Privacy Policy</a>
+                </div>
+                <div class="footer__copyright">
+                    <p>&copy; 2026 AgentFlow Ltd. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

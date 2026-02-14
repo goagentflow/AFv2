@@ -2,8 +2,9 @@ User-agent: *
 # Allow everything by default
 Allow: /
 
-# Disallow the private/hidden brief page path
+# Disallow private/hidden pages
 Disallow: /briefs/unlocking-business-growth-ai/
+Disallow: /p/
 
 # AI agent discovery
 # See https://llmstxt.org for the llms.txt standard
