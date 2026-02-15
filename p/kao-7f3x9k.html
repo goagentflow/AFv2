@@ -417,9 +417,168 @@
                 gap: 2rem;
             }
         }
+
+        /* --- Password Gate --- */
+        .gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--deep-navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .gate--hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .gate__card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(166, 195, 232, 0.15);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .gate__logo {
+            height: 32px;
+            margin-bottom: 2rem;
+            opacity: 0.85;
+        }
+
+        .gate__badge {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gradient-blue);
+            border: 1px solid rgba(166, 195, 232, 0.25);
+            border-radius: 2rem;
+            padding: 0.35rem 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gate__title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--warm-cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .gate__subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--medium-grey);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .gate__input-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .gate__input {
+            flex: 1;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(166, 195, 232, 0.2);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--warm-cream);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .gate__input:focus {
+            border-color: var(--gradient-blue);
+        }
+
+        .gate__input::placeholder {
+            color: var(--medium-grey);
+        }
+
+        .gate__btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.8rem 1.4rem;
+            border-radius: 8px;
+            border: none;
+            background: var(--soft-coral);
+            color: var(--deep-navy);
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .gate__btn:hover {
+            background: #f5917e;
+        }
+
+        .gate__error {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--soft-coral);
+            min-height: 1.2rem;
+        }
+
+        .gate__footer {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--medium-grey);
+            margin-top: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .proposal-content {
+            display: none;
+        }
+
+        .proposal-content--visible {
+            display: block;
+        }
     </style>
 </head>
 <body class="proposal">
+
+    <!-- Password Gate -->
+    <div class="gate" id="gate">
+        <div class="gate__card">
+            <img src="../assets/images/AgentFlow.svg" alt="AgentFlow" class="gate__logo">
+            <div class="gate__badge">Private Proposal</div>
+            <h1 class="gate__title">This proposal is password protected</h1>
+            <p class="gate__subtitle">Prepared exclusively for Kao UK.<br>Please enter the password to continue.</p>
+            <div class="gate__input-group">
+                <input
+                    type="password"
+                    class="gate__input"
+                    id="gate-password"
+                    placeholder="Enter password"
+                    autocomplete="off"
+                    autofocus
+                >
+                <button class="gate__btn" id="gate-btn">Enter</button>
+            </div>
+            <p class="gate__error" id="gate-error"></p>
+            <p class="gate__footer">If you've received this link but don't have the password,<br>please contact hamish@goagentflow.com</p>
+        </div>
+    </div>
+
+    <div class="proposal-content" id="proposal-content">
 
     <!-- Hero -->
     <section class="proposal-hero">
@@ -516,6 +675,57 @@
             </div>
         </div>
     </footer>
+
+    </div><!-- end .proposal-content -->
+
+    <script>
+        (function() {
+            const PASS_HASH = '51767b91';
+            const SESSION_KEY = 'kao_access';
+
+            function simpleHash(str) {
+                var hash = 0;
+                for (var i = 0; i < str.length; i++) {
+                    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+                    hash |= 0;
+                }
+                return (hash >>> 0).toString(16);
+            }
+
+            var gate = document.getElementById('gate');
+            var content = document.getElementById('proposal-content');
+            var input = document.getElementById('gate-password');
+            var btn = document.getElementById('gate-btn');
+            var error = document.getElementById('gate-error');
+
+            function unlock() {
+                gate.classList.add('gate--hidden');
+                content.classList.add('proposal-content--visible');
+                sessionStorage.setItem(SESSION_KEY, '1');
+            }
+
+            if (sessionStorage.getItem(SESSION_KEY) === '1') {
+                unlock();
+            }
+
+            function attemptUnlock() {
+                var val = input.value.trim();
+                if (!val) return;
+                if (simpleHash(val) === PASS_HASH) {
+                    unlock();
+                } else {
+                    error.textContent = 'Incorrect password. Please try again.';
+                    input.value = '';
+                    input.focus();
+                }
+            }
+
+            btn.addEventListener('click', attemptUnlock);
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') attemptUnlock();
+            });
+        })();
+    </script>
 
 </body>
 </html>
