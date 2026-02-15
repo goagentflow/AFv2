@@ -147,10 +147,105 @@
 
         .proposal-hero__time {
             font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            color: var(--medium-grey);
-            margin-top: 0.5rem;
+            font-size: 1rem;
+            color: var(--gradient-blue);
+            margin-top: 0.75rem;
             letter-spacing: 0.02em;
+            opacity: 0.9;
+        }
+
+        .proposal-hero__time a {
+            color: var(--gradient-blue);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(166, 195, 232, 0.3);
+            transition: border-color 0.2s ease;
+        }
+
+        .proposal-hero__time a:hover {
+            border-bottom-color: var(--gradient-blue);
+        }
+
+        .proposal-download__preview {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--medium-grey);
+            margin-top: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* --- Cookie Consent --- */
+        .cookie-banner {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--deep-navy);
+            border: 1px solid rgba(166, 195, 232, 0.2);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 9998;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cookie-banner--hidden {
+            display: none;
+        }
+
+        .cookie-banner__text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--gradient-blue);
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .cookie-banner__text a {
+            color: var(--gradient-blue);
+            text-decoration: underline;
+        }
+
+        .cookie-banner__btns {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .cookie-banner__btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .cookie-banner__btn--accept {
+            background: var(--soft-coral);
+            color: var(--deep-navy);
+        }
+
+        .cookie-banner__btn--accept:hover {
+            background: #f5917e;
+        }
+
+        .cookie-banner__btn--decline {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--gradient-blue);
+        }
+
+        .cookie-banner__btn--decline:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         .proposal-hero__logo-divider {
@@ -722,11 +817,10 @@
     <!-- Hero -->
     <section class="proposal-hero">
         <div class="proposal-hero__container">
-            <span class="proposal-hero__badge">Private Proposal</span>
             <h1 class="proposal-hero__title">Building AI Capability<br>at Kao UK</h1>
             <p class="proposal-hero__subtitle">A programme to activate, discover and build AI expertise across the Consumer Products leadership team.</p>
             <p class="proposal-hero__guide">Inside: a 60-second overview, a research-backed audio briefing, and the full proposal.</p>
-            <p class="proposal-hero__time">1 min to watch · 15 min to listen · full deck when you're ready</p>
+            <p class="proposal-hero__time"><a href="#pitch">1 min to watch</a> · <a href="#briefing">15 min to listen</a> · <a href="#proposal">full deck when you're ready</a></p>
             <p class="proposal-hero__meta">Prepared for Wendy Brown | February 2026 | Confidential</p>
 
             <div class="proposal-hero__logos">
@@ -747,15 +841,15 @@
     </section>
 
     <!-- Video -->
-    <section class="proposal-video">
+    <section class="proposal-video" id="pitch">
         <div class="proposal-video__container">
             <p class="proposal-video__label">The Pitch</p>
-            <h2 class="proposal-video__heading">Watch the overview</h2>
-            <p class="proposal-video__desc">A 60-second summary of why this matters and how it works.</p>
+            <h2 class="proposal-video__heading">A 60-second film — made for Kao</h2>
+            <p class="proposal-video__desc">We made this specifically for your team. It covers the challenge, the opportunity, and what we'd build together.</p>
 
             <div class="proposal-video__embed">
                 <iframe
-                    src="https://www.youtube.com/embed/u8pOBJo8t_w?rel=0&modestbranding=1&color=white"
+                    src="https://www.youtube-nocookie.com/embed/u8pOBJo8t_w?rel=0&modestbranding=1&color=white"
                     title="Building AI Capability at Kao UK"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
@@ -765,11 +859,11 @@
     </section>
 
     <!-- Podcast Briefing -->
-    <section class="proposal-podcast">
+    <section class="proposal-podcast" id="briefing">
         <div class="proposal-podcast__container">
             <p class="proposal-podcast__label">The Briefing</p>
             <h2 class="proposal-podcast__heading">Why this matters more than most people think</h2>
-            <p class="proposal-podcast__desc">New research from Chicago Booth reveals that the ability to instruct AI effectively — "machine fluency" — varies enormously between people, and directly predicts business impact. This 15-minute briefing explores what that means for Kao, and why building this capability now is the real advantage.</p>
+            <p class="proposal-podcast__desc">We produced this briefing specifically for Kao. It draws on new research from Chicago Booth to explain why "machine fluency" — the ability to instruct AI effectively — varies enormously between people, and directly predicts business impact. 15 minutes that reframe the conversation.</p>
 
             <div class="proposal-podcast__player">
                 <div class="proposal-podcast__player-header">
@@ -805,12 +899,13 @@
     </section>
 
     <!-- Download -->
-    <section class="proposal-download">
+    <section class="proposal-download" id="proposal">
         <div class="proposal-download__container">
             <div class="proposal-download__content">
-                <p class="proposal-download__label">Full Proposal</p>
-                <h2 class="proposal-download__heading">The complete programme</h2>
-                <p class="proposal-download__desc">Everything in one deck: programme structure, the four phases, what your team will build, timeline, and investment. Designed to share with colleagues.</p>
+                <p class="proposal-download__label">The Detail</p>
+                <h2 class="proposal-download__heading">Everything your team needs to decide</h2>
+                <p class="proposal-download__desc">The full programme in one shareable deck: the four phases, what your team builds, how capability compounds over 12 weeks, timeline, and investment.</p>
+                <p class="proposal-download__preview">The challenge · The programme · The phases · What you build · Timeline · Investment</p>
                 <a href="../assets/KAO-AI-Capability-Proposal.pptx" download class="proposal-download__btn">
                     <span class="proposal-download__btn-icon">&#8595;</span>
                     Download PowerPoint
@@ -894,6 +989,58 @@
             btn.addEventListener('click', attemptUnlock);
             input.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') attemptUnlock();
+            });
+        })();
+    </script>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookie-banner">
+        <p class="cookie-banner__text">We use analytics to understand how this proposal is viewed. No advertising, no third-party sharing. <a href="../privacy-policy.html">Privacy&nbsp;Policy</a></p>
+        <div class="cookie-banner__btns">
+            <button class="cookie-banner__btn cookie-banner__btn--decline" id="cookie-decline">Decline</button>
+            <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookie-accept">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        // Cookie consent + GA4
+        (function() {
+            var CONSENT_KEY = 'kao_analytics_consent';
+            var banner = document.getElementById('cookie-banner');
+            var stored = localStorage.getItem(CONSENT_KEY);
+
+            function loadGA4() {
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-LHY2J56X46';
+                document.head.appendChild(s);
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-LHY2J56X46', { page_title: 'Kao UK Proposal' });
+                window.gtag = gtag;
+            }
+
+            function hideBanner() {
+                banner.classList.add('cookie-banner--hidden');
+            }
+
+            if (stored === 'accepted') {
+                hideBanner();
+                loadGA4();
+            } else if (stored === 'declined') {
+                hideBanner();
+            }
+
+            document.getElementById('cookie-accept').addEventListener('click', function() {
+                localStorage.setItem(CONSENT_KEY, 'accepted');
+                hideBanner();
+                loadGA4();
+            });
+
+            document.getElementById('cookie-decline').addEventListener('click', function() {
+                localStorage.setItem(CONSENT_KEY, 'declined');
+                hideBanner();
             });
         })();
     </script>
