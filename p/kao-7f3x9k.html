@@ -118,8 +118,39 @@
         }
 
         .proposal-hero__logo-af {
-            height: 28px;
+            height: 24px;
             opacity: 0.9;
+        }
+
+        .proposal-hero__af-lockup {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .proposal-hero__af-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--warm-cream);
+            letter-spacing: 0.02em;
+        }
+
+        .proposal-hero__guide {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--gradient-blue);
+            margin-top: 1.5rem;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .proposal-hero__time {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--medium-grey);
+            margin-top: 0.5rem;
+            letter-spacing: 0.02em;
         }
 
         .proposal-hero__logo-divider {
@@ -694,12 +725,17 @@
             <span class="proposal-hero__badge">Private Proposal</span>
             <h1 class="proposal-hero__title">Building AI Capability<br>at Kao UK</h1>
             <p class="proposal-hero__subtitle">A programme to activate, discover and build AI expertise across the Consumer Products leadership team.</p>
+            <p class="proposal-hero__guide">Inside: a 60-second overview, a research-backed audio briefing, and the full proposal.</p>
+            <p class="proposal-hero__time">1 min to watch · 15 min to listen · full deck when you're ready</p>
             <p class="proposal-hero__meta">Prepared for Wendy Brown | February 2026 | Confidential</p>
 
             <div class="proposal-hero__logos">
                 <div>
                     <p class="proposal-hero__logo-label">Prepared by</p>
-                    <img src="../assets/images/AgentFlow.svg" alt="AgentFlow" class="proposal-hero__logo-af">
+                    <div class="proposal-hero__af-lockup">
+                        <img src="../assets/images/AgentFlow.svg" alt="AgentFlow" class="proposal-hero__logo-af">
+                        <span class="proposal-hero__af-text">AgentFlow</span>
+                    </div>
                 </div>
                 <div class="proposal-hero__logo-divider"></div>
                 <div>
@@ -732,8 +768,8 @@
     <section class="proposal-podcast">
         <div class="proposal-podcast__container">
             <p class="proposal-podcast__label">The Briefing</p>
-            <h2 class="proposal-podcast__heading">Why machine fluency is the advantage — and how Kao can build it</h2>
-            <p class="proposal-podcast__desc">A 15-minute deep dive that connects our approach with original research from Chicago Booth and Michigan Ross. It explores why the ability to instruct AI effectively — what the researchers call "machine fluency" — is fast becoming the most valuable capability a team can have. And why that's exactly what our programme is designed to build.</p>
+            <h2 class="proposal-podcast__heading">Why this matters more than most people think</h2>
+            <p class="proposal-podcast__desc">New research from Chicago Booth reveals that the ability to instruct AI effectively — "machine fluency" — varies enormously between people, and directly predicts business impact. This 15-minute briefing explores what that means for Kao, and why building this capability now is the real advantage.</p>
 
             <div class="proposal-podcast__player">
                 <div class="proposal-podcast__player-header">
@@ -756,7 +792,7 @@
     <!-- Kao Brands -->
     <section class="proposal-brands">
         <div class="proposal-brands__container">
-            <p class="proposal-brands__label">Kao UK Consumer Brands</p>
+            <p class="proposal-brands__label">A programme designed for six iconic brands</p>
             <div class="proposal-brands__grid">
                 <span class="proposal-brands__item">John Frieda</span>
                 <span class="proposal-brands__item">Bondi Sands</span>
@@ -773,8 +809,8 @@
         <div class="proposal-download__container">
             <div class="proposal-download__content">
                 <p class="proposal-download__label">Full Proposal</p>
-                <h2 class="proposal-download__heading">Download the presentation</h2>
-                <p class="proposal-download__desc">The complete proposal with programme detail, pricing and next steps.</p>
+                <h2 class="proposal-download__heading">The complete programme</h2>
+                <p class="proposal-download__desc">Everything in one deck: programme structure, the four phases, what your team will build, timeline, and investment. Designed to share with colleagues.</p>
                 <a href="../assets/KAO-AI-Capability-Proposal.pptx" download class="proposal-download__btn">
                     <span class="proposal-download__btn-icon">&#8595;</span>
                     Download PowerPoint
