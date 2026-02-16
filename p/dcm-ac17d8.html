@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Discovery Day for DCM - AgentFlow</title>
+    <meta name="description" content="A one-day programme to explore how AI can strengthen DCM's sales team and commercial operations.">
+
+    <!-- PRIVATE PAGE - Do not index -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/AgentFlowLogo.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css?v=2026-02-16">
+    <style>
+        /* ============================================
+           PROPOSAL LANDING PAGE STYLES
+           ============================================ */
+
+        .proposal {
+            min-height: 100vh;
+            background: var(--warm-cream);
+        }
+
+        /* --- Hero --- */
+        .proposal-hero {
+            background: var(--deep-navy);
+            padding: 3.5rem 2rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .proposal-hero::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 50%;
+            background: var(--gradient-blue);
+        }
+
+        .proposal-hero::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 5px;
+            height: 50%;
+            background: #7952B3;
+        }
+
+        .proposal-hero__container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .proposal-hero__title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--warm-cream);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .proposal-hero__subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            color: var(--gradient-blue);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .proposal-hero__meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--medium-grey);
+        }
+
+        .proposal-hero__logos {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(166, 195, 232, 0.15);
+        }
+
+        .proposal-hero__logo-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--medium-grey);
+        }
+
+        .proposal-hero__logo-af {
+            height: 24px;
+            opacity: 0.9;
+        }
+
+        .proposal-hero__af-lockup {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .proposal-hero__af-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--warm-cream);
+            letter-spacing: 0.02em;
+        }
+
+        .proposal-hero__guide {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--soft-coral);
+            margin-top: 1.5rem;
+            line-height: 1.6;
+            letter-spacing: 0.02em;
+        }
+
+        .proposal-hero__time {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--gradient-purple);
+            margin-top: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .proposal-hero__time a {
+            color: var(--gradient-purple);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(198, 184, 228, 0.35);
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .proposal-hero__time a:hover {
+            color: var(--warm-cream);
+            border-bottom-color: var(--warm-cream);
+        }
+
+        .proposal-hero__logo-divider {
+            width: 1px;
+            height: 30px;
+            background: rgba(166, 195, 232, 0.25);
+        }
+
+        .proposal-hero__client-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--warm-cream);
+            letter-spacing: 0.08em;
+        }
+
+        /* --- Video Section --- */
+        .proposal-video {
+            padding: 4rem 2rem;
+            background: var(--warm-cream);
+        }
+
+        .proposal-video__container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .proposal-video__label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #7952B3;
+            margin-bottom: 0.75rem;
+        }
+
+        .proposal-video__heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 1rem;
+        }
+
+        .proposal-video__desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--medium-grey);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .proposal-video__embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(44, 62, 80, 0.12);
+            background: var(--deep-navy);
+        }
+
+        .proposal-video__embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Brands Section --- */
+        .proposal-brands {
+            padding: 3rem 2rem;
+            background: #f5f3f0;
+        }
+
+        .proposal-brands__container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .proposal-brands__label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--medium-grey);
+            margin-bottom: 1.5rem;
+        }
+
+        .proposal-brands__grid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .proposal-brands__item {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--deep-navy);
+            opacity: 0.7;
+            letter-spacing: 0.02em;
+        }
+
+        /* --- Download Section --- */
+        .proposal-download {
+            padding: 4rem 2rem;
+            background: var(--warm-cream);
+        }
+
+        .proposal-download__container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .proposal-download__content {
+            flex: 1;
+        }
+
+        .proposal-download__label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gradient-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .proposal-download__heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .proposal-download__desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--medium-grey);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .proposal-download__preview {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--medium-grey);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .proposal-download__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--warm-cream);
+            background: var(--deep-navy);
+            padding: 0.85rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .proposal-download__btn:hover {
+            background: #3d5fa8;
+            transform: translateY(-1px);
+        }
+
+        .proposal-download__btn-icon {
+            font-size: 1.1rem;
+        }
+
+        /* --- CTA Section --- */
+        .proposal-cta {
+            padding: 5rem 2rem;
+            background: var(--deep-navy);
+            text-align: center;
+        }
+
+        .proposal-cta__container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .proposal-cta__heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--warm-cream);
+            margin-bottom: 1rem;
+        }
+
+        .proposal-cta__desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            color: var(--gradient-blue);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .proposal-cta__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--deep-navy);
+            background: var(--soft-coral);
+            padding: 1rem 2.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .proposal-cta__btn:hover {
+            background: #f5917e;
+            transform: translateY(-1px);
+        }
+
+        .proposal-cta__contact {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--medium-grey);
+            margin-top: 1.5rem;
+        }
+
+        .proposal-cta__contact a {
+            color: var(--gradient-blue);
+            text-decoration: none;
+        }
+
+        .proposal-cta__contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Footer override for proposal page --- */
+        .proposal .footer {
+            background: var(--deep-navy);
+            border-top: 1px solid rgba(166, 195, 232, 0.1);
+        }
+
+        /* --- Cookie Consent --- */
+        .cookie-banner {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--deep-navy);
+            border: 1px solid rgba(166, 195, 232, 0.2);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 9998;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cookie-banner--hidden {
+            display: none;
+        }
+
+        .cookie-banner__text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--gradient-blue);
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .cookie-banner__text a {
+            color: var(--gradient-blue);
+            text-decoration: underline;
+        }
+
+        .cookie-banner__btns {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .cookie-banner__btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .cookie-banner__btn--accept {
+            background: var(--soft-coral);
+            color: var(--deep-navy);
+        }
+
+        .cookie-banner__btn--accept:hover {
+            background: #f5917e;
+        }
+
+        .cookie-banner__btn--decline {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--gradient-blue);
+        }
+
+        .cookie-banner__btn--decline:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- Password Gate --- */
+        .gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--deep-navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .gate--hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .gate__card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(166, 195, 232, 0.15);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .gate__logo {
+            display: block;
+            height: 128px;
+            margin: 0 auto 2rem;
+            opacity: 0.85;
+        }
+
+        .gate__badge {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--soft-coral);
+            border: 1px solid rgba(247, 168, 157, 0.3);
+            border-radius: 2rem;
+            padding: 0.4rem 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gate__title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--warm-cream);
+            margin-bottom: 0.75rem;
+        }
+
+        .gate__subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--gradient-blue);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .gate__input-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .gate__input {
+            flex: 1;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(166, 195, 232, 0.2);
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--warm-cream);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .gate__input:focus {
+            border-color: var(--gradient-blue);
+        }
+
+        .gate__input::placeholder {
+            color: var(--medium-grey);
+        }
+
+        .gate__btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.8rem 1.4rem;
+            border-radius: 8px;
+            border: none;
+            background: var(--soft-coral);
+            color: var(--deep-navy);
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .gate__btn:hover {
+            background: #f5917e;
+        }
+
+        .gate__error {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--soft-coral);
+            min-height: 1.2rem;
+        }
+
+        .gate__footer {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gradient-purple);
+            margin-top: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .proposal-content {
+            display: none;
+        }
+
+        .proposal-content--visible {
+            display: block;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .proposal-hero {
+                padding: 2.5rem 1.5rem 2rem;
+            }
+
+            .proposal-hero__logos {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .proposal-download__container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .proposal-brands__grid {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="proposal">
+
+    <!-- ============================================
+         PASSWORD GATE
+         ============================================ -->
+    <div class="gate" id="gate">
+        <div class="gate__card">
+            <img src="../assets/images/AgentFlow.svg" alt="AgentFlow" class="gate__logo">
+            <div class="gate__badge">Private Proposal</div>
+            <h1 class="gate__title">This proposal is password protected</h1>
+            <p class="gate__subtitle">Prepared exclusively for DCM.<br>Please enter the password to continue.</p>
+            <div class="gate__input-group">
+                <input
+                    type="password"
+                    class="gate__input"
+                    id="gate-password"
+                    placeholder="Enter password"
+                    autocomplete="off"
+                    autofocus
+                >
+                <button class="gate__btn" id="gate-btn">Enter</button>
+            </div>
+            <p class="gate__error" id="gate-error"></p>
+            <p class="gate__footer">If you've received this link but don't have the password,<br>please contact hamish@goagentflow.com</p>
+        </div>
+    </div>
+
+    <div class="proposal-content" id="proposal-content">
+
+    <!-- ============================================
+         HERO
+         ============================================ -->
+    <section class="proposal-hero">
+        <div class="proposal-hero__container">
+            <h1 class="proposal-hero__title">AI Discovery Day<br>for DCM</h1>
+            <p class="proposal-hero__subtitle">A one-day programme to explore how AI can strengthen your sales team and commercial operations.</p>
+            <p class="proposal-hero__guide">Inside: a 70-second film made for your team, and the full proposal to download.</p>
+            <p class="proposal-hero__time"><a href="#pitch">1 min to watch</a> · <a href="#proposal">full deck when you're ready</a></p>
+            <p class="proposal-hero__meta">Prepared for Karen Stacey | February 2026 | Confidential</p>
+
+            <div class="proposal-hero__logos">
+                <div>
+                    <p class="proposal-hero__logo-label">Prepared by</p>
+                    <div class="proposal-hero__af-lockup">
+                        <img src="../assets/images/AgentFlow.svg" alt="AgentFlow" class="proposal-hero__logo-af">
+                        <span class="proposal-hero__af-text">AgentFlow</span>
+                    </div>
+                </div>
+                <div class="proposal-hero__logo-divider"></div>
+                <div>
+                    <p class="proposal-hero__logo-label">Prepared for</p>
+                    <span class="proposal-hero__client-text">DCM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         THE PITCH — VIDEO
+         ============================================ -->
+    <section class="proposal-video" id="pitch">
+        <div class="proposal-video__container">
+            <p class="proposal-video__label">The Pitch</p>
+            <h2 class="proposal-video__heading">A 70-second film — made for DCM</h2>
+            <p class="proposal-video__desc">We made this specifically for your team. It covers where you are, what's possible, and how we'd work together.</p>
+
+            <div class="proposal-video__embed">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/Zu5OmP4bnpQ?rel=0&modestbranding=1&color=white"
+                    title="AI Discovery Day for DCM"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BRANDS BAR — DCM Cinema Partners
+         ============================================ -->
+    <section class="proposal-brands">
+        <div class="proposal-brands__container">
+            <p class="proposal-brands__label">DCM's cinema network</p>
+            <div class="proposal-brands__grid">
+                <span class="proposal-brands__item">Odeon</span>
+                <span class="proposal-brands__item">Cineworld</span>
+                <span class="proposal-brands__item">Vue</span>
+                <span class="proposal-brands__item">Omniplex</span>
+                <span class="proposal-brands__item">The Light</span>
+                <span class="proposal-brands__item">Picturehouse</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         THE DETAIL — PPT DOWNLOAD
+         ============================================ -->
+    <section class="proposal-download" id="proposal">
+        <div class="proposal-download__container">
+            <div class="proposal-download__content">
+                <p class="proposal-download__label">The Detail</p>
+                <h2 class="proposal-download__heading">Everything your team needs to decide</h2>
+                <p class="proposal-download__desc">The full proposal in one shareable deck: the opportunity, what the day looks like, what you walk away with, and the investment.</p>
+                <p class="proposal-download__preview">The opportunity · The day · What you get · Investment · Next steps</p>
+                <a href="../assets/DCM-AI-Discovery-Day-Proposal.pptx" download class="proposal-download__btn">
+                    <span class="proposal-download__btn-icon">&#8595;</span>
+                    Download PowerPoint
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CTA — BOOK A CALL
+         ============================================ -->
+    <section class="proposal-cta">
+        <div class="proposal-cta__container">
+            <h2 class="proposal-cta__heading">Ready to get started?</h2>
+            <p class="proposal-cta__desc">We'd love to talk through the proposal and answer any questions. Book a call with Hamish or get in touch directly.</p>
+            <a href="https://calendly.com/hamish-goagentflow/discovery-call" target="_blank" rel="noopener" class="proposal-cta__btn">
+                Book a Call
+            </a>
+            <p class="proposal-cta__contact">
+                Or email <a href="mailto:hamish@goagentflow.com">hamish@goagentflow.com</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__links">
+                    <a href="../privacy-policy.html" class="footer__link">Privacy Policy</a>
+                </div>
+                <div class="footer__copyright">
+                    <p>&copy; 2026 AgentFlow Ltd. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    </div><!-- end .proposal-content -->
+
+    <!-- ============================================
+         PASSWORD GATE SCRIPT
+         ============================================ -->
+    <script>
+        (function() {
+            var PASS_HASH = '83d0f5b0';
+            var SESSION_KEY = 'dcm_access';
+
+            function simpleHash(str) {
+                var hash = 0;
+                for (var i = 0; i < str.length; i++) {
+                    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+                    hash |= 0;
+                }
+                return (hash >>> 0).toString(16);
+            }
+
+            var gate = document.getElementById('gate');
+            var content = document.getElementById('proposal-content');
+            var input = document.getElementById('gate-password');
+            var btn = document.getElementById('gate-btn');
+            var error = document.getElementById('gate-error');
+
+            function unlock() {
+                gate.classList.add('gate--hidden');
+                content.classList.add('proposal-content--visible');
+                sessionStorage.setItem(SESSION_KEY, '1');
+            }
+
+            if (sessionStorage.getItem(SESSION_KEY) === '1') {
+                unlock();
+            }
+
+            function attemptUnlock() {
+                var val = input.value.trim();
+                if (!val) return;
+                if (simpleHash(val) === PASS_HASH) {
+                    unlock();
+                } else {
+                    error.textContent = 'Incorrect password. Please try again.';
+                    input.value = '';
+                    input.focus();
+                }
+            }
+
+            btn.addEventListener('click', attemptUnlock);
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') attemptUnlock();
+            });
+        })();
+    </script>
+
+    <!-- ============================================
+         COOKIE CONSENT + GA4
+         ============================================ -->
+    <div class="cookie-banner" id="cookie-banner">
+        <p class="cookie-banner__text">We use analytics to understand how this proposal is viewed. No advertising, no third-party sharing. <a href="../privacy-policy.html">Privacy&nbsp;Policy</a></p>
+        <div class="cookie-banner__btns">
+            <button class="cookie-banner__btn cookie-banner__btn--decline" id="cookie-decline">Decline</button>
+            <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookie-accept">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            var CONSENT_KEY = 'dcm_analytics_consent';
+            var GA4_ID = 'G-LHY2J56X46';
+            var GA4_TITLE = 'DCM AI Discovery Day';
+            var banner = document.getElementById('cookie-banner');
+            var stored = localStorage.getItem(CONSENT_KEY);
+
+            function loadGA4() {
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+                document.head.appendChild(s);
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', GA4_ID, { page_title: GA4_TITLE });
+                window.gtag = gtag;
+            }
+
+            function hideBanner() {
+                banner.classList.add('cookie-banner--hidden');
+            }
+
+            if (stored === 'accepted') {
+                hideBanner();
+                loadGA4();
+            } else if (stored === 'declined') {
+                hideBanner();
+            }
+
+            document.getElementById('cookie-accept').addEventListener('click', function() {
+                localStorage.setItem(CONSENT_KEY, 'accepted');
+                hideBanner();
+                loadGA4();
+            });
+
+            document.getElementById('cookie-decline').addEventListener('click', function() {
+                localStorage.setItem(CONSENT_KEY, 'declined');
+                hideBanner();
+            });
+        })();
+    </script>
+
+</body>
+</html>
