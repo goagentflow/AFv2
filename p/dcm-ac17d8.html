@@ -222,6 +222,133 @@
             border: 0;
         }
 
+        /* --- Slides Carousel --- */
+        .proposal-slides {
+            padding: 4rem 2rem;
+            background: var(--warm-cream);
+        }
+
+        .proposal-slides__container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .proposal-slides__label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #7952B3;
+            margin-bottom: 0.75rem;
+        }
+
+        .proposal-slides__heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 1rem;
+        }
+
+        .proposal-slides__desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--medium-grey);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .proposal-slides__viewer {
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(44, 62, 80, 0.12);
+            background: var(--deep-navy);
+            overflow: hidden;
+        }
+
+        .proposal-slides__track {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+        }
+
+        .proposal-slides__img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+
+        .proposal-slides__img--active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .proposal-slides__nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: var(--deep-navy);
+            color: var(--warm-cream);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+            z-index: 2;
+            opacity: 0.85;
+        }
+
+        .proposal-slides__nav:hover {
+            background: var(--soft-coral);
+            color: var(--deep-navy);
+            opacity: 1;
+        }
+
+        .proposal-slides__nav--prev {
+            left: 12px;
+        }
+
+        .proposal-slides__nav--next {
+            right: 12px;
+        }
+
+        .proposal-slides__counter {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--medium-grey);
+            text-align: center;
+            margin-top: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 768px) {
+            .proposal-slides__nav {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .proposal-slides__nav--prev {
+                left: 8px;
+            }
+
+            .proposal-slides__nav--next {
+                right: 8px;
+            }
+        }
+
         /* --- Brands Section --- */
         .proposal-brands {
             padding: 3rem 2rem;
@@ -675,8 +802,8 @@
         <div class="proposal-hero__container">
             <h1 class="proposal-hero__title">AI Discovery Day<br>for DCM</h1>
             <p class="proposal-hero__subtitle">A one-day programme to explore how AI can strengthen your sales team and commercial operations.</p>
-            <p class="proposal-hero__guide">Inside: a 70-second film made for your team, and the full proposal to download.</p>
-            <p class="proposal-hero__time"><a href="#pitch">1 min to watch</a> · <a href="#proposal">full deck when you're ready</a></p>
+            <p class="proposal-hero__guide">Inside: a 70-second film made for your team, the full proposal to browse, and a download when you're ready.</p>
+            <p class="proposal-hero__time"><a href="#pitch">1 min to watch</a> · <a href="#slides">slides to browse</a> · <a href="#proposal">deck to download</a></p>
             <p class="proposal-hero__meta">Prepared for Karen Stacey | February 2026 | Confidential</p>
 
             <div class="proposal-hero__logos">
@@ -713,6 +840,32 @@
                     allowfullscreen>
                 </iframe>
             </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         THE PROPOSAL — SLIDE CAROUSEL
+         ============================================ -->
+    <section class="proposal-slides" id="slides">
+        <div class="proposal-slides__container">
+            <p class="proposal-slides__label">The Proposal</p>
+            <h2 class="proposal-slides__heading">Browse the full deck</h2>
+            <p class="proposal-slides__desc">Click through the proposal slides below, or download the PowerPoint when you're ready to share internally.</p>
+
+            <div class="proposal-slides__viewer">
+                <div class="proposal-slides__track">
+                    <img src="../assets/dcm-slides/slide-1.png" alt="Slide 1 of 7" class="proposal-slides__img proposal-slides__img--active" loading="eager">
+                    <img src="../assets/dcm-slides/slide-2.png" alt="Slide 2 of 7" class="proposal-slides__img" loading="lazy">
+                    <img src="../assets/dcm-slides/slide-3.png" alt="Slide 3 of 7" class="proposal-slides__img" loading="lazy">
+                    <img src="../assets/dcm-slides/slide-4.png" alt="Slide 4 of 7" class="proposal-slides__img" loading="lazy">
+                    <img src="../assets/dcm-slides/slide-5.png" alt="Slide 5 of 7" class="proposal-slides__img" loading="lazy">
+                    <img src="../assets/dcm-slides/slide-6.png" alt="Slide 6 of 7" class="proposal-slides__img" loading="lazy">
+                    <img src="../assets/dcm-slides/slide-7.png" alt="Slide 7 of 7" class="proposal-slides__img" loading="lazy">
+                </div>
+                <button class="proposal-slides__nav proposal-slides__nav--prev" aria-label="Previous slide">&#8249;</button>
+                <button class="proposal-slides__nav proposal-slides__nav--next" aria-label="Next slide">&#8250;</button>
+            </div>
+            <p class="proposal-slides__counter"><span id="slides-current">1</span> of <span id="slides-total">7</span></p>
         </div>
     </section>
 
@@ -831,6 +984,38 @@
             btn.addEventListener('click', attemptUnlock);
             input.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') attemptUnlock();
+            });
+        })();
+    </script>
+
+    <!-- ============================================
+         SLIDE CAROUSEL SCRIPT
+         ============================================ -->
+    <script>
+        (function() {
+            var slides = document.querySelectorAll('.proposal-slides__img');
+            var counter = document.getElementById('slides-current');
+            var total = slides.length;
+            var current = 0;
+
+            function goToSlide(n) {
+                if (n < 0) n = total - 1;
+                if (n >= total) n = 0;
+                slides[current].classList.remove('proposal-slides__img--active');
+                slides[n].classList.add('proposal-slides__img--active');
+                current = n;
+                counter.textContent = current + 1;
+            }
+
+            var prevBtn = document.querySelector('.proposal-slides__nav--prev');
+            var nextBtn = document.querySelector('.proposal-slides__nav--next');
+
+            if (prevBtn) prevBtn.addEventListener('click', function() { goToSlide(current - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', function() { goToSlide(current + 1); });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') goToSlide(current - 1);
+                if (e.key === 'ArrowRight') goToSlide(current + 1);
             });
         })();
     </script>
