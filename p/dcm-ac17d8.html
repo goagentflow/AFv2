@@ -259,6 +259,31 @@
             margin-bottom: 2rem;
         }
 
+        .proposal-slides__download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--warm-cream);
+            background: var(--deep-navy);
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .proposal-slides__download:hover {
+            background: #3d5fa8;
+            transform: translateY(-1px);
+        }
+
+        .proposal-slides__download-icon {
+            font-size: 1.1rem;
+        }
+
         .proposal-slides__viewer {
             position: relative;
             border-radius: 12px;
@@ -851,6 +876,10 @@
             <p class="proposal-slides__label">The Proposal</p>
             <h2 class="proposal-slides__heading">Browse the full deck</h2>
             <p class="proposal-slides__desc">Click through the proposal slides below, or download the PowerPoint when you're ready to share internally.</p>
+            <a href="../assets/DCM+AI 2026.pptx" download class="proposal-slides__download">
+                <span class="proposal-slides__download-icon">&#8595;</span>
+                Download PowerPoint
+            </a>
 
             <div class="proposal-slides__viewer">
                 <div class="proposal-slides__track">
