@@ -216,6 +216,37 @@
             opacity: 0.5;
         }
 
+        /* Podcast player */
+        .post-card__podcast {
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .post-card__podcast-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-glow);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .post-card__podcast-label svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .post-card__podcast audio {
+            width: 100%;
+            height: 40px;
+            border-radius: 8px;
+        }
+
         /* Native post cards (non-LinkedIn) */
         .post-card__native {
             padding: 0;
@@ -784,6 +815,42 @@
 
             <!-- Posts Grid - Chronological order, newest first -->
             <div class="posts-grid">
+                <!-- Native Post: Learn to Prompt -->
+                <article class="post-card post-card__native" id="learn-to-prompt" data-author="hamish">
+                    <div class="post-card__native-content">
+                        <div class="post-card__podcast">
+                            <p class="post-card__podcast-label"><i data-feather="headphones"></i> Podcast</p>
+                            <audio controls preload="metadata">
+                                <source src="assets/learn-to-prompt-podcast.m4a" type="audio/mp4">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="post-card__author">
+                        <img src="assets/images/Hamish_Profile.png" alt="Hamish Nicklin" class="post-card__author-image">
+                        <div>
+                            <p class="post-card__author-name">Hamish Nicklin</p>
+                            <p class="post-card__author-handle">CEO & Co-Founder</p>
+                        </div>
+                    </div>
+                    <div class="post-card__native-content">
+                        <h2 class="post-card__title">Learn to prompt and you'll learn AI</h2>
+                        <p class="post-card__date">February 17, 2026</p>
+
+                        <p class="post-card__text">I bang on about this all the time: want to learn AI? Learn to prompt. This paper from the University of Chicago proves why.</p>
+
+                        <p class="post-card__text">Same AI, same goal, same information - outcomes varied by <strong>73%</strong> based purely on who wrote the prompt. The well-established gender gap in negotiations actually <strong>reversed</strong> when people delegated to AI.</p>
+
+                        <p class="post-card__text">The research shows that unconscious prompting - just writing what comes naturally, like you're chatting to a mate or how we've all got used to searching on Google - produces results that are heavily shaped by who you are, for better or worse.</p>
+
+                        <p class="post-card__text">Learning a prompt framework, like the one we teach people at AgentFlow, doesn't fight that. But it gives people a conscious structure to work within. What happens is you start making deliberate choices about what you're putting in the little chat box rather than just defaulting to old habits.</p>
+
+                        <p class="post-card__text">It's the difference between someone who's never been coached just "communicating" in a meeting versus someone who's learned to structure their thinking. Your underlying personality doesn't disappear - it just gets channelled more effectively.</p>
+
+                        <p class="post-card__text">There's so much more in this paper, but I've done the old Google NotebookLM thing on it and turned it into a podcast. If you want to have a listen - it's WELL worth 15 minutes as it gives so much insight into AI and where to start.</p>
+                    </div>
+                </article>
+
                 <!-- Native Post: AI Sales Agents -->
                 <article class="post-card post-card__native" id="ai-sales-teams" data-author="hamish">
                     <div class="post-card__author">

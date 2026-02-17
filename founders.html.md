@@ -14,6 +14,12 @@ Hands-on AI — what I'm learning, building and figuring out.
 
 ## Articles
 
+### Learn to Prompt and You'll Learn AI
+**Hamish Nicklin** · February 17, 2026
+[Read full article](https://www.goagentflow.com/founders.html#learn-to-prompt)
+
+Research from the University of Chicago shows that outcomes from the same AI varied by 73% based purely on who wrote the prompt, and the gender gap in negotiations actually reversed when people delegated to AI. Argues that learning a prompt framework gives people a conscious structure, turning unconscious habits into deliberate choices. Includes a podcast episode discussing the paper.
+
 ### AI Sales Teams? Ok — This Is Getting Close to Home
 **Hamish Nicklin** · February 2, 2026
 [Read full article](https://www.goagentflow.com/founders.html#ai-sales-teams)
