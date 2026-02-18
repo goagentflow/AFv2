@@ -30,6 +30,11 @@ Thumbs.db
 node_modules
 npm-debug.log*
 
-# Build artifacts (though we don't have any for this static site)
+# Build artifacts
 dist
 build
+
+# Cloud Build working directories (contain source + node_modules, not needed in image)
+build-assess
+build-discovery
+*-meta.env
