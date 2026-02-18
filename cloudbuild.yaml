@@ -254,33 +254,33 @@ steps:
 
         # HTML pages
         echo "Testing homepage..."
-        curl -sf $BASE/ || exit 1
+        curl -sf $$BASE/ || exit 1
 
         echo "Testing assess..."
-        curl -sf $BASE/assess/ || exit 1
+        curl -sf $$BASE/assess/ || exit 1
 
         echo "Testing discovery..."
-        curl -sf $BASE/discovery/ || exit 1
+        curl -sf $$BASE/discovery/ || exit 1
 
         # Verify assess JS+CSS bundles are reachable
-        ASSESS_JS=$(curl -s $BASE/assess/ | grep -oE 'src="/assess/assets/[^"]+\.js"' | head -1 | grep -oE '/assess/assets/[^"]+')
-        ASSESS_CSS=$(curl -s $BASE/assess/ | grep -oE 'href="/assess/assets/[^"]+\.css"' | head -1 | grep -oE '/assess/assets/[^"]+')
-        echo "Checking assess JS: $ASSESS_JS"
-        curl -sf "$BASE$ASSESS_JS" || exit 1
-        echo "Checking assess CSS: $ASSESS_CSS"
-        curl -sf "$BASE$ASSESS_CSS" || exit 1
+        ASSESS_JS=$$(curl -s $$BASE/assess/ | grep -oE 'src="/assess/assets/[^"]+\.js"' | head -1 | grep -oE '/assess/assets/[^"]+')
+        ASSESS_CSS=$$(curl -s $$BASE/assess/ | grep -oE 'href="/assess/assets/[^"]+\.css"' | head -1 | grep -oE '/assess/assets/[^"]+')
+        echo "Checking assess JS: $$ASSESS_JS"
+        curl -sf "$$BASE$$ASSESS_JS" || exit 1
+        echo "Checking assess CSS: $$ASSESS_CSS"
+        curl -sf "$$BASE$$ASSESS_CSS" || exit 1
 
         # Verify discovery JS+CSS bundles are reachable
-        DISC_JS=$(curl -s $BASE/discovery/ | grep -oE 'src="/discovery/assets/[^"]+\.js"' | head -1 | grep -oE '/discovery/assets/[^"]+')
-        DISC_CSS=$(curl -s $BASE/discovery/ | grep -oE 'href="/discovery/assets/[^"]+\.css"' | head -1 | grep -oE '/discovery/assets/[^"]+')
-        echo "Checking discovery JS: $DISC_JS"
-        curl -sf "$BASE$DISC_JS" || exit 1
-        echo "Checking discovery CSS: $DISC_CSS"
-        curl -sf "$BASE$DISC_CSS" || exit 1
+        DISC_JS=$$(curl -s $$BASE/discovery/ | grep -oE 'src="/discovery/assets/[^"]+\.js"' | head -1 | grep -oE '/discovery/assets/[^"]+')
+        DISC_CSS=$$(curl -s $$BASE/discovery/ | grep -oE 'href="/discovery/assets/[^"]+\.css"' | head -1 | grep -oE '/discovery/assets/[^"]+')
+        echo "Checking discovery JS: $$DISC_JS"
+        curl -sf "$$BASE$$DISC_JS" || exit 1
+        echo "Checking discovery CSS: $$DISC_CSS"
+        curl -sf "$$BASE$$DISC_CSS" || exit 1
 
         # Version manifest
         echo "Testing version.json..."
-        curl -sf $BASE/version.json || exit 1
+        curl -sf $$BASE/version.json || exit 1
 
         echo "All smoke tests passed"
     waitFor: ['deploy']
