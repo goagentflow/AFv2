@@ -72,3 +72,24 @@ User Feedback & Error Handling:
 Form Submissions: On submit, disable the button to prevent multiple clicks and show a loading state.
 Success State: On success, hide the form and show a clear success message.
 Error State: On failure, re-enable the form button and show a simple error message (e.g., "Something went wrong, please try again.").
+
+## goagentflow.com — What Lives Where
+
+Everything deployed to **goagentflow.com** is built from three repos. If you're looking to work on a specific feature, here's where to go:
+
+| Feature | Repo / Folder | Local Path |
+|---------|--------------|------------|
+| **Marketing website** (homepage, Our Approach, Our Story, Founders, privacy, etc.) | `goagentflow/AFv2` (this repo) | `~/Desktop/AFv2-temp` |
+| **Copilot Check-up** (the quiz at `/assess/`) | `winehusband/agentflow-insight-pulse` | `~/Desktop/agentflow-insight-pulse` |
+| **Admin dashboard** (client data, reports at `/assess/admin`) | `winehusband/agentflow-insight-pulse` | `~/Desktop/agentflow-insight-pulse` |
+| **Revenue & deal pipeline** (`/assess/admin` → Revenue tab) | `winehusband/agentflow-insight-pulse` | `~/Desktop/agentflow-insight-pulse` |
+| **CRM** (prospects, orgs, contacts — Supabase database) | `winehusband/agentflow-insight-pulse` | `~/Desktop/agentflow-insight-pulse` |
+| **Auth** (login, signup, password reset at `/assess/auth`) | `winehusband/agentflow-insight-pulse` | `~/Desktop/agentflow-insight-pulse` |
+| **Opportunity Finder** (discovery tool at `/discovery/`) | `goagentflow/remix-of-af_disdcovery_agent` | `~/Desktop/AF_DiscoveryProcess_Agent/AF_DiscoveryP_agent` |
+| **CI/CD pipeline** (Cloud Build, Dockerfile, nginx) | `goagentflow/AFv2` (this repo) | `~/Desktop/AFv2-temp` |
+
+### Deployment
+All three repos auto-deploy via Google Cloud Build. Push to any repo → full site rebuilds and deploys to goagentflow.com in ~3-5 minutes. The pipeline config lives in this repo (`cloudbuild.yaml`, `Dockerfile`, `nginx.conf`).
+
+### Key files for CRM/database work
+Before reading or writing to the Supabase CRM, always read `/Users/hamishnicklin/Desktop/agentflow-insight-pulse/CRM_ACCESS.md` first. Env vars are in that repo's `.env` file.
