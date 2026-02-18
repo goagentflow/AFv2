@@ -364,6 +364,25 @@ ul {
   width: 100%;
 }
 
+.nav__icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  color: var(--secondary-text);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.nav__icon-link:hover {
+  color: var(--accent-glow);
+  border-color: var(--accent-glow);
+  background: rgba(198, 184, 228, 0.1);
+}
+
 /* FINAL FIX - 2025-09-05-20-45 */
 .nav__cta {
   padding: 0.75rem 1.5rem !important;
