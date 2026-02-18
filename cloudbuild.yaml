@@ -165,7 +165,8 @@ steps:
       - |
         set -euo pipefail
 
-        AFV2_SHA="${COMMIT_SHA:-unknown}"
+        AFV2_SHA="$COMMIT_SHA"
+        if [ -z "$$AFV2_SHA" ]; then AFV2_SHA="unknown"; fi
         ASSESS_SHA="skipped"
         DISCOVERY_SHA="skipped"
 
@@ -176,11 +177,11 @@ steps:
           source /workspace/discovery-meta.env
         fi
 
-        BUILD_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+        BUILD_TIME=$$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
-        cat > /workspace/deploy/version.json <<EOF
-        {"build_id":"${BUILD_ID}","build_time":"${BUILD_TIME}","afv2_sha":"${AFV2_SHA}","assess_sha":"${ASSESS_SHA}","discovery_sha":"${DISCOVERY_SHA}"}
-        EOF
+        cat > /workspace/deploy/version.json <<VEOF
+        {"build_id":"$BUILD_ID","build_time":"$$BUILD_TIME","afv2_sha":"$$AFV2_SHA","assess_sha":"$$ASSESS_SHA","discovery_sha":"$$DISCOVERY_SHA"}
+        VEOF
 
         echo "Version manifest written:"
         cat /workspace/deploy/version.json
