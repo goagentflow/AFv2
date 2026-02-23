@@ -1,21 +1,26 @@
 # Unified assembler pipeline for goagentflow.com
-# Builds static marketing site + React apps (assess, discovery) into a single nginx image.
+# Builds static marketing site + React apps (assess, discovery, clienthub) into a single nginx image.
 #
 # Substitution variables:
 #   _ASSESS_SHA      - Pin assess build to a specific commit (set by assess repo trigger)
 #   _DISCOVERY_SHA   - Pin discovery build to a specific commit (set by discovery repo trigger)
+#   _CLIENTHUB_SHA   - Pin client hub build to a specific commit
 #   _SKIP_ASSESS     - Set to "true" to skip assess build (emergency marketing-only deploy)
 #   _SKIP_DISCOVERY  - Set to "true" to skip discovery build (emergency marketing-only deploy)
+#   _SKIP_CLIENTHUB  - Set to "true" to skip client hub build (emergency marketing-only deploy)
 #
 # Requires secrets in Secret Manager:
 #   VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, VITE_VAPI_PUBLIC_KEY
+#   VITE_API_BASE_URL — Client Hub middleware API URL (read by api.ts)
 # Requires GITHUB_TOKEN secret for cloning app repos (until GitHub App connections are set up)
 
 substitutions:
   _ASSESS_SHA: ''
   _DISCOVERY_SHA: ''
+  _CLIENTHUB_SHA: ''
   _SKIP_ASSESS: 'false'
   _SKIP_DISCOVERY: 'false'
+  _SKIP_CLIENTHUB: 'false'
 
 steps:
   # ──────────────────────────────────────────────
@@ -155,6 +160,60 @@ steps:
     waitFor: ['assemble-static']
 
   # ──────────────────────────────────────────────
+  # 3b. Build client hub app (or write maintenance stub)
+  # ──────────────────────────────────────────────
+  - name: 'node:20'
+    id: 'build-clienthub'
+    entrypoint: 'bash'
+    secretEnv: ['VITE_API_BASE_URL', 'GITHUB_TOKEN']
+    args:
+      - '-c'
+      - |
+        set -euo pipefail
+
+        if [ "${_SKIP_CLIENTHUB}" = "true" ]; then
+          echo "SKIP_CLIENTHUB=true — writing maintenance stub"
+          mkdir -p /workspace/deploy/clienthub
+          cat > /workspace/deploy/clienthub/index.html <<'STUB'
+        <!doctype html><html><head><meta charset="utf-8"><title>Temporarily Unavailable</title></head>
+        <body><p>This tool is temporarily unavailable. Please try again shortly.</p></body></html>
+        STUB
+          exit 0
+        fi
+
+        # Clone client hub repo
+        cd /workspace
+        git clone https://x-access-token:$$GITHUB_TOKEN@github.com/goagentflow/client-hub.git build-clienthub
+        cd build-clienthub
+
+        # Checkout pinned SHA if provided, otherwise use HEAD
+        if [ -n "${_CLIENTHUB_SHA}" ]; then
+          echo "Checking out pinned SHA: ${_CLIENTHUB_SHA}"
+          git checkout "${_CLIENTHUB_SHA}"
+        fi
+        echo "CLIENTHUB_SHA=$(git rev-parse HEAD)" > /workspace/clienthub-meta.env
+
+        # Install and build
+        npm ci --ignore-scripts
+        VITE_BASE_PATH="/clienthub/" \
+        VITE_API_BASE_URL="$$VITE_API_BASE_URL" \
+        VITE_USE_MOCK_API="false" \
+        npm run build
+
+        # Safety gate: fail if dev bypass markers leak into production bundles
+        if grep -rl 'DEV MODE\|DEV_BYPASS_AUTH\|VITE_DEV_BYPASS_AUTH\|MOCK_API' dist/ 2>/dev/null; then
+          echo "FATAL: Dev bypass markers found in production clienthub bundles!"
+          exit 1
+        fi
+
+        # Copy only dist output to deploy dir
+        mkdir -p /workspace/deploy/clienthub
+        cp -r dist/* /workspace/deploy/clienthub/
+
+        echo "Client Hub app built and copied to deploy/clienthub/"
+    waitFor: ['assemble-static']
+
+  # ──────────────────────────────────────────────
   # 4. Write version manifest
   # ──────────────────────────────────────────────
   - name: 'ubuntu'
@@ -169,6 +228,7 @@ steps:
         if [ -z "$$AFV2_SHA" ]; then AFV2_SHA="unknown"; fi
         ASSESS_SHA="skipped"
         DISCOVERY_SHA="skipped"
+        CLIENTHUB_SHA="skipped"
 
         if [ -f /workspace/assess-meta.env ]; then
           source /workspace/assess-meta.env
@@ -176,16 +236,19 @@ steps:
         if [ -f /workspace/discovery-meta.env ]; then
           source /workspace/discovery-meta.env
         fi
+        if [ -f /workspace/clienthub-meta.env ]; then
+          source /workspace/clienthub-meta.env
+        fi
 
         BUILD_TIME=$$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
         cat > /workspace/deploy/version.json <<VEOF
-        {"build_id":"$BUILD_ID","build_time":"$$BUILD_TIME","afv2_sha":"$$AFV2_SHA","assess_sha":"$$ASSESS_SHA","discovery_sha":"$$DISCOVERY_SHA"}
+        {"build_id":"$BUILD_ID","build_time":"$$BUILD_TIME","afv2_sha":"$$AFV2_SHA","assess_sha":"$$ASSESS_SHA","discovery_sha":"$$DISCOVERY_SHA","clienthub_sha":"$$CLIENTHUB_SHA"}
         VEOF
 
         echo "Version manifest written:"
         cat /workspace/deploy/version.json
-    waitFor: ['build-assess', 'build-discovery']
+    waitFor: ['build-assess', 'build-discovery', 'build-clienthub']
 
   # ──────────────────────────────────────────────
   # 5. Build Docker image
@@ -262,9 +325,16 @@ steps:
         echo "Testing discovery..."
         curl -sf $$BASE/discovery/ || exit 1
 
+        echo "Testing clienthub..."
+        curl -sf $$BASE/clienthub/ || exit 1
+
         # Verify assess JS+CSS bundles are reachable
         ASSESS_JS=$$(curl -s $$BASE/assess/ | grep -oE 'src="/assess/assets/[^"]+\.js"' | head -1 | grep -oE '/assess/assets/[^"]+')
         ASSESS_CSS=$$(curl -s $$BASE/assess/ | grep -oE 'href="/assess/assets/[^"]+\.css"' | head -1 | grep -oE '/assess/assets/[^"]+')
+        if [ -z "$$ASSESS_JS" ] || [ -z "$$ASSESS_CSS" ]; then
+          echo "FATAL: Could not extract assess bundle paths from HTML"
+          exit 1
+        fi
         echo "Checking assess JS: $$ASSESS_JS"
         curl -sf "$$BASE$$ASSESS_JS" || exit 1
         echo "Checking assess CSS: $$ASSESS_CSS"
@@ -273,10 +343,26 @@ steps:
         # Verify discovery JS+CSS bundles are reachable
         DISC_JS=$$(curl -s $$BASE/discovery/ | grep -oE 'src="/discovery/assets/[^"]+\.js"' | head -1 | grep -oE '/discovery/assets/[^"]+')
         DISC_CSS=$$(curl -s $$BASE/discovery/ | grep -oE 'href="/discovery/assets/[^"]+\.css"' | head -1 | grep -oE '/discovery/assets/[^"]+')
+        if [ -z "$$DISC_JS" ] || [ -z "$$DISC_CSS" ]; then
+          echo "FATAL: Could not extract discovery bundle paths from HTML"
+          exit 1
+        fi
         echo "Checking discovery JS: $$DISC_JS"
         curl -sf "$$BASE$$DISC_JS" || exit 1
         echo "Checking discovery CSS: $$DISC_CSS"
         curl -sf "$$BASE$$DISC_CSS" || exit 1
+
+        # Verify clienthub JS+CSS bundles are reachable
+        CH_JS=$$(curl -s $$BASE/clienthub/ | grep -oE 'src="/clienthub/assets/[^"]+\.js"' | head -1 | grep -oE '/clienthub/assets/[^"]+')
+        CH_CSS=$$(curl -s $$BASE/clienthub/ | grep -oE 'href="/clienthub/assets/[^"]+\.css"' | head -1 | grep -oE '/clienthub/assets/[^"]+')
+        if [ -z "$$CH_JS" ] || [ -z "$$CH_CSS" ]; then
+          echo "FATAL: Could not extract clienthub bundle paths from HTML"
+          exit 1
+        fi
+        echo "Checking clienthub JS: $$CH_JS"
+        curl -sf "$$BASE$$CH_JS" || exit 1
+        echo "Checking clienthub CSS: $$CH_CSS"
+        curl -sf "$$BASE$$CH_CSS" || exit 1
 
         # Version manifest
         echo "Testing version.json..."
@@ -298,6 +384,8 @@ availableSecrets:
       env: 'VITE_SUPABASE_ANON_KEY'
     - versionName: projects/$PROJECT_ID/secrets/VITE_VAPI_PUBLIC_KEY/versions/latest
       env: 'VITE_VAPI_PUBLIC_KEY'
+    - versionName: projects/$PROJECT_ID/secrets/VITE_API_BASE_URL/versions/latest
+      env: 'VITE_API_BASE_URL'
     - versionName: projects/$PROJECT_ID/secrets/GITHUB_TOKEN/versions/latest
       env: 'GITHUB_TOKEN'
 
