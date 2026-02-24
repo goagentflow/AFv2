@@ -34,7 +34,7 @@ The 2x2 opens their eyes to what's possible. We use it at the start — to educa
 
 It's our structured methodology that covers the full journey — from finding the right opportunities, to building the right solutions, to making sure they stick.
 
-**Discover** — We start in two places at once. With your leadership team, we map how your people actually spend their time — how much is growth work and how much is keeping the lights on. With your teams, Sophie surfaces the workflows worth examining, breaks them into tasks, and finds out what your people genuinely want automated. Then we bring both views together. The gap between what leadership believes is happening and what's actually happening on the ground — that's where the real insight lives. And it tells us exactly where to free up time so your people can focus on the work that actually grows the business.
+**Discover** — We start in two places at once. With your leadership team, we map how your people actually spend their time — how much is growth work and how much is keeping the lights on. With your teams, our discovery agent surfaces the workflows worth examining, breaks them into tasks, and finds out what your people genuinely want automated. Then we bring both views together. The gap between what leadership believes is happening and what's actually happening on the ground — that's where the real insight lives. And it tells us exactly where to free up time so your people can focus on the work that actually grows the business.
 
 **Build** — Turn the best opportunities into working solutions. The right solution for the right problem — whether that's training your team to use existing tools better, building automated workflows, or developing more sophisticated agentic systems.
 
