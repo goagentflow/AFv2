@@ -34,7 +34,7 @@ The 2x2 opens their eyes to what's possible. We use it at the start — to educa
 
 It's our structured methodology that covers the full journey — from finding the right opportunities, to building the right solutions, to making sure they stick.
 
-**Discover** — Surface the workflows worth examining, break them into tasks, find out what your people genuinely want automated, assess what AI can realistically do today, and prioritise where desire meets feasibility.
+**Discover** — We start in two places at once. With your leadership team, we map how your people actually spend their time — how much is growth work and how much is keeping the lights on. With your teams, Sophie surfaces the workflows worth examining, breaks them into tasks, and finds out what your people genuinely want automated. Then we bring both views together. The gap between what leadership believes is happening and what's actually happening on the ground — that's where the real insight lives. And it tells us exactly where to free up time so your people can focus on the work that actually grows the business.
 
 **Build** — Turn the best opportunities into working solutions. The right solution for the right problem — whether that's training your team to use existing tools better, building automated workflows, or developing more sophisticated agentic systems.
 
@@ -55,11 +55,11 @@ The outcome we're working towards depends which quadrant matters most to you.
 
 We're not a big consultancy that'll spend six months telling you what you already know and then hand you a PowerPoint. We're not a tech vendor trying to sell you a platform. We're not pretending AI is magic, or that every problem needs a complex solution.
 
-We're practical. We start with the annoying stuff — the things that make your team want to throw their laptops out the window — and we work towards the strategic stuff: how you grow without proportionally growing cost.
+We're practical. We work from both ends — the strategic view of where your people's time should be going AND the ground-level reality of what's eating it. Most consultancies only do one. We do both and show you where they don't match.
 
 And we're honest. Sometimes the answer is "just use what you've got better." Sometimes it's "you need to build something." Sometimes it's "this isn't an AI problem at all." We'll tell you which.
 
-That's AgentFlow. We help businesses figure out where AI can help, build the right solution for the problem and make sure it sticks. Simple as that.
+That's AgentFlow. We help businesses figure out where their people's time should go, automate the work that's getting in the way, and make sure it sticks. Simple as that.
 
 ---
 

@@ -1,6 +1,6 @@
 # AgentFlow — AI That Frees Your People, Grows Your Business
 
-From helping your team get more from Copilot, to building agents that work while you sleep — we match the right solution to the right problem. No upselling to complexity. Just what actually works for your business.
+We help you understand where your people's time is going, free them from the work that doesn't drive growth, and build the right solutions to make it stick. No upselling to complexity. Just what actually works for your business.
 
 ## AI Can Help in Four Ways
 
@@ -21,7 +21,7 @@ Every AI partnership starts with understanding your specific situation, then bui
 
 AI can help in four main ways: making internal work faster (the quick wins), giving your team new superpowers (growth capabilities), improving customer experience (service), or opening entirely new revenue streams (the magic quadrant). Most businesses aren't sure which to prioritise.
 
-We help you see the full landscape and figure out where to start. Sometimes that's a workshop to get your team using Copilot properly. Sometimes it's mapping your processes to find the biggest ROI opportunities. Sometimes it's auditing a workflow that's driving everyone mad. It depends on where you are.
+We help you see the full landscape and figure out where to start. We work with your leadership team to understand how their people spend their time — and whether enough of it is going toward the work that actually drives growth. And we talk to your teams to find out what's really happening on the ground. Sometimes that also means a workshop to get your team using Copilot properly. Sometimes it's mapping your processes to find the biggest ROI opportunities. It depends on where you are.
 
 ### Step 2: Build — The Right Solution for the Problem
 
