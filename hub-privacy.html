@@ -23,7 +23,7 @@
       padding: 20px;
     }
     .wrap {
-      width: min(920px, 100%);
+      width: min(940px, 100%);
       margin: 0 auto;
       background: var(--panel);
       border: 1px solid var(--border);
@@ -37,7 +37,26 @@
     p, li { line-height: 1.5; color: #374151; }
     .meta { color: var(--muted); margin: 0 0 12px; }
     a { color: var(--primary); }
-    .footer { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f8fafc; }
+    .footer {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -45,41 +64,72 @@
     <img class="logo" src="https://www.goagentflow.com/assets/images/AgentFlowLogo.svg" alt="AgentFlow">
     <h1>Hub Privacy Notice</h1>
     <p class="meta">Last updated: February 27, 2026</p>
-    <p>This notice explains how AgentFlow handles personal data for Pitch Hub and Client Hub users.</p>
+    <p>This notice explains how AgentFlow Ltd handles personal data for invited users of Pitch Hub and Client Hub.</p>
 
-    <h2>What We Collect</h2>
+    <h2>Who We Are</h2>
+    <p>AgentFlow Ltd operates AgentFlow hub services. For privacy questions, contact <a href="mailto:admin@goagentflow.com">admin@goagentflow.com</a>.</p>
+
+    <h2>Data We Process</h2>
     <ul>
-      <li>Contact data: name, work email, company name where provided.</li>
-      <li>Access data: verification requests, sign-in events, token/device records, IP and technical logs.</li>
-      <li>Hub activity: hub views, document/video/proposal interactions, and portal message metadata.</li>
-      <li>Hub content data: files and messages that are uploaded or shared in a hub.</li>
+      <li><strong>Identity and contact data:</strong> name, work email, organisation details where provided.</li>
+      <li><strong>Access and security data:</strong> verification requests, access tokens, device verification records, IP/log metadata, and security events.</li>
+      <li><strong>Hub usage data:</strong> login events, page interactions, document/video/proposal engagement events, message activity metadata.</li>
+      <li><strong>Hub content data:</strong> documents, messages, and updates uploaded/shared in a hub by authorised users.</li>
     </ul>
 
     <h2>How We Use Data</h2>
     <ul>
-      <li>Provide secure access to hubs and shared materials.</li>
-      <li>Operate hub features (documents, updates, messaging, notifications).</li>
-      <li>Maintain platform security, prevent abuse, and troubleshoot incidents.</li>
-      <li>Provide engagement visibility to authorised staff users.</li>
+      <li>Provide and secure access to hub content and collaboration features.</li>
+      <li>Operate notifications and communication workflows between staff and invited hub users.</li>
+      <li>Provide usage visibility to authorised staff in the relevant hub/account context.</li>
+      <li>Prevent abuse, investigate incidents, and maintain service reliability and auditability.</li>
+      <li>Meet legal, regulatory, and contractual obligations.</li>
     </ul>
 
-    <h2>Legal Basis (B2B Context)</h2>
-    <p>We generally process hub user data to perform our contract with business customers, and for legitimate interests in operating and securing a B2B service. Where consent is required for non-essential cookies or tracking, we request it separately.</p>
+    <h2>Legal Bases (B2B Context)</h2>
+    <p>Depending on context, processing is based on contract performance with business customers, legitimate interests in operating and securing a B2B platform, and legal obligations. For non-essential analytics technologies, consent is requested where required.</p>
 
-    <h2>Who We Share With</h2>
-    <p>We use service providers to host and operate the service, including infrastructure, authentication, email delivery, storage, and analytics tooling. We require contractual safeguards with processors.</p>
+    <h2>Who We Share Data With</h2>
+    <p>We use processors/subprocessors for infrastructure, storage, authentication, and transactional messaging. See our <a href="/hub-subprocessors.html">Hub Subprocessors and Transfer Summary</a>.</p>
 
     <h2>International Transfers</h2>
-    <p>Where data is transferred internationally, we rely on appropriate contractual and legal transfer safeguards.</p>
+    <p>Where data is transferred outside your jurisdiction, we use applicable legal safeguards and contractual mechanisms.</p>
 
-    <h2>Retention</h2>
-    <p>We keep data only as long as needed for service delivery, security, legal obligations, and legitimate operational records, then delete or anonymise it.</p>
+    <h2>Retention (Summary)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Data Category</th>
+          <th>Typical Retention</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Access recovery and verification artifacts</td>
+          <td>Short-lived; deleted/expired according to operational retention policy.</td>
+        </tr>
+        <tr>
+          <td>Hub events and audit logs</td>
+          <td>Retained for security and service operations for defined policy windows.</td>
+        </tr>
+        <tr>
+          <td>Hub content and collaboration records</td>
+          <td>Retained during customer engagement and according to contractual/legal requirements.</td>
+        </tr>
+      </tbody>
+    </table>
 
-    <h2>Your Rights and Contact</h2>
-    <p>To request access, correction, deletion, or raise a privacy concern, email <a href="mailto:admin@goagentflow.com">admin@goagentflow.com</a>.</p>
+    <h2>Your Rights</h2>
+    <p>Where applicable, individuals may request access, correction, deletion, objection, or restriction. We will handle requests in line with applicable law and our customer obligations.</p>
+
+    <h2>Contact and Complaints</h2>
+    <p>Contact us at <a href="mailto:admin@goagentflow.com">admin@goagentflow.com</a>. If unresolved, you may also contact your local data protection authority where applicable.</p>
 
     <div class="footer">
-      Related documents: <a href="/hub-terms.html">Hub Terms</a> | <a href="/hub-cookie-notice.html">Hub Cookie Notice</a>
+      Related documents:
+      <a href="/hub-terms.html">Hub Terms</a> |
+      <a href="/hub-cookie-notice.html">Hub Cookie Notice</a> |
+      <a href="/hub-subprocessors.html">Hub Subprocessors and Transfers</a>
     </div>
   </main>
 </body>

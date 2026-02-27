@@ -926,17 +926,11 @@
          ============================================ -->
     <script>
         (function() {
-            var PASS_HASH = '{{PASSWORD_HASH}}';
-            var SESSION_KEY = '{{SESSION_KEY}}';
-
-            function simpleHash(str) {
-                var hash = 0;
-                for (var i = 0; i < str.length; i++) {
-                    hash = ((hash << 5) - hash) + str.charCodeAt(i);
-                    hash |= 0;
-                }
-                return (hash >>> 0).toString(16);
-            }
+            var pitchSlug = (window.location.pathname.split('/').pop() || '').replace('.html', '');
+            var SESSION_KEY = 'pitch_access_' + pitchSlug;
+            var API_BASE = window.location.hostname === 'localhost'
+                ? 'http://localhost:3001/api/v1/public'
+                : 'https://clienthub-api-axiw2ydgeq-uc.a.run.app/api/v1/public';
 
             var gate = document.getElementById('gate');
             var content = document.getElementById('proposal-content');
@@ -954,24 +948,51 @@
                 unlock();
             }
 
-            function attemptUnlock() {
+            async function attemptUnlock() {
                 var val = input.value.trim();
-                if (!val) return;
-                if (simpleHash(val) === PASS_HASH) {
-                    unlock();
-                } else {
+                if (!val || !pitchSlug) return;
+
+                btn.disabled = true;
+                error.textContent = '';
+
+                try {
+                    var res = await fetch(API_BASE + '/pitch/' + encodeURIComponent(pitchSlug) + '/verify-password', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ password: val })
+                    });
+
+                    if (!res.ok) {
+                        throw new Error('verify failed');
+                    }
+
+                    var payload = await res.json();
+                    if (payload && payload.data && payload.data.valid === true) {
+                        unlock();
+                        return;
+                    }
+
                     error.textContent = 'Incorrect password. Please try again.';
                     input.value = '';
                     input.focus();
+                } catch (_err) {
+                    error.textContent = 'Unable to verify password right now. Please try again.';
+                } finally {
+                    btn.disabled = false;
                 }
             }
 
-            btn.addEventListener('click', attemptUnlock);
+            btn.addEventListener('click', function() {
+                void attemptUnlock();
+            });
             input.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') attemptUnlock();
+                if (e.key === 'Enter') {
+                    void attemptUnlock();
+                }
             });
         })();
     </script>
+
 
     <!-- ============================================
          COOKIE CONSENT + GA4

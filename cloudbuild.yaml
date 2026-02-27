@@ -43,6 +43,7 @@ steps:
                     our-story.html our-story.html.md \
                     discovery-call.html discovery-call.html.md \
                     privacy-policy.html \
+                    hub-privacy.html hub-terms.html hub-cookie-notice.html hub-subprocessors.html \
                     robots.txt llms.txt; do
           if [ -e "/workspace/$item" ]; then
             cp -r "/workspace/$item" "/workspace/deploy/$item"

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hub Subprocessors and Transfers | AgentFlow</title>
+  <style>
+    :root {
+      --bg: #f7f6f3;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #1f4d8f;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top right, #dde8ff 0%, transparent 40%), var(--bg);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .wrap {
+      width: min(980px, 100%);
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(17, 24, 39, 0.08);
+      padding: 24px;
+    }
+    .logo { height: 40px; width: auto; }
+    h1 { margin: 16px 0 6px; font-size: clamp(26px, 4vw, 36px); }
+    h2 { margin: 24px 0 8px; font-size: 22px; }
+    p, li { line-height: 1.5; color: #374151; }
+    .meta { color: var(--muted); margin: 0 0 12px; }
+    a { color: var(--primary); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f8fafc; }
+    .footer {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <img class="logo" src="https://www.goagentflow.com/assets/images/AgentFlowLogo.svg" alt="AgentFlow">
+    <h1>Hub Subprocessors and Transfer Summary</h1>
+    <p class="meta">Last updated: February 27, 2026</p>
+    <p>This page summarizes key processors used to operate Pitch Hub and Client Hub services. It is an operational transparency summary and does not replace contract terms.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Processor</th>
+          <th>Purpose</th>
+          <th>Data Categories (Typical)</th>
+          <th>Region/Transfer Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Google Cloud (Cloud Run / build infrastructure)</td>
+          <td>Application hosting and runtime infrastructure</td>
+          <td>Service logs, operational metadata, API request handling data</td>
+          <td>May involve processing in Google-managed regions according to deployment configuration and provider terms</td>
+        </tr>
+        <tr>
+          <td>Supabase (PostgreSQL / storage services)</td>
+          <td>Hub data persistence and related storage operations</td>
+          <td>Hub metadata, access records, event data, uploaded file metadata</td>
+          <td>Processed per configured project region and contractual safeguards</td>
+        </tr>
+        <tr>
+          <td>Resend</td>
+          <td>Transactional email delivery</td>
+          <td>Work email addresses, message metadata for delivery</td>
+          <td>International transfer safeguards apply where needed</td>
+        </tr>
+        <tr>
+          <td>Microsoft / Azure AD / Graph (where applicable)</td>
+          <td>Staff authentication and connected Microsoft workflows</td>
+          <td>Identity claims and authorised Microsoft integration metadata</td>
+          <td>Subject to Microsoft regional and contractual controls</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Transfer Safeguards</h2>
+    <p>Where data transfers occur internationally, AgentFlow uses applicable legal and contractual safeguards under relevant data protection laws.</p>
+
+    <h2>Updates</h2>
+    <p>We may update this list as services evolve. Material changes will be reflected by the updated date above.</p>
+
+    <h2>Contact</h2>
+    <p>For questions about this list, contact <a href="mailto:admin@goagentflow.com">admin@goagentflow.com</a>.</p>
+
+    <div class="footer">
+      Related documents:
+      <a href="/hub-privacy.html">Hub Privacy Notice</a> |
+      <a href="/hub-terms.html">Hub Terms</a> |
+      <a href="/hub-cookie-notice.html">Hub Cookie Notice</a>
+    </div>
+  </main>
+</body>
+</html>
