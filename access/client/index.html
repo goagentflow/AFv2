@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find my client access | AgentFlow</title>
+  <style>
+    :root {
+      --bg: #f7f6f3;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #1f4d8f;
+      --border: #e5e7eb;
+      --success: #0f766e;
+      --error: #b91c1c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top right, #dde8ff 0%, transparent 40%), var(--bg);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .panel {
+      width: min(560px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(17, 24, 39, 0.08);
+      padding: 24px;
+    }
+    .logo { height: 40px; width: auto; }
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(26px, 4vw, 34px);
+      line-height: 1.15;
+    }
+    .sub { margin: 0 0 18px; color: var(--muted); line-height: 1.45; }
+    label { display: block; font-weight: 600; margin-bottom: 8px; }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 14px;
+      width: 100%;
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:disabled { opacity: 0.65; cursor: default; }
+    .msg {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .msg.success { background: #ecfdf5; color: var(--success); border: 1px solid #a7f3d0; }
+    .msg.error { background: #fef2f2; color: var(--error); border: 1px solid #fecaca; }
+    .note { margin-top: 10px; color: var(--muted); font-size: 14px; }
+    .back {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main class="panel">
+    <img
+      class="logo"
+      src="https://www.goagentflow.com/assets/images/AgentFlowLogo.svg"
+      alt="AgentFlow"
+    >
+
+    <h1>Find my client access</h1>
+    <p class="sub">Pop in your work email and we'll send you a secure link to everything that's been shared with you.</p>
+
+    <form id="request-form">
+      <label for="email">Work email</label>
+      <input id="email" name="email" type="email" placeholder="name@company.com" required>
+      <button id="submit-btn" type="submit">Send my access link</button>
+    </form>
+
+    <div id="message" aria-live="polite"></div>
+    <a class="back" href="/access">Back</a>
+  </main>
+
+  <script>
+    (function () {
+      const API_BASE = window.location.hostname === 'localhost'
+        ? 'http://localhost:3001/api/v1/public'
+        : 'https://clienthub-api-axiw2ydgeq-uc.a.run.app/api/v1/public';
+
+      const form = document.getElementById('request-form');
+      const emailInput = document.getElementById('email');
+      const submitBtn = document.getElementById('submit-btn');
+      const messageBox = document.getElementById('message');
+
+      const params = new URLSearchParams(window.location.search);
+      const presetEmail = params.get('email');
+      if (presetEmail) {
+        emailInput.value = presetEmail;
+      }
+
+      function showMessage(kind, text, note) {
+        messageBox.innerHTML = '';
+        const msg = document.createElement('div');
+        msg.className = 'msg ' + kind;
+        msg.textContent = text;
+        messageBox.appendChild(msg);
+
+        if (note) {
+          const noteEl = document.createElement('p');
+          noteEl.className = 'note';
+          noteEl.textContent = note;
+          messageBox.appendChild(noteEl);
+        }
+      }
+
+      form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const email = emailInput.value.trim().toLowerCase();
+        if (!email) return;
+
+        submitBtn.disabled = true;
+        showMessage('success', 'Sending your link...');
+
+        try {
+          const res = await fetch(API_BASE + '/access/request-link', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+
+          if (res.status === 429) {
+            showMessage('error', 'Too many requests. Give it a minute and try again.');
+            return;
+          }
+
+          if (!res.ok) {
+            showMessage('error', "We couldn't send your link right now. Please try again shortly.");
+            return;
+          }
+
+          showMessage(
+            'success',
+            "If we found anything for that email, your link is on its way.",
+            "Check spam or promotions if it doesn't show up in a few minutes."
+          );
+        } catch (err) {
+          console.error(err);
+          showMessage('error', "We couldn't send your link right now. Please try again shortly.");
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+    }());
+  </script>
+</body>
+</html>

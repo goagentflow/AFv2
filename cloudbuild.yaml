@@ -36,7 +36,7 @@ steps:
         mkdir -p /workspace/deploy
 
         # Copy static site files (exclude build artifacts, config, dev files)
-        for item in assets css js p \
+        for item in assets css js p access my-access \
                     index.html index.html.md \
                     founders.html founders.html.md \
                     our-approach.html our-approach.html.md \

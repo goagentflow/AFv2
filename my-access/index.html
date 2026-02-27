@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My access | AgentFlow</title>
+  <style>
+    :root {
+      --bg: #f7f6f3;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #1f4d8f;
+      --border: #e5e7eb;
+      --chip-bg: #eef4ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top right, #dde8ff 0%, transparent 40%), var(--bg);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .wrap {
+      width: min(900px, 100%);
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(17, 24, 39, 0.08);
+      padding: 24px;
+    }
+    .logo { height: 40px; width: auto; }
+    h1 {
+      margin: 16px 0 6px;
+      font-size: clamp(26px, 4vw, 36px);
+      line-height: 1.15;
+    }
+    .sub { margin: 0; color: var(--muted); }
+    .section { margin-top: 24px; }
+    .section h2 { margin: 0 0 10px; font-size: 22px; }
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .title { font-weight: 700; font-size: 17px; }
+    .chip {
+      display: inline-block;
+      background: var(--chip-bg);
+      color: var(--primary);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+    }
+    .meta { color: var(--muted); font-size: 13px; }
+    .btn {
+      display: inline-block;
+      width: fit-content;
+      text-decoration: none;
+      border-radius: 10px;
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 14px;
+      font-weight: 600;
+    }
+    .hidden { display: none; }
+    .state {
+      margin-top: 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+      padding: 16px;
+    }
+    .state h2 { margin: 0 0 8px; }
+    .state p { margin: 0 0 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <img
+      class="logo"
+      src="https://www.goagentflow.com/assets/images/AgentFlowLogo.svg"
+      alt="AgentFlow"
+    >
+
+    <h1>Welcome back</h1>
+    <p class="sub">Here's everything that's been shared with you.</p>
+
+    <section id="recommended-section" class="section hidden">
+      <h2>Recommended next step</h2>
+      <div id="recommended-card" class="cards"></div>
+    </section>
+
+    <section id="active-section" class="section hidden">
+      <h2>Active hubs</h2>
+      <div id="active-cards" class="cards"></div>
+    </section>
+
+    <section id="past-section" class="section hidden">
+      <h2>Past hubs</h2>
+      <div id="past-cards" class="cards"></div>
+    </section>
+
+    <section id="empty-state" class="state hidden">
+      <h2>Nothing here yet</h2>
+      <p>We couldn't find anything for this email. If you're expecting access, ask your AgentFlow contact to share it with you.</p>
+      <a class="btn" href="/access/client/">Try a different email</a>
+    </section>
+
+    <section id="expired-state" class="state hidden">
+      <h2>This link has expired</h2>
+      <p>No worries - just request a fresh one.</p>
+      <a id="expired-cta" class="btn" href="/access/client/">Send me a new link</a>
+    </section>
+
+    <section id="error-state" class="state hidden">
+      <h2>We couldn't load your hubs</h2>
+      <p>Please request a new link and try again.</p>
+      <a class="btn" href="/access/client/">Send me a new link</a>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const API_BASE = window.location.hostname === 'localhost'
+        ? 'http://localhost:3001/api/v1/public'
+        : 'https://clienthub-api-axiw2ydgeq-uc.a.run.app/api/v1/public';
+
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get('token');
+
+      if (token) {
+        params.delete('token');
+        const cleanQuery = params.toString();
+        const cleanUrl = cleanQuery ? window.location.pathname + '?' + cleanQuery : window.location.pathname;
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
+
+      const recommendedSection = document.getElementById('recommended-section');
+      const activeSection = document.getElementById('active-section');
+      const pastSection = document.getElementById('past-section');
+      const emptyState = document.getElementById('empty-state');
+      const expiredState = document.getElementById('expired-state');
+      const errorState = document.getElementById('error-state');
+      const recommendedCard = document.getElementById('recommended-card');
+      const activeCards = document.getElementById('active-cards');
+      const pastCards = document.getElementById('past-cards');
+
+      if (!token) {
+        showEmpty();
+        return;
+      }
+
+
+      fetch(API_BASE + '/access/items?token=' + encodeURIComponent(token))
+        .then(async function (res) {
+          if (!res.ok) {
+            const body = await safeJson(res);
+            if (res.status === 401 && body && body.code === 'TOKEN_EXPIRED') {
+              showExpired();
+              return null;
+            }
+            showError();
+            return null;
+          }
+          return res.json();
+        })
+        .then(function (payload) {
+          if (!payload || !payload.data) return;
+          render(payload.data);
+        })
+        .catch(function (err) {
+          console.error(err);
+          showError();
+        });
+
+      function render(data) {
+        const hasItems = !!(data.recommended || (data.active && data.active.length) || (data.past && data.past.length));
+        if (!hasItems) {
+          showEmpty();
+          return;
+        }
+
+        if (data.recommended) {
+          recommendedCard.appendChild(makeCard(data.recommended));
+          recommendedSection.classList.remove('hidden');
+        }
+
+        if (Array.isArray(data.active) && data.active.length > 0) {
+          data.active.forEach(function (item) { activeCards.appendChild(makeCard(item)); });
+          activeSection.classList.remove('hidden');
+        }
+
+        if (Array.isArray(data.past) && data.past.length > 0) {
+          data.past.forEach(function (item) { pastCards.appendChild(makeCard(item)); });
+          pastSection.classList.remove('hidden');
+        }
+      }
+
+      function makeCard(item) {
+        const card = document.createElement('article');
+        card.className = 'card';
+
+        const row = document.createElement('div');
+        row.className = 'row';
+
+        const title = document.createElement('div');
+        title.className = 'title';
+        title.textContent = item.title;
+
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        chip.textContent = item.product;
+
+        row.appendChild(title);
+        row.appendChild(chip);
+
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.textContent = 'Updated ' + formatDate(item.updatedAt);
+
+        const button = document.createElement('a');
+        button.className = 'btn';
+        button.textContent = 'Open';
+        button.href = item.url;
+
+        card.appendChild(row);
+        card.appendChild(meta);
+        card.appendChild(button);
+        return card;
+      }
+
+      function formatDate(value) {
+        const dt = new Date(value);
+        if (isNaN(dt.getTime())) return 'recently';
+        return dt.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+      }
+
+      function safeJson(res) {
+        return res.text().then(function (text) {
+          try { return JSON.parse(text); } catch (_e) { return null; }
+        });
+      }
+      function showEmpty() {
+        emptyState.classList.remove('hidden');
+      }
+
+      function showExpired() {
+        expiredState.classList.remove('hidden');
+      }
+
+      function showError() {
+        errorState.classList.remove('hidden');
+      }
+    }());
+  </script>
+</body>
+</html>
